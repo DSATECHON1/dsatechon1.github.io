@@ -1,0 +1,1061 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>ON1Ecosystem — One Ecosystem. Multiple Solutions.</title><meta name="description"
+content="ON1Ecosystem is a connected digital ecosystem bringing services, participation, partnerships and ON1Coin together.">
+
+<meta name="theme-color"
+content="#050b13">
+
+<!-- Google AdSense site verification --><meta name="google-adsense-account"
+content="ca-pub-1529736084012433">
+
+<!-- Google AdSense --><script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1529736084012433"
+        crossorigin="anonymous"></script><style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050b13;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:100%;
+    max-width:1150px;
+    margin:auto;
+    padding:0 22px;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,11,19,.92);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #17283b;
+}
+
+.nav{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand img{
+    width:44px;
+    height:44px;
+    object-fit:contain;
+}
+
+.brand-name{
+    font-size:17px;
+    font-weight:900;
+}
+
+.brand-name span{
+    color:#42a5ff;
+}
+
+.brand-small{
+    display:block;
+    margin-top:3px;
+    color:#60748a;
+    font-size:7px;
+    letter-spacing:1px;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#9caec0;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#42a5ff;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.login-btn,
+.start-btn{
+    padding:11px 15px;
+    border-radius:9px;
+    font-size:8px;
+    font-weight:bold;
+}
+
+.login-btn{
+    border:1px solid #203349;
+    background:#0b1623;
+}
+
+.start-btn{
+    background:#087cff;
+}
+
+.menu-btn{
+    display:none;
+    border:1px solid #203349;
+    background:#0b1623;
+    color:#fff;
+    border-radius:8px;
+    padding:9px 11px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(8,124,255,.18),
+            transparent 40%
+        );
+}
+
+.hero-content{
+    max-width:800px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 13px;
+    border:1px solid rgba(8,124,255,.35);
+    border-radius:50px;
+    background:rgba(8,124,255,.08);
+    color:#42a5ff;
+    font-size:8px;
+    font-weight:bold;
+}
+
+.hero h1{
+    margin-top:25px;
+    font-size:clamp(40px,7vw,72px);
+    line-height:1.02;
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    color:#42a5ff;
+}
+
+.hero p{
+    max-width:650px;
+    margin:22px auto 0;
+    color:#8da1b7;
+    font-size:12px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:30px;
+}
+
+.primary,
+.secondary{
+    padding:15px 22px;
+    border-radius:10px;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.primary{
+    background:#087cff;
+}
+
+.secondary{
+    background:#0c1827;
+    border:1px solid #203349;
+}
+
+.hero-note{
+    margin-top:18px;
+    color:#53677c;
+    font-size:7px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    margin-top:-45px;
+}
+
+.stats-box{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:17px;
+    overflow:hidden;
+}
+
+.stat{
+    text-align:center;
+    padding:22px;
+    border-right:1px solid #1b2d43;
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat strong{
+    display:block;
+    font-size:21px;
+}
+
+.stat span{
+    display:block;
+    margin-top:5px;
+    color:#71869c;
+    font-size:7px;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:95px 0 0;
+}
+
+.label{
+    color:#42a5ff;
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.heading{
+    max-width:700px;
+    margin-bottom:30px;
+}
+
+.heading h2{
+    margin-top:9px;
+    font-size:31px;
+    letter-spacing:-1px;
+}
+
+.heading p{
+    margin-top:10px;
+    color:#8498ad;
+    font-size:10px;
+    line-height:1.7;
+}
+
+/* ================= ECOSYSTEM ================= */
+
+.ecosystem-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+}
+
+.eco-card{
+    padding:23px;
+    min-height:195px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:17px;
+    transition:.25s;
+}
+
+.eco-card:hover{
+    transform:translateY(-4px);
+    border-color:#087cff;
+}
+
+.icon{
+    width:45px;
+    height:45px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:rgba(8,124,255,.1);
+    font-size:20px;
+}
+
+.eco-card h3{
+    margin-top:17px;
+    font-size:13px;
+}
+
+.eco-card p{
+    margin-top:7px;
+    color:#71869c;
+    font-size:8px;
+    line-height:1.7;
+}
+
+.coming{
+    display:inline-block;
+    margin-top:13px;
+    color:#42a5ff;
+    font-size:7px;
+    font-weight:bold;
+}
+
+/* ================= ON1COIN ================= */
+
+.coin-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    align-items:center;
+}
+
+.coin-section h2{
+    margin-top:9px;
+    font-size:31px;
+}
+
+.coin-text{
+    color:#8498ad;
+    font-size:10px;
+    line-height:1.8;
+    margin-top:14px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    margin-top:22px;
+}
+
+.feature{
+    padding:14px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:11px;
+}
+
+.feature strong{
+    display:block;
+    font-size:9px;
+}
+
+.feature span{
+    display:block;
+    margin-top:5px;
+    color:#63788d;
+    font-size:7px;
+}
+
+.coin-display{
+    min-height:350px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #1b2d43;
+    border-radius:25px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(8,124,255,.14),
+            transparent 60%
+        ),
+        #0b1623;
+}
+
+.coin{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #42a5ff,
+            #087cff 60%,
+            #0456af
+        );
+
+    border:7px solid rgba(66,165,255,.35);
+
+    box-shadow:
+        0 0 70px rgba(8,124,255,.25);
+
+    font-size:36px;
+    font-weight:900;
+}
+
+/* ================= PARTICIPATION ================= */
+
+.participation-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.participation-card{
+    padding:25px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:18px;
+}
+
+.participation-card .large{
+    font-size:27px;
+}
+
+.participation-card h3{
+    margin-top:14px;
+    font-size:15px;
+}
+
+.participation-card p{
+    margin-top:8px;
+    color:#7e92a8;
+    font-size:9px;
+    line-height:1.7;
+}
+
+.activity{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.activity-number{
+    width:26px;
+    height:26px;
+    flex-shrink:0;
+    display:grid;
+    place-items:center;
+    border-radius:8px;
+    background:rgba(8,124,255,.1);
+    color:#42a5ff;
+    font-size:8px;
+    font-weight:bold;
+}
+
+.activity-text strong{
+    display:block;
+    font-size:8px;
+}
+
+.activity-text span{
+    display:block;
+    margin-top:3px;
+    color:#60758a;
+    font-size:7px;
+}
+
+/* ================= WALLET ================= */
+
+.wallet-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.wallet-card{
+    padding:25px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:17px;
+}
+
+.wallet-top{
+    display:flex;
+    justify-content:space-between;
+}
+
+.wallet-title{
+    color:#8094a9;
+    font-size:8px;
+    font-weight:bold;
+}
+
+.wallet-icon{
+    font-size:19px;
+}
+
+.amount{
+    margin-top:18px;
+    font-size:28px;
+    font-weight:900;
+}
+
+.amount span{
+    color:#7890a7;
+    font-size:9px;
+}
+
+.wallet-note{
+    margin-top:6px;
+    color:#50657a;
+    font-size:7px;
+}
+
+/* ================= PARTNERSHIP ================= */
+
+.partnership{
+    padding:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+
+    border:1px solid rgba(155,108,255,.3);
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(155,108,255,.12),
+            #0b1623
+        );
+}
+
+.partnership h2{
+    margin-top:8px;
+    font-size:25px;
+}
+
+.partnership p{
+    max-width:650px;
+    margin-top:8px;
+    color:#8296aa;
+    font-size:9px;
+    line-height:1.7;
+}
+
+.partner-btn{
+    flex-shrink:0;
+    padding:14px 19px;
+    border-radius:10px;
+    background:#9b6cff;
+    font-size:8px;
+    font-weight:bold;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    padding-bottom:90px;
+}
+
+.cta-box{
+    padding:50px 25px;
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(8,124,255,.13),
+            transparent 65%
+        ),
+        #0b1623;
+
+    border:1px solid #1b2d43;
+    border-radius:22px;
+}
+
+.cta-box h2{
+    font-size:30px;
+}
+
+.cta-box p{
+    max-width:580px;
+    margin:12px auto;
+    color:#8296aa;
+    font-size:10px;
+    line-height:1.7;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:38px 0;
+    border-top:1px solid #17283b;
+    background:#030810;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-brand{
+    font-size:17px;
+    font-weight:900;
+}
+
+.footer-brand span{
+    color:#42a5ff;
+}
+
+.footer-description{
+    max-width:300px;
+    margin-top:9px;
+    color:#52667a;
+    font-size:8px;
+    line-height:1.7;
+}
+
+.footer-column h4{
+    font-size:8px;
+    margin-bottom:11px;
+}
+
+.footer-column a{
+    display:block;
+    margin-top:8px;
+    color:#63778b;
+    font-size:7px;
+}
+
+.footer-column a:hover{
+    color:#42a5ff;
+}
+
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+    padding-top:17px;
+    border-top:1px solid #17283b;
+    color:#405267;
+    font-size:7px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .ecosystem-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .coin-section,
+    .participation-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav-buttons{
+        display:none;
+    }
+
+    .hero{
+        min-height:610px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .stats-box{
+        grid-template-columns:1fr;
+    }
+
+    .stat{
+        border-right:0;
+        border-bottom:1px solid #1b2d43;
+    }
+
+    .stat:last-child{
+        border-bottom:0;
+    }
+
+    .ecosystem-grid{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .wallet-grid{
+        grid-template-columns:1fr;
+    }
+
+    .partnership{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:8px;
+    }
+}
+
+</style></head><body><!-- ================= HEADER ================= --><header><div class="container nav"><a href="index.html" class="brand"><img src="logo.png" alt="DSATECHON1 Logo"><div><div class="brand-name">
+ON1<span>Ecosystem</span>
+</div><div class="brand-small">
+DIGITAL ECOSYSTEM
+</div></div></a><nav class="nav-links"><a href="#ecosystem">Ecosystem</a>
+
+<a href="#on1coin">ON1Coin</a>
+
+<a href="#participation">Participation</a>
+
+<a href="#partnerships">Partnerships</a>
+
+</nav><div class="nav-buttons"><a href="pages/login.html" class="login-btn">
+LOGIN
+</a><a href="pages/signup.html" class="start-btn">
+GET STARTED
+</a></div><button class="menu-btn"
+onclick="openMenu()">
+☰
+</button>
+
+</div></header><!-- ================= HERO ================= --><section class="hero"><div class="container"><div class="hero-content"><div class="badge">
+● BUILDING THE NEXT DIGITAL ECOSYSTEM
+</div><h1>
+One Ecosystem.<br>
+<span>Multiple Solutions.</span>
+</h1><p>
+ON1Ecosystem is a connected digital environment
+designed to bring services, payments, marketplace
+solutions, exchange opportunities, digital rewards
+and community participation into one experience.
+</p><div class="hero-buttons"><a href="pages/signup.html"
+class="primary">
+CREATE ACCOUNT
+</a>
+
+<a href="#ecosystem"
+class="secondary">
+EXPLORE ECOSYSTEM
+</a>
+
+</div><div class="hero-note">
+One connected experience • Designed to grow with its community
+</div></div></div></section><!-- ================= STATS ================= --><div class="stats"><div class="container"><div class="stats-box"><div class="stat">
+<strong>01</strong>
+<span>Connected Ecosystem</span>
+</div><div class="stat">
+<strong>06+</strong>
+<span>Planned Ecosystem Services</span>
+</div><div class="stat">
+<strong>∞</strong>
+<span>Built for Continuous Expansion</span>
+</div></div></div></div><!-- ================= ECOSYSTEM ================= --><section id="ecosystem"><div class="container"><div class="heading"><div class="label">
+THE ECOSYSTEM
+</div><h2>
+Everything connected in one place.
+</h2><p>
+ON1Ecosystem is designed as a growing network
+of digital services that can work independently
+while remaining connected to the wider ecosystem.
+</p></div><div class="ecosystem-grid"><div class="eco-card"><div class="icon">💳</div><h3>ON1Pay</h3><p>
+A future-focused payment environment
+designed for convenient digital transactions.
+</p><span class="coming">
+COMING SOON →
+</span></div><div class="eco-card"><div class="icon">🛍️</div><h3>ON1Marketplace</h3><p>
+A digital marketplace connecting users,
+products, services and opportunities.
+</p><span class="coming">
+COMING SOON →
+</span></div><div class="eco-card"><div class="icon">🔄</div><h3>ON1Exchange</h3><p>
+A planned exchange environment for
+supported digital assets and services.
+</p><span class="coming">
+COMING SOON →
+</span></div><div class="eco-card"><div class="icon">🪙</div><h3>ON1Coin</h3><p>
+The ecosystem's digital coin designed
+to support future ecosystem utilities.
+</p><a href="#on1coin"
+class="coming">
+LEARN MORE →
+</a>
+
+</div><div class="eco-card"><div class="icon">🎁</div><h3>Gift Card Services</h3><p>
+A planned environment for digital gift
+card services and related opportunities.
+</p><span class="coming">
+COMING SOON →
+</span></div><div class="eco-card"><div class="icon">🌐</div><h3>More Ecosystem Services</h3><p>
+The ecosystem is designed to expand as
+new services, partners and opportunities grow.
+</p><a href="#partnerships"
+class="coming">
+PARTNER WITH US →
+</a>
+
+</div></div></div></section><!-- ================= ON1COIN ================= --><section id="on1coin"><div class="container"><div class="coin-section"><div><div class="label">
+ON1COIN
+</div><h2>
+A digital asset within the ecosystem.
+</h2><p class="coin-text">
+ON1Coin is being developed as a core digital
+component of ON1Ecosystem, with planned utility
+across supported ecosystem services.
+</p><p class="coin-text">
+The ecosystem is being built progressively,
+with security, transparency and sustainable
+development considered at every stage.
+</p><div class="features"><div class="feature">
+<strong>⛏️ Mining</strong>
+<span>
+Participate in the planned mining experience.
+</span>
+</div><div class="feature">
+<strong>🤝 Referrals</strong>
+<span>
+Invite eligible members through the referral system.
+</span>
+</div><div class="feature">
+<strong>🔥 Streaks</strong>
+<span>
+Build consistent participation over time.
+</span>
+</div><div class="feature">
+<strong>🛒 Ecosystem Utility</strong>
+<span>
+Designed for future supported services.
+</span>
+</div></div></div><div class="coin-display"><div class="coin">
+ON1
+</div></div></div></div></section><!-- ================= PARTICIPATION ================= --><section id="participation"><div class="container"><div class="heading"><div class="label">
+MEMBER EXPERIENCE
+</div><h2>
+Participate. Progress. Earn XP.
+</h2><p>
+Members will be able to participate in approved
+activities, partnership campaigns and ecosystem
+experiences while building their XP balance.
+</p></div><div class="participation-grid"><div class="participation-card"><div class="large">
+⭐
+</div><h3>
+XP & Participation
+</h3><p>
+Experience Points represent ecosystem
+participation and progress. XP is kept
+separate from the ON1Coin balance.
+</p><div class="activity"><div class="activity-number">
+01
+</div><div class="activity-text"><strong>
+Discover
+</strong><span>
+Find an eligible activity.
+</span></div></div><div class="activity"><div class="activity-number">
+02
+</div><div class="activity-text"><strong>
+Participate
+</strong><span>
+Complete the required activity.
+</span></div></div><div class="activity"><div class="activity-number">
+03
+</div><div class="activity-text"><strong>
+Progress
+</strong><span>
+Build XP and unlock future experiences.
+</span></div></div></div><div class="participation-card"><div class="large">
+🔥
+</div><h3>
+Daily Streak
+</h3><p>
+Consistent daily participation can contribute
+to your streak. The planned system uses a
+maximum 10-day streak cycle.
+</p><div class="activity"><div class="activity-number">
+01
+</div><div class="activity-text"><strong>
+Start your day
+</strong><span>
+Complete the required daily action.
+</span></div></div><div class="activity"><div class="activity-number">
+02
+</div><div class="activity-text"><strong>
+Maintain your streak
+</strong><span>
+Return consistently to continue progress.
+</span></div></div><div class="activity"><div class="activity-number">
+03
+</div><div class="activity-text"><strong>
+Reach Day 10
+</strong><span>
+Complete the maximum planned streak cycle.
+</span></div></div></div></div></div></section><!-- ================= WALLET ================= --><section><div class="container"><div class="heading"><div class="label">
+YOUR WALLET
+</div><h2>
+Two balances. Two purposes.
+</h2><p>
+The ON1Ecosystem wallet is designed to keep
+ON1Coin and XP clearly separated.
+</p></div><div class="wallet-grid"><div class="wallet-card"><div class="wallet-top"><div class="wallet-title">
+ON1COIN BALANCE
+</div><div class="wallet-icon">
+🪙
+</div></div><div class="amount">
+0.000 <span>ON1</span>
+</div><div class="wallet-note">
+Your ON1Coin balance will appear here.
+</div></div><div class="wallet-card"><div class="wallet-top"><div class="wallet-title">
+XP BALANCE
+</div><div class="wallet-icon">
+⭐
+</div></div><div class="amount">
+0 <span>XP</span>
+</div><div class="wallet-note">
+Your participation XP will appear here.
+</div></div></div></div></section><!-- ================= PARTNERSHIPS ================= --><section id="partnerships"><div class="container"><div class="partnership"><div><div class="label">
+PARTNERSHIPS
+</div><h2>
+Build with ON1Ecosystem.
+</h2><p>
+Businesses, creators, service providers and
+organizations can participate in the ecosystem
+through meaningful partnerships and activities.
+</p></div><a href="pages/partnership.html"
+class="partner-btn">
+EXPLORE ACTIVITIES
+</a>
+
+</div></div></section><!-- ================= FINAL CTA ================= --><section class="cta"><div class="container"><div class="cta-box"><h2>
+Your ecosystem starts here.
+</h2><p>
+Create your ON1Ecosystem account and discover
+the digital services, participation opportunities
+and experiences being built for the community.
+</p><div class="hero-buttons"><a href="pages/signup.html"
+class="primary">
+GET STARTED
+</a>
+
+<a href="pages/login.html"
+class="secondary">
+I ALREADY HAVE AN ACCOUNT
+</a>
+
+</div></div></div></section><!-- ================= FOOTER ================= --><footer><div class="container"><div class="footer-grid"><div><div class="footer-brand">
+ON1<span>Ecosystem</span>
+</div><p class="footer-description">
+One connected digital ecosystem designed
+to bring multiple services, participation
+and opportunities together.
+</p></div><div class="footer-column"><h4>
+ECOSYSTEM
+</h4><a href="#ecosystem">
+Services
+</a><a href="#on1coin">
+ON1Coin
+</a><a href="#participation">
+Participation
+</a></div><div class="footer-column"><h4>
+MEMBERS
+</h4><a href="pages/login.html">
+Login
+</a><a href="pages/signup.html">
+Create Account
+</a><a href="pages/wallet.html">
+Wallet
+</a></div><div class="footer-column"><h4>
+PARTNERS
+</h4><a href="#partnerships">
+Partnerships
+</a><a href="pages/partnership.html">
+Activities
+</a></div></div><div class="footer-bottom"><span>
+© 2026 ON1Ecosystem
+</span><span>
+An initiative by DSATECHON1
+</span></div></div></footer><script>
+
+function openMenu(){
+
+    const nav = document.querySelector(".nav-links");
+
+    if(nav.style.display === "flex"){
+
+        nav.style.display = "none";
+
+    }else{
+
+        nav.style.display = "flex";
+
+        nav.style.position = "absolute";
+        nav.style.top = "72px";
+        nav.style.left = "0";
+        nav.style.right = "0";
+
+        nav.style.flexDirection = "column";
+
+        nav.style.padding = "20px";
+
+        nav.style.background = "#08111d";
+
+        nav.style.borderBottom =
+            "1px solid #1b2d43";
+    }
+}
+
+</script></body>
+</html>

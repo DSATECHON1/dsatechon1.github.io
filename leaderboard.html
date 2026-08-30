@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>ON1Ecosystem — Leaderboard</title>
+
+<meta name="theme-color"
+      content="#06101d">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#06101d;
+    color:#ffffff;
+    min-height:100vh;
+}
+
+.container{
+    width:100%;
+    max-width:650px;
+    margin:auto;
+    padding:14px;
+}
+
+header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:14px;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.home{
+    text-decoration:none;
+    color:#ffffff;
+    background:#16283a;
+    padding:8px 12px;
+    border-radius:10px;
+    font-size:13px;
+}
+
+.title-card{
+    background:#0c1b2a;
+    border:1px solid #1b3349;
+    border-radius:16px;
+    padding:18px;
+    text-align:center;
+    margin-bottom:12px;
+}
+
+.title-card h1{
+    font-size:23px;
+    margin-bottom:5px;
+}
+
+.title-card p{
+    font-size:13px;
+    color:#9fb2c5;
+}
+
+.top-three{
+    display:grid;
+    grid-template-columns:1fr 1.15fr 1fr;
+    gap:7px;
+    margin-bottom:12px;
+}
+
+.rank-card{
+    background:#0c1b2a;
+    border:1px solid #1b3349;
+    border-radius:14px;
+    padding:12px 6px;
+    text-align:center;
+}
+
+.rank-card.first{
+    border-color:#d7a82d;
+    transform:translateY(-4px);
+}
+
+.medal{
+    font-size:25px;
+    margin-bottom:5px;
+}
+
+.rank-name{
+    font-size:13px;
+    font-weight:bold;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.rank-xp{
+    font-size:11px;
+    color:#9fb2c5;
+    margin-top:4px;
+}
+
+.board{
+    background:#0c1b2a;
+    border:1px solid #1b3349;
+    border-radius:16px;
+    overflow:hidden;
+}
+
+.board-head{
+    display:grid;
+    grid-template-columns:42px 1fr 90px;
+    padding:11px 12px;
+    background:#102337;
+    color:#8fa5ba;
+    font-size:11px;
+    text-transform:uppercase;
+}
+
+.member{
+    display:grid;
+    grid-template-columns:42px 1fr 90px;
+    align-items:center;
+    padding:11px 12px;
+    border-top:1px solid #172d40;
+}
+
+.member.me{
+    background:#102a3c;
+    border-left:3px solid #d7a82d;
+}
+
+.position{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.member-info{
+    min-width:0;
+}
+
+.member-name{
+    font-size:14px;
+    font-weight:bold;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.member-id{
+    color:#71889d;
+    font-size:10px;
+    margin-top:3px;
+}
+
+.member-xp{
+    text-align:right;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.status{
+    text-align:center;
+    padding:16px;
+    color:#8fa5ba;
+    font-size:13px;
+}
+
+.note{
+    text-align:center;
+    color:#71889d;
+    font-size:11px;
+    padding:12px 5px;
+}
+
+@media(max-width:400px){
+
+    .top-three{
+        gap:4px;
+    }
+
+    .rank-card{
+        padding:10px 4px;
+    }
+
+    .rank-name{
+        font-size:11px;
+    }
+
+    .board-head,
+    .member{
+        grid-template-columns:36px 1fr 75px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<header>
+
+<div class="logo">
+ON1Ecosystem
+</div>
+
+<a
+    class="home"
+    href="dashboard.html">
+    ← Dashboard
+</a>
+
+</header>
+
+
+<section class="title-card">
+
+<h1>🏆 Leaderboard</h1>
+
+<p>
+Top ON1Ecosystem members by Experience Points
+</p>
+
+</section>
+
+
+<div
+    id="topThree"
+    class="top-three">
+
+</div>
+
+
+<section class="board">
+
+<div class="board-head">
+
+<div>Rank</div>
+
+<div>Member</div>
+
+<div style="text-align:right;">
+XP
+</div>
+
+</div>
+
+
+<div
+    id="leaderboard">
+
+<div class="status">
+Loading leaderboard...
+</div>
+
+</div>
+
+</section>
+
+
+<div class="note">
+
+Leaderboard is ranked by XP.
+Your own position is highlighted.
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getAuth,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+    getFirestore,
+    collection,
+    query,
+    orderBy,
+    limit,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================================
+   FIREBASE
+========================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyCmmOlfLVPs3oPCmFLSl8trLKNqWlo9YKs",
+
+    authDomain:
+        "dsatechon1-c8b41.firebaseapp.com",
+
+    projectId:
+        "dsatechon1-c8b41",
+
+    storageBucket:
+        "dsatechon1-c8b41.firebasestorage.app",
+
+    messagingSenderId:
+        "447250361036",
+
+    appId:
+        "1:447250361036:web:"
+
+};
+
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const leaderboard =
+    document.getElementById(
+        "leaderboard"
+    );
+
+const topThree =
+    document.getElementById(
+        "topThree"
+    );
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================
+   LOAD LEADERBOARD
+========================================= */
+
+async function loadLeaderboard(currentUser){
+
+    try{
+
+        const leaderboardQuery =
+            query(
+                collection(
+                    db,
+                    "users"
+                ),
+                orderBy(
+                    "XP",
+                    "desc"
+                ),
+                limit(50)
+            );
+
+
+        const snapshot =
+            await getDocs(
+                leaderboardQuery
+            );
+
+
+        if(snapshot.empty){
+
+            leaderboard.innerHTML =
+                `<div class="status">
+                    No leaderboard members yet.
+                </div>`;
+
+            return;
+
+        }
+
+
+        const members = [];
+
+
+        snapshot.forEach(
+            doc => {
+
+                const data =
+                    doc.data();
+
+
+                members.push({
+
+                    uid:
+                        doc.id,
+
+                    username:
+                        data.username ||
+                        "ON1 Member",
+
+                    on1Id:
+                        data.on1Id ||
+                        "—",
+
+                    XP:
+                        Number(
+                            data.XP || 0
+                        )
+
+                });
+
+            }
+        );
+
+
+        renderTopThree(
+            members
+        );
+
+
+        leaderboard.innerHTML =
+            "";
+
+
+        members.forEach(
+            (member,index) => {
+
+                const rank =
+                    index + 1;
+
+
+                const row =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                row.className =
+                    "member";
+
+
+                if(
+                    currentUser &&
+                    member.uid ===
+                    currentUser.uid
+                ){
+
+                    row.classList.add(
+                        "me"
+                    );
+
+                }
+
+
+                row.innerHTML = `
+
+                    <div class="position">
+                        #${rank}
+                    </div>
+
+                    <div class="member-info">
+
+                        <div class="member-name">
+                            ${escapeHTML(
+                                member.username
+                            )}
+                        </div>
+
+                        <div class="member-id">
+                            ${escapeHTML(
+                                member.on1Id
+                            )}
+                        </div>
+
+                    </div>
+
+                    <div class="member-xp">
+                        ${member.XP.toLocaleString()} XP
+                    </div>
+
+                `;
+
+
+                leaderboard.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "Leaderboard error:",
+            error
+        );
+
+
+        leaderboard.innerHTML =
+            `<div class="status">
+                Unable to load leaderboard.
+            </div>`;
+
+    }
+
+}
+
+
+/* =========================================
+   TOP THREE
+========================================= */
+
+function renderTopThree(
+    members
+){
+
+    topThree.innerHTML =
+        "";
+
+
+    const positions = [
+
+        {
+            index:1,
+            medal:"🥈"
+        },
+
+        {
+            index:0,
+            medal:"🥇"
+        },
+
+        {
+            index:2,
+            medal:"🥉"
+        }
+
+    ];
+
+
+    positions.forEach(
+        position => {
+
+            const member =
+                members[
+                    position.index
+                ];
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "rank-card";
+
+
+            if(
+                position.index === 0
+            ){
+
+                card.classList.add(
+                    "first"
+                );
+
+            }
+
+
+            if(!member){
+
+                card.innerHTML = `
+
+                    <div class="medal">
+                        ${position.medal}
+                    </div>
+
+                    <div class="rank-name">
+                        —
+                    </div>
+
+                    <div class="rank-xp">
+                        —
+                    </div>
+
+                `;
+
+            }else{
+
+                card.innerHTML = `
+
+                    <div class="medal">
+                        ${position.medal}
+                    </div>
+
+                    <div class="rank-name">
+                        ${escapeHTML(
+                            member.username
+                        )}
+                    </div>
+
+                    <div class="rank-xp">
+                        ${member.XP.toLocaleString()}
+                        XP
+                    </div>
+
+                `;
+
+            }
+
+
+            topThree.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   AUTH
+========================================= */
+
+onAuthStateChanged(
+    auth,
+    user => {
+
+        if(!user){
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        loadLeaderboard(
+            user
+        );
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

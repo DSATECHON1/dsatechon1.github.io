@@ -1,6 +1,6 @@
 name: ON1 Referral Reward Worker
 
-on:
+"on":
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:

@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>ON1 Leaderboard</title>
+
+<meta name="theme-color"
+      content="#06101d">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --bg:#050b13;
+    --surface:#0c1624;
+    --surface2:#101d2d;
+    --border:#1d3048;
+
+    --blue:#087cff;
+    --blue2:#3aa0ff;
+
+    --green:#00df88;
+    --gold:#f5c451;
+
+    --text:#ffffff;
+    --muted:#8ea2b8;
+
+    --silver:#c7d0db;
+    --bronze:#cd8b55;
+
+    --danger:#ff6075;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(8,124,255,.18),
+            transparent 42%
+        ),
+        var(--bg);
+
+    color:var(--text);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page{
+    width:100%;
+    max-width:850px;
+
+    margin:auto;
+
+    padding:15px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:10px 0;
+
+    margin-bottom:18px;
+}
+
+.brand{
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+}
+
+.brand img{
+    width:38px;
+    height:38px;
+
+    object-fit:contain;
+}
+
+.brand strong{
+    display:block;
+
+    font-size:16px;
+}
+
+.brand strong span{
+    color:var(--blue2);
+}
+
+.brand small{
+    display:block;
+
+    margin-top:2px;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    letter-spacing:.5px;
+}
+
+.back-btn{
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:#dce8f5;
+
+    padding:8px 12px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-size:10px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+    text-align:center;
+
+    margin-bottom:16px;
+}
+
+.intro h1{
+    font-size:25px;
+
+    font-weight:900;
+}
+
+.intro p{
+    margin-top:6px;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   YOUR POSITION
+===================================================== */
+
+.your-position{
+    display:none;
+
+    margin-bottom:14px;
+
+    padding:11px 13px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,124,255,.08),
+            rgba(0,223,136,.045)
+        );
+
+    border:1px solid rgba(8,124,255,.18);
+}
+
+.your-position.show{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.position-label{
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+.position-user{
+    margin-top:3px;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+.position-rank{
+    color:var(--gold);
+
+    font-size:17px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+
+/* =====================================================
+   LEADERBOARD CARD
+===================================================== */
+
+.leaderboard-card{
+    background:rgba(12,22,36,.94);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   TABLE HEADER
+===================================================== */
+
+.table-head{
+    display:grid;
+
+    grid-template-columns:
+        55px
+        1fr
+        100px
+        100px;
+
+    gap:8px;
+
+    align-items:center;
+
+    padding:11px 14px;
+
+    background:rgba(7,16,27,.75);
+
+    border-bottom:1px solid var(--border);
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+}
+
+
+/* =====================================================
+   LEADERBOARD ROW
+===================================================== */
+
+.leader-row{
+    display:grid;
+
+    grid-template-columns:
+        55px
+        1fr
+        100px
+        100px;
+
+    gap:8px;
+
+    align-items:center;
+
+    min-height:60px;
+
+    padding:10px 14px;
+
+    border-bottom:1px solid rgba(29,48,72,.55);
+}
+
+.leader-row:last-child{
+    border-bottom:none;
+}
+
+.rank{
+    font-size:13px;
+
+    font-weight:900;
+
+    color:var(--muted);
+}
+
+.rank.top-one{
+    color:var(--gold);
+
+    font-size:17px;
+}
+
+.rank.top-two{
+    color:var(--silver);
+
+    font-size:16px;
+}
+
+.rank.top-three{
+    color:var(--bronze);
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   MEMBER
+===================================================== */
+
+.member{
+    min-width:0;
+}
+
+.member-name{
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+.member-id{
+    margin-top:3px;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+    color:var(--muted);
+
+    font-size:8px;
+}
+
+
+/* =====================================================
+   XP / LEVEL
+===================================================== */
+
+.member-xp{
+    color:var(--blue2);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    text-align:right;
+}
+
+.member-level{
+    color:var(--green);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    text-align:right;
+}
+
+
+/* =====================================================
+   CURRENT USER
+===================================================== */
+
+.leader-row.current-user{
+    background:
+        rgba(8,124,255,.065);
+
+    border-left:
+        3px solid var(--blue);
+}
+
+.current-badge{
+    display:inline-block;
+
+    margin-left:5px;
+
+    padding:2px 5px;
+
+    border-radius:5px;
+
+    background:rgba(8,124,255,.14);
+
+    color:var(--blue2);
+
+    font-size:7px;
+
+    vertical-align:middle;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+    padding:35px 15px;
+
+    text-align:center;
+}
+
+.loading-icon{
+    font-size:28px;
+}
+
+.loading strong{
+    display:block;
+
+    margin-top:9px;
+
+    font-size:12px;
+}
+
+.loading p{
+    margin-top:5px;
+
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+
+/* =====================================================
+   EMPTY / ERROR
+===================================================== */
+
+.status{
+    display:none;
+
+    padding:30px 15px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.6;
+}
+
+.status.show{
+    display:block;
+}
+
+.status.error{
+    color:#ff8192;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    margin-top:22px;
+
+    padding-top:14px;
+
+    border-top:
+        1px solid rgba(29,48,72,.55);
+
+    text-align:center;
+
+    color:#61748a;
+
+    font-size:8px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .page{
+        padding:12px;
+    }
+
+    .table-head{
+        grid-template-columns:
+            42px
+            1fr
+            75px
+            65px;
+
+        padding:10px;
+    }
+
+    .leader-row{
+        grid-template-columns:
+            42px
+            1fr
+            75px
+            65px;
+
+        padding:10px;
+
+        min-height:56px;
+    }
+
+    .member-xp,
+    .member-level{
+        font-size:9px;
+    }
+
+    .intro h1{
+        font-size:22px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREENS
+===================================================== */
+
+@media(max-width:360px){
+
+    .table-head{
+        grid-template-columns:
+            35px
+            1fr
+            60px
+            55px;
+
+        font-size:7px;
+    }
+
+    .leader-row{
+        grid-template-columns:
+            35px
+            1fr
+            60px
+            55px;
+    }
+
+    .member-name{
+        font-size:10px;
+    }
+
+    .member-id{
+        font-size:7px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <a href="dashboard.html"
+       class="brand">
+
+        <img
+            src="../logo.png"
+            alt="ON1Ecosystem">
+
+        <div>
+
+            <strong>
+                ON1<span>Ecosystem</span>
+            </strong>
+
+            <small>
+                MEMBER LEADERBOARD
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <a
+        href="dashboard.html"
+        class="back-btn">
+
+        ← DASHBOARD
+
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <h1>
+        🏆 ON1 Leaderboard
+    </h1>
+
+    <p>
+        See the members leading the ON1Ecosystem
+        by experience points and level.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     YOUR POSITION
+===================================================== -->
+
+<div
+    class="your-position"
+    id="yourPosition">
+
+    <div>
+
+        <div class="position-label">
+            YOUR CURRENT POSITION
+        </div>
+
+        <div
+            class="position-user"
+            id="yourName">
+
+            Member
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="position-rank"
+        id="yourRank">
+
+        #—
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LEADERBOARD
+===================================================== -->
+
+<section class="leaderboard-card">
+
+
+    <!-- TABLE HEADER -->
+
+    <div class="table-head">
+
+        <div>
+            Rank
+        </div>
+
+        <div>
+            Member
+        </div>
+
+        <div style="text-align:right;">
+            XP
+        </div>
+
+        <div style="text-align:right;">
+            Level
+        </div>
+
+    </div>
+
+
+    <!-- LOADING -->
+
+    <div
+        class="loading"
+        id="loading">
+
+        <div class="loading-icon">
+            🏆
+        </div>
+
+        <strong>
+            Loading leaderboard...
+        </strong>
+
+        <p>
+            Getting the latest ON1 rankings.
+        </p>
+
+    </div>
+
+
+    <!-- STATUS -->
+
+    <div
+        class="status"
+        id="status">
+    </div>
+
+
+    <!-- ROWS -->
+
+    <div id="leaderboardRows">
+    </div>
+
+
+</section>
+
+
+<footer>
+
+    ON1Ecosystem — One Ecosystem. Multiple Solutions.
+
+</footer>
+
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE IMPORTS
+===================================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    query,
+    orderBy,
+    limit,
+    getDocs
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyCmmOlfLVPs3oPCmFLSl8trLKNqWlo9YKs",
+
+    authDomain:
+        "dsatechon1-c8b41.firebaseapp.com",
+
+    projectId:
+        "dsatechon1-c8b41",
+
+    storageBucket:
+        "dsatechon1-c8b41.firebasestorage.app",
+
+    messagingSenderId:
+        "5740594058",
+
+    appId:
+        "1:5740594058:web:23fbbca5392f12db863e73"
+
+};
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const loading =
+    document.getElementById(
+        "loading"
+    );
+
+const status =
+    document.getElementById(
+        "status"
+    );
+
+const leaderboardRows =
+    document.getElementById(
+        "leaderboardRows"
+    );
+
+const yourPosition =
+    document.getElementById(
+        "yourPosition"
+    );
+
+const yourName =
+    document.getElementById(
+        "yourName"
+    );
+
+const yourRank =
+    document.getElementById(
+        "yourRank"
+    );
+
+
+/* =====================================================
+   CURRENT USER
+===================================================== */
+
+let currentUser =
+    null;
+
+
+/* =====================================================
+   XP READER
+===================================================== */
+
+function getXP(data){
+
+    if(data.XP !== undefined){
+
+        return Number(data.XP) || 0;
+
+    }
+
+    if(data.xp !== undefined){
+
+        return Number(data.xp) || 0;
+
+    }
+
+    if(
+        data.experiencePoints !== undefined
+    ){
+
+        return Number(
+            data.experiencePoints
+        ) || 0;
+
+    }
+
+    return 0;
+
+}
+
+
+/* =====================================================
+   LEVEL
+===================================================== */
+
+function calculateLevel(xp){
+
+    return Math.floor(
+        Number(xp || 0) / 2500
+    );
+
+}
+
+
+/* =====================================================
+   ON1 ID
+===================================================== */
+
+function getON1Id(data){
+
+    const possibleIds = [
+
+        data.on1Id,
+        data.ON1Id,
+        data.on1ID
+
+    ];
+
+
+    for(
+        const value of possibleIds
+    ){
+
+        if(!value){
+            continue;
+        }
+
+        const id =
+            String(value)
+            .trim()
+            .toUpperCase();
+
+
+        if(
+            /^ON1[A-Z0-9]{7}$/.test(id)
+        ){
+
+            return id;
+
+        }
+
+    }
+
+
+    return "ON1 MEMBER";
+
+}
+
+
+/* =====================================================
+   SAFE MEMBER NAME
+===================================================== */
+
+function getMemberName(data){
+
+    return (
+        data.username ||
+        data.firstName ||
+        data.firstname ||
+        data.name ||
+        "ON1 Member"
+    );
+
+}
+
+
+/* =====================================================
+   RANK CLASS
+===================================================== */
+
+function getRankClass(rank){
+
+    if(rank === 1){
+
+        return "top-one";
+
+    }
+
+    if(rank === 2){
+
+        return "top-two";
+
+    }
+
+    if(rank === 3){
+
+        return "top-three";
+
+    }
+
+    return "";
+
+}
+
+
+/* =====================================================
+   SHOW STATUS
+===================================================== */
+
+function showStatus(
+    text,
+    isError = false
+){
+
+    status.textContent =
+        text;
+
+    status.className =
+        "status show" +
+        (
+            isError
+                ? " error"
+                : ""
+        );
+
+}
+
+
+/* =====================================================
+   CREATE ROW
+===================================================== */
+
+function createRow(
+    data,
+    rank
+){
+
+    const row =
+        document.createElement(
+            "div"
+        );
+
+
+    row.className =
+        "leader-row";
+
+
+    const isCurrentUser =
+        currentUser &&
+        data.uid === currentUser.uid;
+
+
+    if(isCurrentUser){
+
+        row.classList.add(
+            "current-user"
+        );
+
+    }
+
+
+    const xp =
+        getXP(data);
+
+
+    const level =
+        calculateLevel(xp);
+
+
+    const name =
+        getMemberName(data);
+
+
+    const on1Id =
+        getON1Id(data);
+
+
+    /* RANK */
+
+    const rankElement =
+        document.createElement(
+            "div"
+        );
+
+    rankElement.className =
+        "rank " +
+        getRankClass(rank);
+
+
+    if(rank === 1){
+
+        rankElement.textContent =
+            "🥇";
+
+    }else if(rank === 2){
+
+        rankElement.textContent =
+            "🥈";
+
+    }else if(rank === 3){
+
+        rankElement.textContent =
+            "🥉";
+
+    }else{
+
+        rankElement.textContent =
+            "#" + rank;
+
+    }
+
+
+    /* MEMBER */
+
+    const memberElement =
+        document.createElement(
+            "div"
+        );
+
+    memberElement.className =
+        "member";
+
+
+    const nameElement =
+        document.createElement(
+            "div"
+        );
+
+    nameElement.className =
+        "member-name";
+
+
+    nameElement.textContent =
+        name;
+
+
+    if(isCurrentUser){
+
+        const badge =
+            document.createElement(
+                "span"
+            );
+
+        badge.className =
+            "current-badge";
+
+        badge.textContent =
+            "YOU";
+
+        nameElement.appendChild(
+            badge
+        );
+
+    }
+
+
+    const idElement =
+        document.createElement(
+            "div"
+        );
+
+    idElement.className =
+        "member-id";
+
+    idElement.textContent =
+        on1Id;
+
+
+    memberElement.appendChild(
+        nameElement
+    );
+
+    memberElement.appendChild(
+        idElement
+    );
+
+
+    /* XP */
+
+    const xpElement =
+        document.createElement(
+            "div"
+        );
+
+    xpElement.className =
+        "member-xp";
+
+    xpElement.textContent =
+        xp.toLocaleString();
+
+
+    /* LEVEL */
+
+    const levelElement =
+        document.createElement(
+            "div"
+        );
+
+    levelElement.className =
+        "member-level";
+
+    levelElement.textContent =
+        "Lv " + level;
+
+
+    row.appendChild(
+        rankElement
+    );
+
+    row.appendChild(
+        memberElement
+    );
+
+    row.appendChild(
+        xpElement
+    );
+
+    row.appendChild(
+        levelElement
+    );
+
+
+    return row;
+
+}
+
+
+/* =====================================================
+   LOAD LEADERBOARD
+===================================================== */
+
+async function loadLeaderboard(){
+
+    loading.style.display =
+        "block";
+
+    status.className =
+        "status";
+
+    leaderboardRows.innerHTML =
+        "";
+
+
+    try{
+
+        /*
+           IMPORTANT:
+
+           This page ONLY READS leaderboard data.
+
+           It never changes XP,
+           ON1Coin balance,
+           referral rewards,
+           or user profiles.
+        */
+
+
+        const leaderboardQuery =
+            query(
+                collection(
+                    db,
+                    "users"
+                ),
+                orderBy(
+                    "xp",
+                    "desc"
+                ),
+                limit(50)
+            );
+
+
+        const snapshot =
+            await getDocs(
+                leaderboardQuery
+            );
+
+
+        loading.style.display =
+            "none";
+
+
+        if(snapshot.empty){
+
+            showStatus(
+                "The leaderboard is currently empty."
+            );
+
+            return;
+
+        }
+
+
+        let rank =
+            0;
+
+
+        let currentUserRank =
+            null;
+
+
+        snapshot.forEach(
+            function(docSnapshot){
+
+                rank++;
+
+
+                const data =
+                    docSnapshot.data();
+
+
+                /*
+                   Keep UID available for
+                   current-user highlighting.
+                */
+
+                data.uid =
+                    docSnapshot.id;
+
+
+                leaderboardRows.appendChild(
+                    createRow(
+                        data,
+                        rank
+                    )
+                );
+
+
+                if(
+                    currentUser &&
+                    docSnapshot.id ===
+                    currentUser.uid
+                ){
+
+                    currentUserRank =
+                        rank;
+
+                    yourName.textContent =
+                        getMemberName(data);
+
+                }
+
+            }
+        );
+
+
+        /*
+           Current user's position
+        */
+
+        if(currentUserRank){
+
+            yourRank.textContent =
+                "#" +
+                currentUserRank;
+
+            yourPosition.classList.add(
+                "show"
+            );
+
+        }
+
+
+    }catch(error){
+
+        console.error(
+            "Leaderboard error:",
+            error
+        );
+
+
+        loading.style.display =
+            "none";
+
+
+        showStatus(
+            "Unable to load the leaderboard right now. Please try again.",
+            true
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    function(user){
+
+        currentUser =
+            user || null;
+
+
+        /*
+           The leaderboard is public to
+           authenticated ON1 members.
+
+           If there is no session,
+           simply load the public ranking.
+        */
+
+        loadLeaderboard();
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>

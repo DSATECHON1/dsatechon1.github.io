@@ -1,1 +1,29 @@
+name: ON1 Referral Reward Worker
 
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  run-referral-worker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install referral worker dependencies
+        working-directory: referral-worker
+        run: npm install
+
+      - name: Run ON1 referral worker
+        working-directory: referral-worker
+        run: npm start
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}

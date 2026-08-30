@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifications — ON1Ecosystem</title>
+<meta name="theme-color" content="#050b13">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --bg:#050b13;
+    --card:#0c1624;
+    --card2:#101d2d;
+    --border:#1d3048;
+    --blue:#087cff;
+    --blue2:#42a5ff;
+    --green:#00df88;
+    --gold:#ffc94a;
+    --purple:#9b6cff;
+    --red:#ff6178;
+    --text:#fff;
+    --muted:#8ea2b8;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% -10%,rgba(8,124,255,.18),transparent 42%),
+        var(--bg);
+    color:var(--text);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.page{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding:18px 20px 45px;
+}
+
+/* HEADER */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:17px;
+    border-bottom:1px solid rgba(29,48,72,.7);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.brand-name{
+    font-size:18px;
+    font-weight:800;
+}
+
+.brand-name span{
+    color:var(--blue2);
+}
+
+.brand-sub{
+    display:block;
+    margin-top:3px;
+    color:#61748a;
+    font-size:8px;
+    letter-spacing:.7px;
+}
+
+.header-actions{
+    display:flex;
+    gap:8px;
+}
+
+.header-btn{
+    padding:9px 12px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    background:var(--card);
+    color:#dce8f5;
+    font-size:9px;
+    font-weight:700;
+}
+
+/* TITLE */
+
+.page-title{
+    margin:30px 0 20px;
+}
+
+.eyebrow{
+    color:var(--blue2);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+}
+
+.page-title h1{
+    margin-top:8px;
+    font-size:29px;
+    letter-spacing:-1px;
+}
+
+.page-title p{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.5;
+}
+
+/* SUMMARY */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.summary-card{
+    padding:15px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    background:var(--card);
+}
+
+.summary-card strong{
+    display:block;
+    font-size:19px;
+}
+
+.summary-card span{
+    display:block;
+    margin-top:4px;
+    color:var(--muted);
+    font-size:8px;
+}
+
+/* FILTER */
+
+.filter-bar{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding-bottom:4px;
+    margin-bottom:12px;
+}
+
+.filter{
+    flex-shrink:0;
+    padding:9px 13px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    background:var(--card);
+    color:var(--muted);
+    font-size:8px;
+    font-weight:700;
+}
+
+.filter.active{
+    border-color:var(--blue);
+    background:rgba(8,124,255,.1);
+    color:var(--blue2);
+}
+
+/* NOTIFICATIONS */
+
+.notification-list{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.notification{
+    display:flex;
+    gap:13px;
+    padding:17px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:var(--card);
+}
+
+.notification.unread{
+    border-color:rgba(8,124,255,.38);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,124,255,.08),
+            var(--card)
+        );
+}
+
+.icon{
+    width:39px;
+    height:39px;
+    flex-shrink:0;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    font-size:17px;
+}
+
+.icon.blue{
+    background:rgba(8,124,255,.12);
+}
+
+.icon.green{
+    background:rgba(0,223,136,.1);
+}
+
+.icon.gold{
+    background:rgba(255,201,74,.1);
+}
+
+.icon.purple{
+    background:rgba(155,108,255,.1);
+}
+
+.icon.red{
+    background:rgba(255,97,120,.1);
+}
+
+.notification-content{
+    flex:1;
+}
+
+.notification-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.notification-title{
+    font-size:10px;
+    font-weight:800;
+}
+
+.time{
+    color:#61748a;
+    font-size:7px;
+    white-space:nowrap;
+}
+
+.notification p{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:8px;
+    line-height:1.6;
+}
+
+.unread-dot{
+    width:6px;
+    height:6px;
+    margin-top:5px;
+    border-radius:50%;
+    background:var(--blue);
+}
+
+/* EMPTY */
+
+.empty{
+    display:none;
+    padding:45px 20px;
+    text-align:center;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:var(--card);
+}
+
+.empty-icon{
+    font-size:28px;
+}
+
+.empty h3{
+    margin-top:10px;
+    font-size:12px;
+}
+
+.empty p{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:8px;
+    line-height:1.6;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid rgba(29,48,72,.55);
+    text-align:center;
+}
+
+footer p{
+    color:#61748a;
+    font-size:8px;
+}
+
+.footer-brand{
+    margin-top:5px;
+    color:#40536a;
+    font-size:8px;
+}
+
+@media(max-width:550px){
+
+    .page{
+        padding:15px;
+    }
+
+    .brand-sub{
+        display:none;
+    }
+
+    .header-btn{
+        display:none;
+    }
+
+    .summary{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+
+    .summary-card{
+        padding:12px 9px;
+    }
+
+    .summary-card strong{
+        font-size:16px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+
+    <a href="../index.html" class="brand">
+
+        <img src="../logo.png" alt="DSATECHON1 Logo">
+
+        <div>
+            <div class="brand-name">
+                ON1<span>Ecosystem</span>
+            </div>
+
+            <small class="brand-sub">
+                DIGITAL ECOSYSTEM
+            </small>
+        </div>
+
+    </a>
+
+    <div class="header-actions">
+
+        <a href="dashboard.html" class="header-btn">
+            Dashboard
+        </a>
+
+        <a href="wallet.html" class="header-btn">
+            Wallet
+        </a>
+
+    </div>
+
+</header>
+
+
+<section class="page-title">
+
+    <div class="eyebrow">
+        Member Center
+    </div>
+
+    <h1>
+        Notifications
+    </h1>
+
+    <p>
+        Stay informed about your rewards, mining,
+        XP activities, referrals and important
+        ON1Ecosystem updates.
+    </p>
+
+</section>
+
+
+<!-- SUMMARY -->
+
+<div class="summary">
+
+    <div class="summary-card">
+        <strong id="totalCount">5</strong>
+        <span>Total notifications</span>
+    </div>
+
+    <div class="summary-card">
+        <strong id="unreadCount">3</strong>
+        <span>Unread</span>
+    </div>
+
+    <div class="summary-card">
+        <strong>ON1</strong>
+        <span>Reward updates</span>
+    </div>
+
+</div>
+
+
+<!-- FILTER -->
+
+<div class="filter-bar">
+
+    <button class="filter active" onclick="filterNotifications('all',this)">
+        All
+    </button>
+
+    <button class="filter" onclick="filterNotifications('rewards',this)">
+        Rewards
+    </button>
+
+    <button class="filter" onclick="filterNotifications('activities',this)">
+        Activities
+    </button>
+
+    <button class="filter" onclick="filterNotifications('system',this)">
+        System
+    </button>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+
+<div class="notification-list" id="notificationList">
+
+
+    <div class="notification unread" data-type="rewards">
+
+        <div class="icon green">
+            🎁
+        </div>
+
+        <div class="notification-content">
+
+            <div class="notification-top">
+
+                <div class="notification-title">
+                    Welcome to ON1Ecosystem
+                </div>
+
+                <div class="time">
+                    Just now
+                </div>
+
+            </div>
+
+            <p>
+                Your member account has been created.
+                Eligible welcome rewards will appear
+                in your wallet after the reward system
+                is activated.
+            </p>
+
+        </div>
+
+        <div class="unread-dot"></div>
+
+    </div>
+
+
+    <div class="notification unread" data-type="activities">
+
+        <div class="icon purple">
+            ⭐
+        </div>
+
+        <div class="notification-content">
+
+            <div class="notification-top">
+
+                <div class="notification-title">
+                    Partnership activities
+                </div>
+
+                <div class="time">
+                    Today
+                </div>
+
+            </div>
+
+            <p>
+                New participation opportunities may allow
+                eligible members to earn XP through approved
+                ecosystem partnership activities.
+            </p>
+
+        </div>
+
+        <div class="unread-dot"></div>
+
+    </div>
+
+
+    <div class="notification unread" data-type="rewards">
+
+        <div class="icon gold">
+            🔥
+        </div>
+
+        <div class="notification-content">
+
+            <div class="notification-top">
+
+                <div class="notification-title">
+                    Daily streak reminder
+                </div>
+
+                <div class="time">
+                    Today
+                </div>
+
+            </div>
+
+            <p>
+                Keep your daily activity streak active.
+                Missing a required day may reset your
+                current streak.
+            </p>
+
+        </div>
+
+        <div class="unread-dot"></div>
+
+    </div>
+
+
+    <div class="notification" data-type="system">
+
+        <div class="icon blue">
+            🔐
+        </div>
+
+        <div class="notification-content">
+
+            <div class="notification-top">
+
+                <div class="notification-title">
+                    Wallet security
+                </div>
+
+                <div class="time">
+                    Yesterday
+                </div>
+
+            </div>
+
+            <p>
+                Your ON1Coin and XP wallet is being designed
+                with secure server-side balance management.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="notification" data-type="activities">
+
+        <div class="icon blue">
+            🚀
+        </div>
+
+        <div class="notification-content">
+
+            <div class="notification-top">
+
+                <div class="notification-title">
+                    ON1Ecosystem development update
+                </div>
+
+                <div class="time">
+                    Earlier
+                </div>
+
+            </div>
+
+            <p>
+                New ecosystem services and member features
+                are being developed for future releases.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class="empty" id="empty">
+
+    <div class="empty-icon">
+        🔔
+    </div>
+
+    <h3>
+        No notifications here
+    </h3>
+
+    <p>
+        New updates and member activities will appear
+        in this section.
+    </p>
+
+</div>
+
+
+<footer>
+
+    <p>
+        ON1Ecosystem — one ecosystem,
+        multiple digital opportunities.
+    </p>
+
+    <div class="footer-brand">
+        A DSATECHON1 initiative
+    </div>
+
+</footer>
+
+</div>
+
+
+<script>
+
+function filterNotifications(type,button){
+
+    document.querySelectorAll(".filter")
+    .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    const notifications =
+        document.querySelectorAll(".notification");
+
+    let visible = 0;
+
+    notifications.forEach(notification => {
+
+        if(
+            type === "all" ||
+            notification.dataset.type === type
+        ){
+
+            notification.style.display = "flex";
+            visible++;
+
+        }else{
+
+            notification.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("empty").style.display =
+        visible === 0 ? "block" : "none";
+}
+
+
+/*
+    FRONT-END PROTOTYPE ONLY
+
+    Firebase is intentionally not connected.
+
+    Planned notification categories:
+
+    • Welcome rewards
+    • Mining rewards
+    • Hourly mining reminders
+    • Daily streak reminders
+    • Referral rewards
+    • XP rewards
+    • Partnership activities
+    • Wallet activity
+    • Security alerts
+    • ON1Ecosystem announcements
+
+    In the production version,
+    notifications will come from the
+    secure backend rather than being
+    permanently written into this page.
+*/
+
+</script>
+
+</body>
+</html>

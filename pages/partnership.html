@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partnership & Activities — ON1Ecosystem</title>
+<meta name="theme-color" content="#050b13">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --bg:#050b13;
+    --card:#0c1624;
+    --card2:#101d2d;
+    --border:#1d3048;
+    --blue:#087cff;
+    --blue2:#42a5ff;
+    --green:#00df88;
+    --gold:#ffc94a;
+    --purple:#9b6cff;
+    --red:#ff6178;
+    --text:#fff;
+    --muted:#8ea2b8;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% -10%,rgba(8,124,255,.18),transparent 42%),
+        var(--bg);
+    color:var(--text);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.page{
+    width:100%;
+    max-width:1050px;
+    margin:auto;
+    padding:18px 20px 50px;
+}
+
+/* HEADER */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:17px;
+    border-bottom:1px solid rgba(29,48,72,.7);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.brand-name{
+    font-size:18px;
+    font-weight:800;
+}
+
+.brand-name span{
+    color:var(--blue2);
+}
+
+.brand-sub{
+    display:block;
+    margin-top:3px;
+    color:#61748a;
+    font-size:8px;
+    letter-spacing:.7px;
+}
+
+.header-actions{
+    display:flex;
+    gap:8px;
+}
+
+.header-btn{
+    padding:9px 12px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    background:var(--card);
+    color:#dce8f5;
+    font-size:9px;
+    font-weight:700;
+}
+
+/* TITLE */
+
+.page-title{
+    margin:30px 0 20px;
+}
+
+.eyebrow{
+    color:var(--blue2);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+}
+
+.page-title h1{
+    margin-top:8px;
+    font-size:29px;
+    letter-spacing:-1px;
+}
+
+.page-title p{
+    max-width:650px;
+    margin-top:7px;
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.6;
+}
+
+/* XP HERO */
+
+.xp-hero{
+    position:relative;
+    overflow:hidden;
+    padding:25px;
+    border:1px solid rgba(155,108,255,.35);
+    border-radius:20px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(155,108,255,.14),
+            rgba(12,22,36,.97)
+        );
+}
+
+.xp-hero::after{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    right:-100px;
+    top:-120px;
+    border-radius:50%;
+    background:rgba(155,108,255,.08);
+}
+
+.xp-label{
+    position:relative;
+    z-index:1;
+    color:var(--muted);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.8px;
+}
+
+.xp-main{
+    position:relative;
+    z-index:1;
+    margin-top:8px;
+    font-size:39px;
+    font-weight:900;
+}
+
+.xp-main span{
+    color:var(--purple);
+    font-size:14px;
+}
+
+.level-row{
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:16px;
+}
+
+.level{
+    color:#d9caff;
+    font-size:10px;
+    font-weight:800;
+}
+
+.next-level{
+    color:var(--muted);
+    font-size:8px;
+}
+
+.progress{
+    position:relative;
+    z-index:1;
+    height:7px;
+    margin-top:9px;
+    overflow:hidden;
+    border-radius:10px;
+    background:#182537;
+}
+
+.progress-bar{
+    width:62%;
+    height:100%;
+    border-radius:10px;
+    background:linear-gradient(90deg,var(--purple),#c49cff);
+}
+
+.progress-info{
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:space-between;
+    margin-top:7px;
+    color:#71859b;
+    font-size:7px;
+}
+
+/* STREAK */
+
+.streak{
+    margin-top:12px;
+    padding:17px;
+    border:1px solid rgba(255,201,74,.2);
+    border-radius:15px;
+    background:rgba(255,201,74,.04);
+}
+
+.streak-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.streak-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--gold);
+    font-size:10px;
+    font-weight:800;
+}
+
+.streak-count{
+    color:#fff;
+    font-size:10px;
+    font-weight:800;
+}
+
+.streak-days{
+    display:grid;
+    grid-template-columns:repeat(10,1fr);
+    gap:5px;
+    margin-top:13px;
+}
+
+.day{
+    min-height:45px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:var(--card);
+    color:#60758b;
+}
+
+.day strong{
+    font-size:8px;
+}
+
+.day span{
+    margin-top:4px;
+    font-size:6px;
+}
+
+.day.done{
+    border-color:rgba(255,201,74,.35);
+    background:rgba(255,201,74,.08);
+    color:var(--gold);
+}
+
+.day.today{
+    border-color:var(--blue);
+    box-shadow:0 0 0 1px rgba(8,124,255,.12);
+    color:var(--blue2);
+}
+
+/* SECTION */
+
+.section{
+    margin-top:28px;
+}
+
+.section-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:10px;
+}
+
+.section-title{
+    font-size:16px;
+    font-weight:800;
+}
+
+.section-description{
+    margin-top:4px;
+    color:var(--muted);
+    font-size:8px;
+    line-height:1.5;
+}
+
+.view-link{
+    color:var(--blue2);
+    font-size:8px;
+    font-weight:700;
+}
+
+/* FILTER */
+
+.filters{
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    margin-top:13px;
+    padding-bottom:3px;
+}
+
+.filter{
+    flex-shrink:0;
+    padding:9px 13px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    background:var(--card);
+    color:var(--muted);
+    font-size:8px;
+    font-weight:700;
+}
+
+.filter.active{
+    border-color:var(--blue);
+    background:rgba(8,124,255,.1);
+    color:var(--blue2);
+}
+
+/* ACTIVITY GRID */
+
+.activities{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
+    margin-top:12px;
+}
+
+.activity{
+    padding:18px;
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:var(--card);
+}
+
+.activity-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:start;
+    gap:10px;
+}
+
+.activity-icon{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    background:rgba(8,124,255,.1);
+    font-size:19px;
+}
+
+.status{
+    padding:5px 7px;
+    border-radius:6px;
+    font-size:6px;
+    font-weight:800;
+}
+
+.status.available{
+    color:var(--green);
+    background:rgba(0,223,136,.08);
+}
+
+.status.progress-status{
+    color:var(--blue2);
+    background:rgba(8,124,255,.1);
+}
+
+.status.pending{
+    color:var(--gold);
+    background:rgba(255,201,74,.08);
+}
+
+.status.completed{
+    color:var(--green);
+    background:rgba(0,223,136,.08);
+}
+
+.activity h3{
+    margin-top:13px;
+    font-size:11px;
+}
+
+.activity p{
+    margin-top:6px;
+    color:var(--muted);
+    font-size:8px;
+    line-height:1.6;
+}
+
+.reward{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:15px;
+    padding-top:12px;
+    border-top:1px solid rgba(29,48,72,.65);
+}
+
+.reward strong{
+    color:var(--purple);
+    font-size:10px;
+}
+
+.reward span{
+    color:#62768c;
+    font-size:7px;
+}
+
+.activity-btn{
+    width:100%;
+    margin-top:12px;
+    padding:11px;
+    border:0;
+    border-radius:9px;
+    background:var(--blue);
+    color:#fff;
+    font-size:8px;
+    font-weight:800;
+}
+
+.activity-btn.secondary{
+    background:#172638;
+    color:#cbd8e6;
+}
+
+.activity-btn.pending-btn{
+    background:#332b17;
+    color:var(--gold);
+}
+
+.activity-btn.completed-btn{
+    background:#11271f;
+    color:var(--green);
+}
+
+/* DAILY ACTIVITIES */
+
+.daily-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
+    margin-top:12px;
+}
+
+.daily-card{
+    padding:15px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    background:var(--card);
+}
+
+.daily-icon{
+    font-size:17px;
+}
+
+.daily-card h3{
+    margin-top:8px;
+    font-size:9px;
+}
+
+.daily-card p{
+    margin-top:5px;
+    color:var(--muted);
+    font-size:7px;
+    line-height:1.5;
+}
+
+.daily-reward{
+    display:block;
+    margin-top:10px;
+    color:var(--purple);
+    font-size:8px;
+    font-weight:800;
+}
+
+/* XP HISTORY */
+
+.history{
+    margin-top:12px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    overflow:hidden;
+    background:var(--card);
+}
+
+.history-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 16px;
+    border-bottom:1px solid rgba(29,48,72,.55);
+}
+
+.history-row:last-child{
+    border-bottom:0;
+}
+
+.history-icon{
+    width:34px;
+    height:34px;
+    display:grid;
+    place-items:center;
+    border-radius:9px;
+    background:rgba(155,108,255,.09);
+}
+
+.history-info{
+    flex:1;
+}
+
+.history-info strong{
+    display:block;
+    font-size:8px;
+}
+
+.history-info span{
+    display:block;
+    margin-top:4px;
+    color:#62768c;
+    font-size:7px;
+}
+
+.history-xp{
+    color:var(--purple);
+    font-size:9px;
+    font-weight:800;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid rgba(29,48,72,.55);
+    text-align:center;
+}
+
+footer p{
+    color:#61748a;
+    font-size:8px;
+    line-height:1.6;
+}
+
+.footer-brand{
+    margin-top:5px;
+    color:#40536a;
+    font-size:8px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+    .activities{
+        grid-template-columns:1fr;
+    }
+
+    .daily-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .streak-days{
+        gap:3px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .page{
+        padding:15px;
+    }
+
+    .brand-sub{
+        display:none;
+    }
+
+    .header-btn{
+        display:none;
+    }
+
+    .xp-main{
+        font-size:34px;
+    }
+
+    .streak-days{
+        grid-template-columns:repeat(5,1fr);
+    }
+
+    .daily-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+
+<!-- HEADER -->
+
+<header>
+
+    <a href="../index.html" class="brand">
+
+        <img src="../logo.png" alt="DSATECHON1 Logo">
+
+        <div>
+
+            <div class="brand-name">
+                ON1<span>Ecosystem</span>
+            </div>
+
+            <small class="brand-sub">
+                DIGITAL ECOSYSTEM
+            </small>
+
+        </div>
+
+    </a>
+
+    <div class="header-actions">
+
+        <a href="dashboard.html" class="header-btn">
+            Dashboard
+        </a>
+
+        <a href="wallet.html" class="header-btn">
+            Wallet
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- TITLE -->
+
+<section class="page-title">
+
+    <div class="eyebrow">
+        Member Participation
+    </div>
+
+    <h1>
+        Partnership & Activities
+    </h1>
+
+    <p>
+        Participate in approved ecosystem activities,
+        complete eligible tasks and build your XP
+        through meaningful participation.
+    </p>
+
+</section>
+
+
+<!-- XP HERO -->
+
+<section class="xp-hero">
+
+    <div class="xp-label">
+        EXPERIENCE POINTS
+    </div>
+
+    <div class="xp-main">
+        1,250 <span>XP</span>
+    </div>
+
+    <div class="level-row">
+
+        <div class="level">
+            ⭐ Explorer · Level 2
+        </div>
+
+        <div class="next-level">
+            750 XP to next level
+        </div>
+
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar"></div>
+    </div>
+
+    <div class="progress-info">
+        <span>1,250 XP</span>
+        <span>2,000 XP</span>
+    </div>
+
+</section>
+
+
+<!-- STREAK -->
+
+<section class="streak">
+
+    <div class="streak-top">
+
+        <div class="streak-title">
+            🔥 Daily Participation Streak
+        </div>
+
+        <div class="streak-count">
+            4 Days
+        </div>
+
+    </div>
+
+    <div class="streak-days">
+
+        <div class="day done">
+            <strong>1</strong>
+            <span>DONE</span>
+        </div>
+
+        <div class="day done">
+            <strong>2</strong>
+            <span>DONE</span>
+        </div>
+
+        <div class="day done">
+            <strong>3</strong>
+            <span>DONE</span>
+        </div>
+
+        <div class="day today">
+            <strong>4</strong>
+            <span>TODAY</span>
+        </div>
+
+        <div class="day">
+            <strong>5</strong>
+            <span>+50</span>
+        </div>
+
+        <div class="day">
+            <strong>6</strong>
+            <span>+60</span>
+        </div>
+
+        <div class="day">
+            <strong>7</strong>
+            <span>+70</span>
+        </div>
+
+        <div class="day">
+            <strong>8</strong>
+            <span>+80</span>
+        </div>
+
+        <div class="day">
+            <strong>9</strong>
+            <span>+90</span>
+        </div>
+
+        <div class="day">
+            <strong>10</strong>
+            <span>+100</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PARTNERSHIP ACTIVITIES -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <div class="section-title">
+                🤝 Partnership Activities
+            </div>
+
+            <div class="section-description">
+                Complete eligible activities to earn XP.
+            </div>
+
+        </div>
+
+        <a href="#" class="view-link">
+            View history
+        </a>
+
+    </div>
+
+
+    <div class="filters">
+
+        <button class="filter active"
+                onclick="filterActivities('all',this)">
+            All
+        </button>
+
+        <button class="filter"
+                onclick="filterActivities('available',this)">
+            Available
+        </button>
+
+        <button class="filter"
+                onclick="filterActivities('progress',this)">
+            In Progress
+        </button>
+
+        <button class="filter"
+                onclick="filterActivities('completed',this)">
+            Completed
+        </button>
+
+    </div>
+
+
+    <div class="activities">
+
+
+        <!-- ACTIVITY 1 -->
+
+        <article class="activity"
+                 data-status="available">
+
+            <div class="activity-top">
+
+                <div class="activity-icon">
+                    🤝
+                </div>
+
+                <div class="status available">
+                    AVAILABLE
+                </div>
+
+            </div>
+
+            <h3>
+                Partner Discovery
+            </h3>
+
+            <p>
+                Explore an approved partner and
+                learn about its service or campaign.
+            </p>
+
+            <div class="reward">
+
+                <strong>
+                    +50 XP
+                </strong>
+
+                <span>
+                    2–3 min
+                </span>
+
+            </div>
+
+            <button class="activity-btn"
+                    onclick="startActivity(this)">
+                START ACTIVITY
+            </button>
+
+        </article>
+
+
+        <!-- ACTIVITY 2 -->
+
+        <article class="activity"
+                 data-status="available">
+
+            <div class="activity-top">
+
+                <div class="activity-icon">
+                    📣
+                </div>
+
+                <div class="status available">
+                    AVAILABLE
+                </div>
+
+            </div>
+
+            <h3>
+                Partner Campaign
+            </h3>
+
+            <p>
+                Participate in an approved promotional
+                campaign and complete the required steps.
+            </p>
+
+            <div class="reward">
+
+                <strong>
+                    +100 XP
+                </strong>
+
+                <span>
+                    5–10 min
+                </span>
+
+            </div>
+
+            <button class="activity-btn"
+                    onclick="startActivity(this)">
+                START ACTIVITY
+            </button>
+
+        </article>
+
+
+        <!-- ACTIVITY 3 -->
+
+        <article class="activity"
+                 data-status="progress">
+
+            <div class="activity-top">
+
+                <div class="activity-icon">
+                    🚀
+                </div>
+
+                <div class="status progress-status">
+                    IN PROGRESS
+                </div>
+
+            </div>
+
+            <h3>
+                Ecosystem Challenge
+            </h3>
+
+            <p>
+                Continue your current participation
+                challenge to complete the activity.
+            </p>
+
+            <div class="reward">
+
+                <strong>
+                    +75 XP
+                </strong>
+
+                <span>
+                    In progress
+                </span>
+
+            </div>
+
+            <button class="activity-btn secondary">
+                CONTINUE
+            </button>
+
+        </article>
+
+
+        <!-- ACTIVITY 4 -->
+
+        <article class="activity"
+                 data-status="completed">
+
+            <div class="activity-top">
+
+                <div class="activity-icon">
+                    🏆
+                </div>
+
+                <div class="status completed">
+                    COMPLETED
+                </div>
+
+            </div>
+
+            <h3>
+                Welcome Activity
+            </h3>
+
+            <p>
+                Introduction to the ON1Ecosystem
+                member environment.
+            </p>
+
+            <div class="reward">
+
+                <strong>
+                    +25 XP
+                </strong>
+
+                <span>
+                    Completed
+                </span>
+
+            </div>
+
+            <button class="activity-btn completed-btn">
+                ✓ COMPLETED
+            </button>
+
+        </article>
+
+
+        <!-- ACTIVITY 5 -->
+
+        <article class="activity"
+                 data-status="available">
+
+            <div class="activity-top">
+
+                <div class="activity-icon">
+                    💡
+                </div>
+
+                <div class="status available">
+                    AVAILABLE
+                </div>
+
+            </div>
+
+            <h3>
+                Member Feedback
+            </h3>
+
+            <p>
+                Share useful feedback about your
+                experience with an eligible feature.
+            </p>
+
+            <div class="reward">
+
+                <strong>
+                    +40 XP
+                </strong>
+
+                <span>
+                    3 min
+                </span>
+
+            </div>
+
+            <button class="activity-btn"
+                    onclick="startActivity(this)">
+                START ACTIVITY
+            </button>
+
+        </article>
+
+
+        <!-- ACTIVITY 6 -->
+
+        <article class="activity"
+                 data-status="available">
+
+            <div class="activity-top">
+
+                <div class="activity-icon">
+                    🌐
+                </div>
+
+                <div class="status available">
+                    AVAILABLE
+                </div>
+
+            </div>
+
+            <h3>
+                Community Participation
+            </h3>
+
+            <p>
+                Take part in an approved community
+                activity and contribute meaningfully.
+            </p>
+
+            <div class="reward">
+
+                <strong>
+                    +60 XP
+                </strong>
+
+                <span>
+                    5 min
+                </span>
+
+            </div>
+
+            <button class="activity-btn"
+                    onclick="startActivity(this)">
+                START ACTIVITY
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- DAILY PARTICIPATION -->
+
+<section class="section">
+
+    <div class="section-title">
+        📅 Daily Participation
+    </div>
+
+    <div class="section-description">
+        Simple daily actions that encourage consistent
+        ecosystem participation.
+    </div>
+
+
+    <div class="daily-grid">
+
+        <div class="daily-card">
+
+            <div class="daily-icon">
+                👋
+            </div>
+
+            <h3>
+                Daily Check-in
+            </h3>
+
+            <p>
+                Maintain your daily ecosystem activity.
+            </p>
+
+            <span class="daily-reward">
+                +5 XP
+            </span>
+
+        </div>
+
+
+        <div class="daily-card">
+
+            <div class="daily-icon">
+                    🤝
+            </div>
+
+            <h3>
+                Visit Activities
+            </h3>
+
+            <p>
+                Review today's available opportunities.
+            </p>
+
+            <span class="daily-reward">
+                +10 XP
+            </span>
+
+        </div>
+
+
+        <div class="daily-card">
+
+            <div class="daily-icon">
+                ⭐
+            </div>
+
+            <h3>
+                Complete an Activity
+            </h3>
+
+            <p>
+                Finish one eligible participation task.
+            </p>
+
+            <span class="daily-reward">
+                +25 XP
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- XP HISTORY -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <div class="section-title">
+                📜 Recent XP Activity
+            </div>
+
+            <div class="section-description">
+                A preview of how your XP was earned.
+            </div>
+
+        </div>
+
+        <a href="wallet.html" class="view-link">
+            Wallet
+        </a>
+
+    </div>
+
+
+    <div class="history">
+
+        <div class="history-row">
+
+            <div class="history-icon">
+                🤝
+            </div>
+
+            <div class="history-info">
+
+                <strong>
+                    Partner Discovery
+                </strong>
+
+                <span>
+                    Today · Approved activity
+                </span>
+
+            </div>
+
+            <div class="history-xp">
+                +50 XP
+            </div>
+
+        </div>
+
+
+        <div class="history-row">
+
+            <div class="history-icon">
+                ⭐
+            </div>
+
+            <div class="history-info">
+
+                <strong>
+                    Daily Participation
+                </strong>
+
+                <span>
+                    Yesterday
+                </span>
+
+            </div>
+
+            <div class="history-xp">
+                +25 XP
+            </div>
+
+        </div>
+
+
+        <div class="history-row">
+
+            <div class="history-icon">
+                🏆
+            </div>
+
+            <div class="history-info">
+
+                <strong>
+                    Welcome Activity
+                </strong>
+
+                <span>
+                    Earlier · Completed
+                </span>
+
+            </div>
+
+            <div class="history-xp">
+                +25 XP
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        Participate. Progress. Build your experience
+        across the ON1Ecosystem.
+    </p>
+
+    <div class="footer-brand">
+        A DSATECHON1 initiative
+    </div>
+
+</footer>
+
+
+</div>
+
+
+<script>
+
+/*
+====================================================
+ON1ECOSYSTEM PARTNERSHIP / XP PROTOTYPE
+====================================================
+
+FIREBASE IS NOT CONNECTED.
+
+This page is currently for testing the interface
+and user experience only.
+
+Planned production flow:
+
+AVAILABLE
+    ↓
+START ACTIVITY
+    ↓
+IN PROGRESS
+    ↓
+COMPLETE
+    ↓
+VERIFICATION (when required)
+    ↓
+APPROVED
+    ↓
+XP AWARDED
+    ↓
+XP LEDGER
+    ↓
+XP BALANCE
+
+XP and ON1Coin remain separate balances.
+*/
+
+
+function filterActivities(type,button){
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(function(btn){
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    document
+        .querySelectorAll(".activity")
+        .forEach(function(activity){
+
+            if(
+                type === "all" ||
+                activity.dataset.status === type
+            ){
+
+                activity.style.display = "block";
+
+            }else{
+
+                activity.style.display = "none";
+
+            }
+
+        });
+}
+
+
+/*
+Demo interaction only.
+
+This does NOT award real XP.
+
+When Firebase/backend is connected,
+the button will create an activity record
+and the server will determine whether XP
+can actually be awarded.
+*/
+
+function startActivity(button){
+
+    const activity =
+        button.closest(".activity");
+
+    const status =
+        activity.querySelector(".status");
+
+    status.className =
+        "status progress-status";
+
+    status.textContent =
+        "IN PROGRESS";
+
+    button.className =
+        "activity-btn secondary";
+
+    button.textContent =
+        "CONTINUE";
+
+    button.onclick = function(){
+
+        alert(
+            "Activity continuation will be connected to the secure activity system later."
+        );
+
+    };
+
+}
+
+</script>
+
+</body>
+</html>

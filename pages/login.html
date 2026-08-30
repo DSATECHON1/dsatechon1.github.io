@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Sign In — ON1Ecosystem</title>
+
+<meta
+    name="theme-color"
+    content="#050b13"
+>
+
+<meta
+    name="description"
+    content="Sign in to your ON1Ecosystem account."
+>
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root{
+
+    --bg:#050b13;
+
+    --surface:#0c1624;
+
+    --surface2:#0a1120;
+
+    --border:#1d3048;
+
+    --blue:#087cff;
+
+    --blue2:#3aa0ff;
+
+    --green:#00df88;
+
+    --text:#ffffff;
+
+    --muted:#8ea2b8;
+
+    --danger:#ff6075;
+
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(8,124,255,.20),
+            transparent 42%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page{
+
+    width:100%;
+
+    max-width:430px;
+
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.brand-circle{
+
+    width:58px;
+
+    height:58px;
+
+    margin:0 auto 12px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #087cff,
+            #1555a8
+        );
+
+    border:2px solid rgba(255,255,255,.12);
+
+    box-shadow:
+
+        0 0 25px
+        rgba(8,124,255,.25);
+
+}
+
+
+.brand-circle span{
+
+    font-size:18px;
+
+    font-weight:900;
+
+}
+
+
+.brand h1{
+
+    font-size:22px;
+
+}
+
+
+.brand h1 span{
+
+    color:var(--blue2);
+
+}
+
+
+.brand p{
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+}
+
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.login-card{
+
+    width:100%;
+
+    background:
+
+        rgba(12,22,36,.96);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0,0,0,.38);
+
+}
+
+
+.card-header{
+
+    margin-bottom:22px;
+
+}
+
+
+.card-header h2{
+
+    font-size:23px;
+
+}
+
+
+.card-header p{
+
+    margin-top:7px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.5;
+
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group{
+
+    margin-top:17px;
+
+}
+
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#dce8f5;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+
+.input-wrap{
+
+    position:relative;
+
+}
+
+
+.form-group input{
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    border:1px solid var(--border);
+
+    outline:none;
+
+    background:var(--surface2);
+
+    color:#fff;
+
+    font-size:14px;
+
+}
+
+
+.form-group input:focus{
+
+    border-color:var(--blue);
+
+    box-shadow:
+
+        0 0 0 2px
+        rgba(8,124,255,.10);
+
+}
+
+
+.form-group input::placeholder{
+
+    color:#61758b;
+
+}
+
+
+/* =========================================
+   PASSWORD BUTTON
+========================================= */
+
+.password-toggle{
+
+    position:absolute;
+
+    right:10px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    border:none;
+
+    background:transparent;
+
+    color:var(--blue2);
+
+    font-size:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================
+   OPTIONS
+========================================= */
+
+.options{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-top:15px;
+
+    font-size:11px;
+
+}
+
+
+.remember{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:var(--muted);
+
+}
+
+
+.remember input{
+
+    accent-color:var(--blue);
+
+}
+
+
+.forgot{
+
+    color:var(--blue2);
+
+    text-decoration:none;
+
+}
+
+
+.forgot:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message{
+
+    display:none;
+
+    margin-top:16px;
+
+    padding:11px;
+
+    border-radius:9px;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+}
+
+
+.message.error{
+
+    display:block;
+
+    background:
+
+        rgba(255,96,117,.08);
+
+    border:1px solid
+
+        rgba(255,96,117,.45);
+
+    color:var(--danger);
+
+}
+
+
+.message.success{
+
+    display:block;
+
+    background:
+
+        rgba(0,223,136,.08);
+
+    border:1px solid
+
+        rgba(0,223,136,.35);
+
+    color:var(--green);
+
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-btn{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:var(--blue);
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.login-btn:hover{
+
+    opacity:.9;
+
+}
+
+
+.login-btn:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =========================================
+   SIGNUP LINK
+========================================= */
+
+.signup-link{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+}
+
+
+.signup-link a{
+
+    color:var(--blue2);
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}
+
+
+.signup-link a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.home-link{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:18px;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    text-decoration:none;
+
+}
+
+
+.home-link:hover{
+
+    color:var(--blue2);
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#52667c;
+
+    font-size:9px;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:480px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .login-card{
+
+        padding:23px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =====================================
+         BRAND
+    ====================================== -->
+
+    <div class="brand">
+
+        <div class="brand-circle">
+
+            <span>ON1</span>
+
+        </div>
+
+        <h1>
+            ON1<span>Ecosystem</span>
+        </h1>
+
+        <p>
+            ONE ECOSYSTEM. MULTIPLE SOLUTIONS.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================
+         LOGIN CARD
+    ====================================== -->
+
+    <div class="login-card">
+
+
+        <div class="card-header">
+
+            <h2>
+                Welcome Back
+            </h2>
+
+            <p>
+                Sign in to access your ON1Ecosystem
+                account, wallet and dashboard.
+            </p>
+
+        </div>
+
+
+
+        <!-- ===================================
+             LOGIN FORM
+        ==================================== -->
+
+        <form id="loginForm">
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="input-wrap">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="togglePassword"
+                    >
+                        SHOW
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OPTIONS -->
+
+            <div class="options">
+
+                <label class="remember">
+
+                    <input
+                        type="checkbox"
+                        id="rememberMe"
+                    >
+
+                    Remember me
+
+                </label>
+
+
+                <a
+                    href="#"
+                    class="forgot"
+                    id="forgotPassword"
+                >
+                    Forgot password?
+                </a>
+
+            </div>
+
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="message"
+                class="message"
+            ></div>
+
+
+
+            <!-- LOGIN -->
+
+            <button
+                type="submit"
+                class="login-btn"
+                id="loginBtn"
+            >
+                SIGN IN
+            </button>
+
+
+        </form>
+
+
+
+        <!-- ===================================
+             SIGN UP
+        ==================================== -->
+
+        <div class="signup-link">
+
+            Don't have an ON1Ecosystem account?
+
+            <a href="signup.html">
+                Create one
+            </a>
+
+        </div>
+
+
+        <!-- ===================================
+             HOME
+        ==================================== -->
+
+        <a
+            href="../index.html"
+            class="home-link"
+        >
+            ← Back to ON1Ecosystem
+        </a>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026 ON1Ecosystem
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     FIREBASE
+========================================= -->
+
+<script type="module">
+
+
+/* =========================================
+   FIREBASE IMPORTS
+========================================= */
+
+import {
+
+    initializeApp
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+
+    getAuth,
+
+    signInWithEmailAndPassword,
+
+    sendPasswordResetEmail,
+
+    setPersistence,
+
+    browserLocalPersistence,
+
+    browserSessionPersistence
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+
+    getFirestore,
+
+    doc,
+
+    getDoc
+
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyCmmOlfLVPs3oPCmFLSl8trLKNqWlo9YKs",
+
+    authDomain:
+        "dsatechon1-c8b41.firebaseapp.com",
+
+    projectId:
+        "dsatechon1-c8b41",
+
+    storageBucket:
+        "dsatechon1-c8b41.firebasestorage.app",
+
+    messagingSenderId:
+        "5740594058",
+
+    appId:
+        "1:5740594058:web:23fbbca5392f12db863e73"
+
+};
+
+
+
+/* =========================================
+   INITIALIZE FIREBASE
+========================================= */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const form =
+    document.getElementById("loginForm");
+
+
+const emailInput =
+    document.getElementById("email");
+
+
+const passwordInput =
+    document.getElementById("password");
+
+
+const loginBtn =
+    document.getElementById("loginBtn");
+
+
+const message =
+    document.getElementById("message");
+
+
+const togglePassword =
+    document.getElementById("togglePassword");
+
+
+const rememberMe =
+    document.getElementById("rememberMe");
+
+
+const forgotPassword =
+    document.getElementById("forgotPassword");
+
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+function showMessage(text,type){
+
+    message.textContent =
+        text;
+
+    message.className =
+        "message " + type;
+
+}
+
+
+
+/* =========================================
+   PASSWORD SHOW / HIDE
+========================================= */
+
+togglePassword.addEventListener(
+    "click",
+    function(){
+
+        if(
+            passwordInput.type ===
+            "password"
+        ){
+
+            passwordInput.type =
+                "text";
+
+            togglePassword.textContent =
+                "HIDE";
+
+        }
+
+        else{
+
+            passwordInput.type =
+                "password";
+
+            togglePassword.textContent =
+                "SHOW";
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   FORGOT PASSWORD
+========================================= */
+
+forgotPassword.addEventListener(
+    "click",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const email =
+            emailInput.value.trim();
+
+
+        if(!email){
+
+            showMessage(
+                "Enter your email address first, then select Forgot password.",
+                "error"
+            );
+
+            emailInput.focus();
+
+            return;
+
+        }
+
+
+        try{
+
+            await sendPasswordResetEmail(
+                auth,
+                email
+            );
+
+
+            showMessage(
+                "Password reset instructions have been sent to your email.",
+                "success"
+            );
+
+        }
+
+        catch(error){
+
+            console.error(
+                "Password reset error:",
+                error
+            );
+
+
+            showMessage(
+                getFirebaseErrorMessage(error),
+                "error"
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   FIREBASE ERROR HANDLER
+========================================= */
+
+function getFirebaseErrorMessage(error){
+
+    switch(error.code){
+
+        case "auth/invalid-email":
+
+            return "Please enter a valid email address.";
+
+
+        case "auth/user-not-found":
+
+            return "No ON1Ecosystem account was found with this email.";
+
+
+        case "auth/wrong-password":
+
+            return "Incorrect email or password.";
+
+
+        case "auth/invalid-credential":
+
+            return "Incorrect email or password.";
+
+
+        case "auth/user-disabled":
+
+            return "This account has been disabled. Please contact support.";
+
+
+        case "auth/too-many-requests":
+
+            return "Too many unsuccessful attempts. Please wait and try again later.";
+
+
+        case "auth/network-request-failed":
+
+            return "Network connection failed. Check your internet connection and try again.";
+
+
+        case "auth/operation-not-allowed":
+
+            return "Email/password sign-in is not enabled in Firebase Authentication.";
+
+
+        default:
+
+            return error.message ||
+                "Unable to sign in. Please try again.";
+
+    }
+
+}
+
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+form.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const email =
+            emailInput.value.trim();
+
+
+        const password =
+            passwordInput.value;
+
+
+        /* CLEAR MESSAGE */
+
+        message.className =
+            "message";
+
+        message.textContent =
+            "";
+
+
+
+        /* VALIDATION */
+
+        if(!email){
+
+            showMessage(
+                "Please enter your email address.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!password){
+
+            showMessage(
+                "Please enter your password.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+
+        /* DISABLE BUTTON */
+
+        loginBtn.disabled =
+            true;
+
+        loginBtn.textContent =
+            "SIGNING IN...";
+
+
+
+        try{
+
+
+            /* =================================
+               SET LOGIN PERSISTENCE
+            ================================= */
+
+            await setPersistence(
+
+                auth,
+
+                rememberMe.checked
+                    ? browserLocalPersistence
+                    : browserSessionPersistence
+
+            );
+
+
+
+            /* =================================
+               FIREBASE AUTHENTICATION
+            ================================= */
+
+            const userCredential =
+                await signInWithEmailAndPassword(
+
+                    auth,
+
+                    email,
+
+                    password
+
+                );
+
+
+            const user =
+                userCredential.user;
+
+
+
+            console.log(
+                "Firebase login successful:",
+                user.uid
+            );
+
+
+
+            /* =================================
+               VERIFY FIRESTORE PROFILE
+            ================================= */
+
+            const userDoc =
+                await getDoc(
+
+                    doc(
+                        db,
+                        "users",
+                        user.uid
+                    )
+
+                );
+
+
+
+            if(!userDoc.exists()){
+
+                showMessage(
+                    "Your Firebase account exists, but your ON1 profile could not be found. Please contact ON1Ecosystem support.",
+                    "error"
+                );
+
+
+                loginBtn.disabled =
+                    false;
+
+                loginBtn.textContent =
+                    "SIGN IN";
+
+
+                return;
+
+            }
+
+
+
+            /* =================================
+               LOGIN SUCCESS
+            ================================= */
+
+            showMessage(
+                "Login successful. Opening your ON1 dashboard...",
+                "success"
+            );
+
+
+            loginBtn.textContent =
+                "WELCOME BACK";
+
+
+            /* =================================
+               DASHBOARD
+            ================================= */
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "dashboard.html";
+
+                },
+                800
+            );
+
+
+        }
+
+        catch(error){
+
+            console.error(
+                "ON1 login error:",
+                error
+            );
+
+
+            showMessage(
+                getFirebaseErrorMessage(error),
+                "error"
+            );
+
+
+            loginBtn.disabled =
+                false;
+
+            loginBtn.textContent =
+                "SIGN IN";
+
+        }
+
+    }
+);
+
+
+</script>
+
+</body>
+
+</html>

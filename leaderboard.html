@@ -29,7 +29,6 @@
 :root{
     --bg:#050b13;
     --surface:#0c1624;
-    --surface2:#101d2d;
     --border:#1d3048;
 
     --blue:#087cff;
@@ -43,8 +42,6 @@
 
     --silver:#c7d0db;
     --bronze:#cd8b55;
-
-    --danger:#ff6075;
 }
 
 body{
@@ -158,7 +155,7 @@ a{
 .intro{
     text-align:center;
 
-    margin-bottom:16px;
+    margin-bottom:15px;
 }
 
 .intro h1{
@@ -175,6 +172,66 @@ a{
     font-size:10px;
 
     line-height:1.5;
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+.tabs{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:6px;
+
+    margin-bottom:14px;
+}
+
+.tab{
+    border:1px solid var(--border);
+
+    background:var(--surface);
+
+    color:var(--muted);
+
+    border-radius:10px;
+
+    padding:9px 5px;
+
+    cursor:pointer;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    line-height:1.25;
+
+    transition:.2s;
+}
+
+.tab-icon{
+    display:block;
+
+    font-size:15px;
+
+    margin-bottom:3px;
+}
+
+.tab.active{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,124,255,.18),
+            rgba(0,223,136,.08)
+        );
+
+    border-color:
+        rgba(8,124,255,.55);
+
+    color:#ffffff;
 }
 
 
@@ -215,6 +272,16 @@ a{
     color:var(--muted);
 
     font-size:9px;
+}
+
+.position-mode{
+    margin-top:3px;
+
+    color:var(--blue2);
+
+    font-size:8px;
+
+    font-weight:700;
 }
 
 .position-user{
@@ -261,8 +328,8 @@ a{
     grid-template-columns:
         55px
         1fr
-        100px
-        100px;
+        110px
+        80px;
 
     gap:8px;
 
@@ -296,8 +363,8 @@ a{
     grid-template-columns:
         55px
         1fr
-        100px
-        100px;
+        110px
+        80px;
 
     gap:8px;
 
@@ -377,10 +444,10 @@ a{
 
 
 /* =====================================================
-   XP / LEVEL
+   VALUES
 ===================================================== */
 
-.member-xp{
+.member-value{
     color:var(--blue2);
 
     font-size:10px;
@@ -388,9 +455,11 @@ a{
     font-weight:800;
 
     text-align:right;
+
+    white-space:nowrap;
 }
 
-.member-level{
+.member-secondary{
     color:var(--green);
 
     font-size:10px;
@@ -398,6 +467,8 @@ a{
     font-weight:800;
 
     text-align:right;
+
+    white-space:nowrap;
 }
 
 
@@ -464,7 +535,7 @@ a{
 
 
 /* =====================================================
-   EMPTY / ERROR
+   STATUS
 ===================================================== */
 
 .status{
@@ -520,11 +591,25 @@ footer{
         padding:12px;
     }
 
+    .tabs{
+        gap:5px;
+    }
+
+    .tab{
+        padding:8px 3px;
+
+        font-size:7px;
+    }
+
+    .tab-icon{
+        font-size:14px;
+    }
+
     .table-head{
         grid-template-columns:
             42px
             1fr
-            75px
+            85px
             65px;
 
         padding:10px;
@@ -534,7 +619,7 @@ footer{
         grid-template-columns:
             42px
             1fr
-            75px
+            85px
             65px;
 
         padding:10px;
@@ -542,8 +627,8 @@ footer{
         min-height:56px;
     }
 
-    .member-xp,
-    .member-level{
+    .member-value,
+    .member-secondary{
         font-size:9px;
     }
 
@@ -560,11 +645,22 @@ footer{
 
 @media(max-width:360px){
 
+    .tabs{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .tab{
+        padding:9px 5px;
+
+        font-size:8px;
+    }
+
     .table-head{
         grid-template-columns:
             35px
             1fr
-            60px
+            65px
             55px;
 
         font-size:7px;
@@ -574,7 +670,7 @@ footer{
         grid-template-columns:
             35px
             1fr
-            60px
+            65px
             55px;
     }
 
@@ -584,6 +680,11 @@ footer{
 
     .member-id{
         font-size:7px;
+    }
+
+    .member-value,
+    .member-secondary{
+        font-size:8px;
     }
 
 }
@@ -605,11 +706,12 @@ footer{
 
 <header class="header">
 
-    <a href="dashboard.html"
-       class="brand">
+    <a
+        href="pages/dashboard.html"
+        class="brand">
 
         <img
-            src="../logo.png"
+            src="logo.png"
             alt="ON1Ecosystem">
 
         <div>
@@ -628,7 +730,7 @@ footer{
 
 
     <a
-        href="dashboard.html"
+        href="pages/dashboard.html"
         class="back-btn">
 
         ← DASHBOARD
@@ -648,12 +750,71 @@ footer{
         🏆 ON1 Leaderboard
     </h1>
 
-    <p>
-        See the members leading the ON1Ecosystem
-        by experience points and level.
+    <p id="introText">
+        Top 20 members by experience points.
     </p>
 
 </section>
+
+
+<!-- =====================================================
+     RANKING TABS
+===================================================== -->
+
+<div class="tabs">
+
+    <button
+        class="tab active"
+        data-mode="xp">
+
+        <span class="tab-icon">
+            🏆
+        </span>
+
+        XP
+
+    </button>
+
+
+    <button
+        class="tab"
+        data-mode="balance">
+
+        <span class="tab-icon">
+            🪙
+        </span>
+
+        ON1Coin
+
+    </button>
+
+
+    <button
+        class="tab"
+        data-mode="streak">
+
+        <span class="tab-icon">
+            🔥
+        </span>
+
+        Streak
+
+    </button>
+
+
+    <button
+        class="tab"
+        data-mode="referrals">
+
+        <span class="tab-icon">
+            🤝
+        </span>
+
+        Referrals
+
+    </button>
+
+</div>
 
 
 <!-- =====================================================
@@ -668,6 +829,14 @@ footer{
 
         <div class="position-label">
             YOUR CURRENT POSITION
+        </div>
+
+        <div
+            class="position-mode"
+            id="yourMode">
+
+            XP RANKING
+
         </div>
 
         <div
@@ -699,9 +868,8 @@ footer{
 <section class="leaderboard-card">
 
 
-    <!-- TABLE HEADER -->
-
-    <div class="table-head">
+    <div
+        class="table-head">
 
         <div>
             Rank
@@ -711,18 +879,24 @@ footer{
             Member
         </div>
 
-        <div style="text-align:right;">
+        <div
+            id="valueHeader"
+            style="text-align:right;">
+
             XP
+
         </div>
 
-        <div style="text-align:right;">
+        <div
+            id="secondaryHeader"
+            style="text-align:right;">
+
             Level
+
         </div>
 
     </div>
 
-
-    <!-- LOADING -->
 
     <div
         class="loading"
@@ -743,15 +917,11 @@ footer{
     </div>
 
 
-    <!-- STATUS -->
-
     <div
         class="status"
         id="status">
     </div>
 
-
-    <!-- ROWS -->
 
     <div id="leaderboardRows">
     </div>
@@ -799,9 +969,6 @@ from
 import {
     getFirestore,
     collection,
-    query,
-    orderBy,
-    limit,
     getDocs
 }
 from
@@ -836,7 +1003,7 @@ const firebaseConfig = {
 
 
 /* =====================================================
-   INITIALIZE FIREBASE
+   INITIALIZE
 ===================================================== */
 
 const app =
@@ -883,44 +1050,101 @@ const yourRank =
         "yourRank"
     );
 
+const yourMode =
+    document.getElementById(
+        "yourMode"
+    );
+
+const valueHeader =
+    document.getElementById(
+        "valueHeader"
+    );
+
+const secondaryHeader =
+    document.getElementById(
+        "secondaryHeader"
+    );
+
+const introText =
+    document.getElementById(
+        "introText"
+    );
+
+const tabs =
+    document.querySelectorAll(
+        ".tab"
+    );
+
 
 /* =====================================================
-   CURRENT USER
+   STATE
 ===================================================== */
 
 let currentUser =
     null;
 
+let allMembers =
+    [];
+
+let currentMode =
+    "xp";
+
+let dataLoaded =
+    false;
+
 
 /* =====================================================
-   XP READER
+   NUMBER HELPER
+===================================================== */
+
+function getNumber(value){
+
+    const number =
+        Number(value);
+
+    return Number.isFinite(number)
+        ? number
+        : 0;
+
+}
+
+
+/* =====================================================
+   FIRESTORE FIELDS
 ===================================================== */
 
 function getXP(data){
 
-    if(data.XP !== undefined){
+    return getNumber(
+        data.XP
+    );
 
-        return Number(data.XP) || 0;
+}
 
-    }
 
-    if(data.xp !== undefined){
+function getBalance(data){
 
-        return Number(data.xp) || 0;
+    return getNumber(
+        data.balance
+    );
 
-    }
+}
 
-    if(
-        data.experiencePoints !== undefined
-    ){
 
-        return Number(
-            data.experiencePoints
-        ) || 0;
+function getStreak(data){
 
-    }
+    return getNumber(
+        data.streak
+    );
 
-    return 0;
+}
+
+
+function getReferralCount(data){
+
+    return getNumber(
+        data.referralCount
+    );
 
 }
 
@@ -932,64 +1156,19 @@ function getXP(data){
 function calculateLevel(xp){
 
     return Math.floor(
-        Number(xp || 0) / 2500
+        getNumber(xp) / 2500
     );
 
 }
 
 
 /* =====================================================
-   ON1 ID
-===================================================== */
-
-function getON1Id(data){
-
-    const possibleIds = [
-
-        data.on1Id,
-        data.ON1Id,
-        data.on1ID
-
-    ];
-
-
-    for(
-        const value of possibleIds
-    ){
-
-        if(!value){
-            continue;
-        }
-
-        const id =
-            String(value)
-            .trim()
-            .toUpperCase();
-
-
-        if(
-            /^ON1[A-Z0-9]{7}$/.test(id)
-        ){
-
-            return id;
-
-        }
-
-    }
-
-
-    return "ON1 MEMBER";
-
-}
-
-
-/* =====================================================
-   SAFE MEMBER NAME
+   MEMBER NAME
 ===================================================== */
 
 function getMemberName(data){
 
-    return (
+    return String(
         data.username ||
         data.firstName ||
         data.firstname ||
@@ -1001,30 +1180,294 @@ function getMemberName(data){
 
 
 /* =====================================================
+   ON1 ID
+===================================================== */
+
+function getON1Id(data){
+
+    if(
+        data.on1Id
+    ){
+
+        return String(
+            data.on1Id
+        )
+        .trim()
+        .toUpperCase();
+
+    }
+
+    return "ON1 MEMBER";
+
+}
+
+
+/* =====================================================
    RANK CLASS
 ===================================================== */
 
 function getRankClass(rank){
 
     if(rank === 1){
-
         return "top-one";
-
     }
 
     if(rank === 2){
-
         return "top-two";
-
     }
 
     if(rank === 3){
-
         return "top-three";
-
     }
 
     return "";
+
+}
+
+
+/* =====================================================
+   FORMAT NUMBER
+===================================================== */
+
+function formatNumber(value){
+
+    return getNumber(
+        value
+    ).toLocaleString();
+
+}
+
+
+/* =====================================================
+   MODE SETTINGS
+===================================================== */
+
+function getModeSettings(){
+
+    if(
+        currentMode === "balance"
+    ){
+
+        return {
+
+            title:
+                "ON1COIN",
+
+            intro:
+                "Top 20 members by ON1Coin balance.",
+
+            valueHeader:
+                "ON1COIN",
+
+            secondaryHeader:
+                "LEVEL",
+
+            getValue:
+                getBalance,
+
+            formatValue:
+                function(value){
+
+                    return formatNumber(
+                        value
+                    );
+
+                },
+
+            getSecondary:
+                function(data){
+
+                    return calculateLevel(
+                        getXP(data)
+                    );
+
+                },
+
+            formatSecondary:
+                function(value){
+
+                    return "Lv " +
+                        formatNumber(
+                            value
+                        );
+
+                }
+
+        };
+
+    }
+
+
+    if(
+        currentMode === "streak"
+    ){
+
+        return {
+
+            title:
+                "STREAK",
+
+            intro:
+                "Top 20 members with the longest active mining streak.",
+
+            valueHeader:
+                "STREAK",
+
+            secondaryHeader:
+                "XP",
+
+            getValue:
+                getStreak,
+
+            formatValue:
+                function(value){
+
+                    return "Day " +
+                        formatNumber(
+                            value
+                        );
+
+                },
+
+            getSecondary:
+                getXP,
+
+            formatSecondary:
+                function(value){
+
+                    return formatNumber(
+                        value
+                    );
+
+                }
+
+        };
+
+    }
+
+
+    if(
+        currentMode === "referrals"
+    ){
+
+        return {
+
+            title:
+                "REFERRALS",
+
+            intro:
+                "Top 20 members by referral count.",
+
+            valueHeader:
+                "REFERRALS",
+
+            secondaryHeader:
+                "XP",
+
+            getValue:
+                getReferralCount,
+
+            formatValue:
+                function(value){
+
+                    return formatNumber(
+                        value
+                    );
+
+                },
+
+            getSecondary:
+                getXP,
+
+            formatSecondary:
+                function(value){
+
+                    return formatNumber(
+                        value
+                    );
+
+                }
+
+        };
+
+    }
+
+
+    return {
+
+        title:
+            "XP",
+
+        intro:
+            "Top 20 members by experience points.",
+
+        valueHeader:
+            "XP",
+
+        secondaryHeader:
+            "LEVEL",
+
+        getValue:
+            getXP,
+
+        formatValue:
+            function(value){
+
+                return formatNumber(
+                    value
+                );
+
+            },
+
+        getSecondary:
+            function(data){
+
+                return calculateLevel(
+                    getXP(data)
+                );
+
+            },
+
+        formatSecondary:
+            function(value){
+
+                return "Lv " +
+                    formatNumber(
+                        value
+                    );
+
+            }
+
+    };
+
+}
+
+
+/* =====================================================
+   UPDATE HEADERS
+===================================================== */
+
+function updateHeaders(){
+
+    const settings =
+        getModeSettings();
+
+
+    valueHeader.textContent =
+        settings.valueHeader;
+
+
+    secondaryHeader.textContent =
+        settings.secondaryHeader;
+
+
+    introText.textContent =
+        settings.intro;
+
+
+    yourMode.textContent =
+        settings.title +
+        " RANKING";
 
 }
 
@@ -1053,13 +1496,97 @@ function showStatus(
 
 
 /* =====================================================
+   SORT MEMBERS
+===================================================== */
+
+function sortMembers(){
+
+    const settings =
+        getModeSettings();
+
+
+    const sorted =
+        [...allMembers];
+
+
+    sorted.sort(
+        function(a,b){
+
+            const valueA =
+                settings.getValue(
+                    a.data
+                );
+
+            const valueB =
+                settings.getValue(
+                    b.data
+                );
+
+
+            if(
+                valueB !== valueA
+            ){
+
+                return valueB - valueA;
+
+            }
+
+
+            /*
+               If primary values tie,
+               higher XP wins.
+            */
+
+            const xpA =
+                getXP(a.data);
+
+            const xpB =
+                getXP(b.data);
+
+
+            if(
+                xpB !== xpA
+            ){
+
+                return xpB - xpA;
+
+            }
+
+
+            /*
+               Final deterministic tie-breaker.
+            */
+
+            return getON1Id(
+                a.data
+            )
+            .localeCompare(
+                getON1Id(
+                    b.data
+                )
+            );
+
+        }
+    );
+
+
+    return sorted;
+
+}
+
+
+/* =====================================================
    CREATE ROW
 ===================================================== */
 
 function createRow(
-    data,
+    member,
     rank
 ){
+
+    const data =
+        member.data;
+
 
     const row =
         document.createElement(
@@ -1073,7 +1600,8 @@ function createRow(
 
     const isCurrentUser =
         currentUser &&
-        data.uid === currentUser.uid;
+        member.uid ===
+        currentUser.uid;
 
 
     if(isCurrentUser){
@@ -1085,20 +1613,20 @@ function createRow(
     }
 
 
-    const xp =
-        getXP(data);
+    const settings =
+        getModeSettings();
 
 
-    const level =
-        calculateLevel(xp);
+    const value =
+        settings.getValue(
+            data
+        );
 
 
-    const name =
-        getMemberName(data);
-
-
-    const on1Id =
-        getON1Id(data);
+    const secondary =
+        settings.getSecondary(
+            data
+        );
 
 
     /* RANK */
@@ -1155,9 +1683,10 @@ function createRow(
     nameElement.className =
         "member-name";
 
-
     nameElement.textContent =
-        name;
+        getMemberName(
+            data
+        );
 
 
     if(isCurrentUser){
@@ -1189,7 +1718,9 @@ function createRow(
         "member-id";
 
     idElement.textContent =
-        on1Id;
+        getON1Id(
+            data
+        );
 
 
     memberElement.appendChild(
@@ -1201,32 +1732,36 @@ function createRow(
     );
 
 
-    /* XP */
+    /* PRIMARY VALUE */
 
-    const xpElement =
+    const valueElement =
         document.createElement(
             "div"
         );
 
-    xpElement.className =
-        "member-xp";
+    valueElement.className =
+        "member-value";
 
-    xpElement.textContent =
-        xp.toLocaleString();
+    valueElement.textContent =
+        settings.formatValue(
+            value
+        );
 
 
-    /* LEVEL */
+    /* SECONDARY VALUE */
 
-    const levelElement =
+    const secondaryElement =
         document.createElement(
             "div"
         );
 
-    levelElement.className =
-        "member-level";
+    secondaryElement.className =
+        "member-secondary";
 
-    levelElement.textContent =
-        "Lv " + level;
+    secondaryElement.textContent =
+        settings.formatSecondary(
+            secondary
+        );
 
 
     row.appendChild(
@@ -1238,11 +1773,11 @@ function createRow(
     );
 
     row.appendChild(
-        xpElement
+        valueElement
     );
 
     row.appendChild(
-        levelElement
+        secondaryElement
     );
 
 
@@ -1252,10 +1787,147 @@ function createRow(
 
 
 /* =====================================================
-   LOAD LEADERBOARD
+   DISPLAY LEADERBOARD
+===================================================== */
+
+function displayLeaderboard(){
+
+    updateHeaders();
+
+
+    leaderboardRows.innerHTML =
+        "";
+
+    status.className =
+        "status";
+
+
+    if(
+        !allMembers.length
+    ){
+
+        showStatus(
+            "The leaderboard is currently empty."
+        );
+
+        yourPosition.classList.remove(
+            "show"
+        );
+
+        return;
+
+    }
+
+
+    const sortedMembers =
+        sortMembers();
+
+
+    /*
+       ONLY TOP 20 ARE DISPLAYED.
+    */
+
+    const topTwenty =
+        sortedMembers.slice(
+            0,
+            20
+        );
+
+
+    topTwenty.forEach(
+        function(member,index){
+
+            leaderboardRows.appendChild(
+                createRow(
+                    member,
+                    index + 1
+                )
+            );
+
+        }
+    );
+
+
+    /*
+       Calculate the logged-in
+       member's complete rank.
+    */
+
+    if(currentUser){
+
+        const currentIndex =
+            sortedMembers.findIndex(
+                function(member){
+
+                    return (
+                        member.uid ===
+                        currentUser.uid
+                    );
+
+                }
+            );
+
+
+        if(
+            currentIndex !== -1
+        ){
+
+            const member =
+                sortedMembers[
+                    currentIndex
+                ];
+
+
+            yourName.textContent =
+                getMemberName(
+                    member.data
+                );
+
+
+            yourRank.textContent =
+                "#" +
+                (
+                    currentIndex + 1
+                );
+
+
+            yourPosition.classList.add(
+                "show"
+            );
+
+        }else{
+
+            yourPosition.classList.remove(
+                "show"
+            );
+
+        }
+
+    }else{
+
+        yourPosition.classList.remove(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   LOAD MEMBERS
 ===================================================== */
 
 async function loadLeaderboard(){
+
+    if(dataLoaded){
+
+        displayLeaderboard();
+
+        return;
+
+    }
+
 
     loading.style.display =
         "block";
@@ -1270,120 +1942,59 @@ async function loadLeaderboard(){
     try{
 
         /*
-           IMPORTANT:
+           READ ONLY.
 
-           This page ONLY READS leaderboard data.
-
-           It never changes XP,
-           ON1Coin balance,
-           referral rewards,
-           or user profiles.
+           No balances,
+           XP,
+           streaks,
+           referrals,
+           or transactions
+           are modified here.
         */
-
-
-        const leaderboardQuery =
-            query(
-                collection(
-                    db,
-                    "users"
-                ),
-                orderBy(
-                    "xp",
-                    "desc"
-                ),
-                limit(50)
-            );
-
 
         const snapshot =
             await getDocs(
-                leaderboardQuery
+                collection(
+                    db,
+                    "users"
+                )
             );
+
+
+        allMembers =
+            [];
+
+
+        snapshot.forEach(
+            function(docSnapshot){
+
+                const data =
+                    docSnapshot.data();
+
+
+                allMembers.push({
+
+                    uid:
+                        docSnapshot.id,
+
+                    data:
+                        data
+
+                });
+
+            }
+        );
+
+
+        dataLoaded =
+            true;
 
 
         loading.style.display =
             "none";
 
 
-        if(snapshot.empty){
-
-            showStatus(
-                "The leaderboard is currently empty."
-            );
-
-            return;
-
-        }
-
-
-        let rank =
-            0;
-
-
-        let currentUserRank =
-            null;
-
-
-        snapshot.forEach(
-            function(docSnapshot){
-
-                rank++;
-
-
-                const data =
-                    docSnapshot.data();
-
-
-                /*
-                   Keep UID available for
-                   current-user highlighting.
-                */
-
-                data.uid =
-                    docSnapshot.id;
-
-
-                leaderboardRows.appendChild(
-                    createRow(
-                        data,
-                        rank
-                    )
-                );
-
-
-                if(
-                    currentUser &&
-                    docSnapshot.id ===
-                    currentUser.uid
-                ){
-
-                    currentUserRank =
-                        rank;
-
-                    yourName.textContent =
-                        getMemberName(data);
-
-                }
-
-            }
-        );
-
-
-        /*
-           Current user's position
-        */
-
-        if(currentUserRank){
-
-            yourRank.textContent =
-                "#" +
-                currentUserRank;
-
-            yourPosition.classList.add(
-                "show"
-            );
-
-        }
+        displayLeaderboard();
 
 
     }catch(error){
@@ -1409,6 +2020,66 @@ async function loadLeaderboard(){
 
 
 /* =====================================================
+   TAB EVENTS
+===================================================== */
+
+tabs.forEach(
+    function(tab){
+
+        tab.addEventListener(
+            "click",
+            function(){
+
+                const mode =
+                    tab.dataset.mode;
+
+
+                if(
+                    !mode
+                ){
+
+                    return;
+
+                }
+
+
+                currentMode =
+                    mode;
+
+
+                tabs.forEach(
+                    function(item){
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                tab.classList.add(
+                    "active"
+                );
+
+
+                /*
+                   Re-rank existing data.
+
+                   No additional Firebase
+                   read is needed.
+                */
+
+                displayLeaderboard();
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
    AUTH STATE
 ===================================================== */
 
@@ -1419,14 +2090,6 @@ onAuthStateChanged(
         currentUser =
             user || null;
 
-
-        /*
-           The leaderboard is public to
-           authenticated ON1 members.
-
-           If there is no session,
-           simply load the public ranking.
-        */
 
         loadLeaderboard();
 

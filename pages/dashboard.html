@@ -232,6 +232,74 @@ button{
 
 
 /* =====================================================
+   QUICK APP NAVIGATION
+===================================================== */
+
+.app-nav{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+
+    margin-top:14px;
+}
+
+.app-nav-btn{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:7px;
+
+    min-height:44px;
+
+    padding:8px 10px;
+
+    background:rgba(12,22,36,.94);
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    color:#dce8f5;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    text-align:center;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+}
+
+.app-nav-btn:hover{
+    border-color:rgba(58,160,255,.55);
+
+    background:rgba(16,29,45,.98);
+
+    transform:translateY(-1px);
+}
+
+.app-nav-icon{
+    font-size:16px;
+}
+
+.app-nav-btn.xp{
+    color:var(--blue2);
+}
+
+.app-nav-btn.xp .app-nav-icon{
+    color:var(--blue2);
+}
+
+
+/* =====================================================
    MAIN GRID
 ===================================================== */
 
@@ -328,13 +396,13 @@ button{
 }
 
 .rate{
-    margin-top:18px;
+    margin-top:13px;
 
     text-align:center;
 }
 
 .rate-number{
-    font-size:34px;
+    font-size:30px;
 
     font-weight:900;
 
@@ -342,24 +410,33 @@ button{
 }
 
 .rate-label{
-    margin-top:3px;
+    margin-top:2px;
 
     color:var(--muted);
 
-    font-size:9px;
+    font-size:8px;
 }
 
 
 /* =====================================================
-   STREAK
+   COMPACT MINING STATUS
 ===================================================== */
 
-.streak{
-    margin-top:16px;
+.mining-status-row{
+    display:grid;
 
-    padding:11px;
+    grid-template-columns:
+        1fr 1fr;
 
-    border-radius:11px;
+    gap:8px;
+
+    margin-top:12px;
+}
+
+.mining-status-box{
+    padding:9px 10px;
+
+    border-radius:10px;
 
     background:rgba(0,223,136,.045);
 
@@ -367,23 +444,27 @@ button{
 
     display:flex;
 
+    align-items:center;
+
     justify-content:space-between;
 
-    align-items:center;
+    gap:8px;
 }
 
-.streak-label{
+.mining-status-label{
     color:var(--muted);
 
-    font-size:9px;
+    font-size:8px;
 }
 
-.streak-value{
+.mining-status-value{
     color:var(--green);
 
     font-weight:800;
 
-    font-size:13px;
+    font-size:11px;
+
+    white-space:nowrap;
 }
 
 
@@ -395,9 +476,9 @@ button{
 .streak-btn{
     width:100%;
 
-    height:45px;
+    height:43px;
 
-    margin-top:12px;
+    margin-top:10px;
 
     border:none;
 
@@ -405,7 +486,7 @@ button{
 
     color:white;
 
-    font-size:11px;
+    font-size:10px;
 
     font-weight:800;
 
@@ -440,7 +521,7 @@ button{
 }
 
 .next-mine{
-    margin-top:8px;
+    margin-top:6px;
 
     text-align:center;
 
@@ -450,7 +531,7 @@ button{
 }
 
 .streak-status{
-    margin-top:7px;
+    margin-top:5px;
 
     text-align:center;
 
@@ -467,9 +548,9 @@ button{
 .message{
     display:none;
 
-    margin-top:12px;
+    margin-top:10px;
 
-    padding:10px;
+    padding:9px;
 
     border-radius:9px;
 
@@ -506,7 +587,15 @@ button{
 ===================================================== */
 
 .level-box{
-    margin-top:15px;
+    margin-top:11px;
+
+    padding:9px 10px;
+
+    border-radius:10px;
+
+    background:rgba(8,124,255,.035);
+
+    border:1px solid rgba(8,124,255,.10);
 }
 
 .level-head{
@@ -520,7 +609,7 @@ button{
 .level-name{
     color:var(--green);
 
-    font-size:10px;
+    font-size:9px;
 
     font-weight:800;
 }
@@ -532,9 +621,9 @@ button{
 }
 
 .progress{
-    height:7px;
+    height:6px;
 
-    margin-top:7px;
+    margin-top:6px;
 
     background:#07101b;
 
@@ -1077,6 +1166,11 @@ footer{
         grid-template-columns:1fr;
     }
 
+    .app-nav{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
 }
 
 @media(max-width:500px){
@@ -1106,6 +1200,24 @@ footer{
         height:34px;
     }
 
+    .app-nav{
+        gap:7px;
+    }
+
+    .app-nav-btn{
+        min-height:42px;
+
+        font-size:8px;
+    }
+
+    .app-nav-icon{
+        font-size:15px;
+    }
+
+    .mining-status-row{
+        grid-template-columns:1fr;
+    }
+
     .referral-link-row{
         flex-direction:column;
     }
@@ -1120,11 +1232,6 @@ footer{
 
 }
 
-
-/* =====================================================
-   VERY SMALL SCREENS
-===================================================== */
-
 @media(max-width:350px){
 
     .stats{
@@ -1132,6 +1239,10 @@ footer{
     }
 
     .referral-stats{
+        grid-template-columns:1fr;
+    }
+
+    .app-nav{
         grid-template-columns:1fr;
     }
 
@@ -1245,7 +1356,6 @@ footer{
 
 <section class="stats">
 
-
     <div class="stat-card">
 
         <div class="stat-label">
@@ -1296,8 +1406,75 @@ footer{
 
     </div>
 
-
 </section>
+
+
+<!-- =====================================================
+     APP NAVIGATION
+===================================================== -->
+
+<nav class="app-nav">
+
+    <a
+        href="wallet.html"
+        class="app-nav-btn">
+
+        <span class="app-nav-icon">
+            💰
+        </span>
+
+        <span>
+            Wallet
+        </span>
+
+    </a>
+
+
+    <a
+        href="profile.html"
+        class="app-nav-btn">
+
+        <span class="app-nav-icon">
+            👤
+        </span>
+
+        <span>
+            Your Profile
+        </span>
+
+    </a>
+
+
+    <a
+        href="referral.html"
+        class="app-nav-btn">
+
+        <span class="app-nav-icon">
+            🤝
+        </span>
+
+        <span>
+            Referral Program
+        </span>
+
+    </a>
+
+
+    <a
+        href="earn-xp.html"
+        class="app-nav-btn xp">
+
+        <span class="app-nav-icon">
+            🎯
+        </span>
+
+        <span>
+            Earn More ON1XP
+        </span>
+
+    </a>
+
+</nav>
 
 
 <!-- =====================================================
@@ -1352,21 +1529,44 @@ footer{
     </div>
 
 
-    <!-- STREAK -->
+    <!-- COMPACT STATUS -->
 
-    <div class="streak">
+    <div class="mining-status-row">
 
-        <div class="streak-label">
-            Current mining streak
+
+        <div class="mining-status-box">
+
+            <div class="mining-status-label">
+                Mining Streak
+            </div>
+
+            <div
+                class="mining-status-value"
+                id="streak">
+
+                Day 0
+
+            </div>
+
         </div>
 
-        <div
-            class="streak-value"
-            id="streak">
 
-            Day 0
+        <div class="mining-status-box">
+
+            <div class="mining-status-label">
+                Streak Bonus
+            </div>
+
+            <div
+                class="mining-status-value"
+                id="compactStreakStatus">
+
+                —
+
+            </div>
 
         </div>
+
 
     </div>
 
@@ -1951,6 +2151,11 @@ const nextMine =
 const streakStatus =
     document.getElementById("streakStatus");
 
+const compactStreakStatus =
+    document.getElementById(
+        "compactStreakStatus"
+    );
+
 const logoutBtn =
     document.getElementById("logoutBtn");
 
@@ -1979,7 +2184,9 @@ const referralProgramId =
     document.getElementById("referralProgramId");
 
 const referralProgramUsername =
-    document.getElementById("referralProgramUsername");
+    document.getElementById(
+        "referralProgramUsername"
+    );
 
 
 /* =====================================================
@@ -2032,63 +2239,6 @@ function getXP(data){
         return Number(
             data.experiencePoints
         ) || 0;
-
-    }
-
-    return 0;
-
-}
-
-
-/* =====================================================
-   TIMESTAMP
-===================================================== */
-
-function timestampToMillis(value){
-
-    if(!value){
-        return 0;
-    }
-
-    if(
-        typeof value.toMillis ===
-        "function"
-    ){
-
-        return value.toMillis();
-
-    }
-
-    if(
-        value.seconds !== undefined
-    ){
-
-        return Number(value.seconds) * 1000;
-
-    }
-
-    if(value instanceof Date){
-
-        return value.getTime();
-
-    }
-
-    if(typeof value === "number"){
-
-        return value;
-
-    }
-
-    if(typeof value === "string"){
-
-        const parsed =
-            Date.parse(value);
-
-        if(!isNaN(parsed)){
-
-            return parsed;
-
-        }
 
     }
 
@@ -2329,13 +2479,6 @@ function getReferralBonus(data,count){
     }
 
 
-    /*
-       This is a DISPLAY calculation only.
-
-       It does not write anything to
-       Firestore or change the user's balance.
-    */
-
     return (
         count *
         REFERRAL_REWARD_ON1
@@ -2384,10 +2527,6 @@ function getReferralXPBonus(data,count){
 
     }
 
-
-    /*
-       Display-only expected amount.
-    */
 
     return (
         count *
@@ -2476,14 +2615,10 @@ function updateReferralProgram(
         );
 
 
-    /* LINK */
-
     referralLink.value =
         link ||
         "Your referral link is being prepared...";
 
-
-    /* STATS */
 
     referralCount.textContent =
         count.toLocaleString();
@@ -2499,8 +2634,6 @@ function updateReferralProgram(
         " XP";
 
 
-    /* IDENTITY */
-
     referralProgramId.textContent =
         on1Id;
 
@@ -2508,8 +2641,6 @@ function updateReferralProgram(
     referralProgramUsername.textContent =
         username;
 
-
-    /* BUTTONS */
 
     copyReferralBtn.disabled =
         !link;
@@ -2550,8 +2681,6 @@ function updateDashboard(data){
         calculateLevel(xp);
 
 
-    /* NAME */
-
     document.getElementById(
         "firstName"
     ).textContent =
@@ -2562,15 +2691,11 @@ function updateDashboard(data){
         "Member";
 
 
-    /* BALANCE */
-
     document.getElementById(
         "balance"
     ).textContent =
         balance.toFixed(3);
 
-
-    /* XP */
 
     document.getElementById(
         "xp"
@@ -2578,23 +2703,17 @@ function updateDashboard(data){
         xp.toLocaleString();
 
 
-    /* LEVEL */
-
     document.getElementById(
         "level"
     ).textContent =
         level;
 
 
-    /* STREAK */
-
     document.getElementById(
         "streak"
     ).textContent =
         "Day " + streak;
 
-
-    /* PROFILE */
 
     document.getElementById(
         "username"
@@ -2617,8 +2736,6 @@ function updateDashboard(data){
         data.kycLevel ?? 0;
 
 
-    /* ON1 ID */
-
     const on1Id =
         getON1Id(
             data,
@@ -2632,8 +2749,6 @@ function updateDashboard(data){
         on1Id;
 
 
-    /* REFERRAL */
-
     document.getElementById(
         "referral"
     ).textContent =
@@ -2646,15 +2761,11 @@ function updateDashboard(data){
         getReferralId(data);
 
 
-    /* REFERRAL PROGRAM */
-
     updateReferralProgram(
         data,
         currentUser
     );
 
-
-    /* XP PROGRESS */
 
     const currentXP =
         xp % XP_PER_LEVEL;
@@ -2694,11 +2805,6 @@ function updateDashboard(data){
         ) + "%";
 
 
-    /*
-       Display only.
-       No XP is added here.
-    */
-
     document.getElementById(
         "welcomeBonus"
     ).textContent =
@@ -2732,8 +2838,6 @@ function updateMiningState(data){
         Date.now();
 
 
-    /* NEVER MINED */
-
     if(!lastClaim){
 
         mineBtn.disabled =
@@ -2755,6 +2859,9 @@ function updateMiningState(data){
         streakStatus.textContent =
             "Claim today's base mining first.";
 
+        compactStreakStatus.textContent =
+            "Ready";
+
         return;
 
     }
@@ -2763,8 +2870,6 @@ function updateMiningState(data){
     const elapsed =
         now - lastClaim;
 
-
-    /* NEXT CYCLE READY */
 
     if(elapsed >= DAY){
 
@@ -2787,12 +2892,13 @@ function updateMiningState(data){
         streakStatus.textContent =
             "Start today's mining cycle first.";
 
+        compactStreakStatus.textContent =
+            "Ready";
+
         return;
 
     }
 
-
-    /* MINING ACTIVE */
 
     mineBtn.disabled =
         true;
@@ -2810,8 +2916,6 @@ function updateMiningState(data){
         formatTime(remaining);
 
 
-    /* STREAK */
-
     const streakAlreadyClaimed =
         lastStreakClaim >= lastClaim;
 
@@ -2826,6 +2930,9 @@ function updateMiningState(data){
 
         streakStatus.textContent =
             "Today's streak bonus has already been claimed.";
+
+        compactStreakStatus.textContent =
+            "Claimed";
 
         return;
 
@@ -2861,6 +2968,9 @@ function updateMiningState(data){
         streakStatus.textContent =
             "Complete a mining cycle to unlock the streak bonus.";
 
+        compactStreakStatus.textContent =
+            "Locked";
+
         return;
 
     }
@@ -2878,6 +2988,9 @@ function updateMiningState(data){
         "Your Day " +
         streak +
         " streak bonus is ready.";
+
+    compactStreakStatus.textContent =
+        "+" + bonus + " ON1";
 
 }
 
@@ -3091,13 +3204,6 @@ shareReferralBtn.addEventListener(
         }
 
 
-        const username =
-            document.getElementById(
-                "username"
-            ).textContent ||
-            "an ON1 member";
-
-
         const shareText =
             "Join me on ON1Ecosystem and become part of the ecosystem. Use my referral link to sign up.";
 
@@ -3126,9 +3232,6 @@ shareReferralBtn.addEventListener(
             }
 
 
-            /* If Web Share is unavailable,
-               copy the link instead. */
-
             await navigator.clipboard.writeText(
                 link
             );
@@ -3155,11 +3258,6 @@ shareReferralBtn.addEventListener(
 
 
         }catch(error){
-
-            /*
-               User may simply have closed
-               the native share dialog.
-            */
 
             console.log(
                 "Share cancelled or unavailable:",
@@ -3204,16 +3302,6 @@ async function loadUser(user){
     const data =
         snapshot.data();
 
-
-    /*
-       Dashboard only READS the user's data.
-
-       It does NOT create XP.
-
-       It does NOT reset XP.
-
-       It does NOT change balance.
-    */
 
     updateDashboard(data);
 
@@ -3656,4 +3744,4 @@ setTimeout(
 
 </body>
 
-      </html>
+</html>

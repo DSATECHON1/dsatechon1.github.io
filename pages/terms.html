@@ -1,303 +1,1309 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
 
-<title>Terms of Service — ON1Ecosystem</title><meta name="description"
-content="Terms of Service for ON1Ecosystem.">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color"
-content="#050b13">
+      content="#06101d">
+
+<meta name="description"
+      content="Read the ON1Ecosystem Privacy Policy to understand how account information, usage data, cookies, advertising and member information may be handled.">
+
+<meta name="robots"
+      content="index, follow">
+
+<meta name="google-adsense-account"
+      content="ca-pub-1529736084012433">
+
+<script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1529736084012433"
+        crossorigin="anonymous"></script>
+
+<link rel="canonical"
+      href="https://dsatechon1.github.io/pages/privacy.html">
+
+<title>Privacy Policy | ON1Ecosystem</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#050b13;
-    color:#fff;
-    line-height:1.8;
-    padding:25px 18px;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:#06101d;
+    color:#eaf2f8;
+    line-height:1.7;
 }
 
-.container{
-    width:100%;
-    max-width:850px;
-    margin:auto;
-}
-
-.top{
-    margin-bottom:35px;
-}
-
-.back{
-    color:#42a5ff;
+a{
+    color:inherit;
     text-decoration:none;
-    font-size:13px;
 }
 
-.back:hover{
-    text-decoration:underline;
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(6,16,29,.96);
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+}
+
+.header-inner{
+    width:min(1100px,92%);
+    margin:auto;
+
+    min-height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .brand{
-    margin-top:25px;
-    font-size:24px;
-    font-weight:900;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    min-width:0;
 }
 
-.brand span{
-    color:#42a5ff;
+.brand img{
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    border-radius:8px;
 }
 
-.updated{
-    margin-top:8px;
-    color:#60748a;
-    font-size:12px;
+.brand-text{
+    min-width:0;
 }
 
-.card{
-    background:#0b1623;
-    border:1px solid #1b2d43;
-    border-radius:18px;
-    padding:30px 25px;
+.brand-name{
+    font-size:17px;
+    font-weight:800;
+    letter-spacing:.2px;
+    white-space:nowrap;
 }
 
-h1{
-    color:#42a5ff;
-    font-size:32px;
+.brand-subtitle{
+    font-size:10px;
+    color:#8fa5b7;
+    letter-spacing:1.2px;
+    margin-top:1px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.menu-button{
+    width:42px;
+    height:42px;
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:10px;
+
+    background:#0b1b2b;
+    color:#fff;
+
+    font-size:22px;
+    cursor:pointer;
+}
+
+nav{
+    display:none;
+
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+
+    background:#081523;
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    padding:12px 4%;
+}
+
+nav.active{
+    display:block;
+}
+
+nav a{
+    display:block;
+    padding:12px 10px;
+
+    color:#cbd8e2;
+    font-size:14px;
+
+    border-radius:8px;
+}
+
+nav a:hover{
+    background:#102538;
+    color:#fff;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    width:min(850px,92%);
+    margin:auto;
+
+    padding:60px 0 40px;
+
+    text-align:center;
+}
+
+.eyebrow{
+    display:inline-block;
+
+    padding:6px 12px;
+    margin-bottom:16px;
+
+    border:1px solid rgba(69,173,255,.25);
+    border-radius:999px;
+
+    background:rgba(29,113,173,.10);
+
+    color:#73c5ff;
+
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-size:clamp(32px,7vw,50px);
+    line-height:1.12;
+    margin-bottom:16px;
+}
+
+.hero h1 span{
+    color:#61c3ff;
+}
+
+.hero p{
+    max-width:720px;
+    margin:auto;
+
+    color:#9fb2c2;
+    font-size:15px;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main{
+    width:min(900px,92%);
+    margin:auto;
+}
+
+.policy{
+    padding:10px 0 55px;
+}
+
+.policy-card{
+    margin-bottom:16px;
+
+    padding:24px;
+
+    background:#0a1928;
+
+    border:1px solid rgba(255,255,255,.075);
+
+    border-radius:14px;
+}
+
+.policy-card h2{
     margin-bottom:10px;
+
+    color:#eaf2f8;
+
+    font-size:22px;
+    line-height:1.3;
 }
 
-h2{
-    color:#42a5ff;
-    font-size:20px;
-    margin-top:30px;
-    margin-bottom:8px;
+.policy-card h3{
+    margin-top:18px;
+    margin-bottom:7px;
+
+    font-size:17px;
 }
 
-p{
-    color:#9caec0;
+.policy-card p{
+    color:#a4b5c2;
     font-size:14px;
-    margin-top:8px;
 }
 
-ul{
+.policy-card p + p{
+    margin-top:12px;
+}
+
+.policy-card ul{
     margin:10px 0 0 20px;
-    color:#9caec0;
+}
+
+.policy-card li{
+    margin:7px 0;
+
+    color:#a4b5c2;
     font-size:14px;
 }
 
-li{
-    margin-top:6px;
+.policy-card strong{
+    color:#e8f1f7;
 }
 
-.footer{
-    margin-top:30px;
-    padding-top:20px;
-    border-top:1px solid #17283b;
-    color:#52667a;
+.policy-card a{
+    color:#68c6ff;
+}
+
+.policy-card a:hover{
+    text-decoration:underline;
+}
+
+
+/* =====================================================
+   UPDATE NOTICE
+===================================================== */
+
+.last-updated{
+    margin-bottom:20px;
+
+    padding:12px 15px;
+
+    background:#091724;
+
+    border-left:3px solid #3e9bd0;
+
+    border-radius:8px;
+
+    color:#91a7b6;
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   HIGHLIGHT BOX
+===================================================== */
+
+.notice{
+    margin-top:16px;
+
+    padding:17px;
+
+    background:#0b2032;
+
+    border:1px solid rgba(97,195,255,.13);
+
+    border-radius:10px;
+}
+
+.notice p{
+    color:#a8bac8;
+    font-size:13px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.07);
+    padding:32px 0;
+}
+
+.footer-inner{
+    width:min(1000px,92%);
+    margin:auto;
+}
+
+.footer-brand{
+    font-size:16px;
+    font-weight:800;
+    margin-bottom:6px;
+}
+
+.footer-description{
+    color:#8296a7;
+    font-size:12px;
+    max-width:520px;
+}
+
+.footer-columns{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+
+    margin-top:24px;
+}
+
+.footer-column h4{
+    font-size:11px;
+    color:#6faed0;
+    letter-spacing:1px;
+    margin-bottom:9px;
+}
+
+.footer-column a{
+    display:block;
+
+    color:#91a4b3;
+    font-size:12px;
+
+    margin:5px 0;
+}
+
+.footer-column a:hover{
+    color:#fff;
+}
+
+.copyright{
+    margin-top:25px;
+    padding-top:18px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    color:#657988;
     font-size:11px;
 }
 
-@media(max-width:600px){
 
-    body{
-        padding:20px 14px;
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:650px){
+
+    .hero{
+        padding-top:48px;
     }
 
-    .card{
-        padding:24px 18px;
+    .hero p{
+        font-size:14px;
     }
 
-    h1{
-        font-size:27px;
+    .policy-card{
+        padding:20px;
     }
 
-    h2{
-        font-size:18px;
+    .policy-card h2{
+        font-size:20px;
     }
 
-    p,
-    ul{
-        font-size:13px;
+    .footer-columns{
+        grid-template-columns:1fr 1fr;
     }
-
 }
 
-</style></head><body><div class="container"><div class="top">
 
-    <a href="../index.html"
-       class="back">
-        ← Back to Home
-    </a>
+@media (min-width:800px){
 
-    <div class="brand">
-        ON1<span>Ecosystem</span>
-    </div>
+    .menu-button{
+        display:none;
+    }
 
-    <div class="updated">
-        Last updated: August 31, 2026
-    </div>
+    nav{
+        display:flex;
+        position:static;
+
+        padding:0;
+
+        background:none;
+        border:0;
+
+        gap:5px;
+    }
+
+    nav a{
+        padding:8px 10px;
+    }
+
+    .header-inner{
+        min-height:76px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="header-inner">
+
+
+<a href="../index.html"
+   class="brand">
+
+<img src="../logo.png"
+     alt="DSATECHON1 Logo"
+     onerror="this.style.display='none';">
+
+<div class="brand-text">
+
+<div class="brand-name">
+ON1Ecosystem
+</div>
+
+<div class="brand-subtitle">
+DIGITAL ECOSYSTEM
+</div>
+
+</div>
+
+</a>
+
+
+<button class="menu-button"
+        id="menuButton"
+        aria-label="Open navigation"
+        aria-expanded="false">
+
+☰
+
+</button>
+
+
+<nav id="mainNav">
+
+<a href="../index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="how-it-works.html">
+How It Works
+</a>
+
+<a href="login.html">
+Login
+</a>
+
+<a href="signup.html">
+Create Account
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="eyebrow">
+Privacy & Transparency
+</div>
+
+<h1>
+Privacy <span>Policy</span>
+</h1>
+
+<p>
+This Privacy Policy explains how ON1Ecosystem may collect, use,
+store and protect information associated with visitors, members,
+website usage, advertising and participation in the ecosystem.
+</p>
+
+</section>
+
+
+<main>
+
+<section class="policy">
+
+
+<div class="last-updated">
+<strong>Last updated:</strong> September 2026
+</div>
+
+
+<!-- =====================================================
+     1. INTRODUCTION
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+1. Introduction
+</h2>
+
+<p>
+ON1Ecosystem is a digital ecosystem initiative by DSATECHON1.
+The ecosystem is being developed to bring multiple digital
+services, participation features and opportunities together
+within one connected platform.
+</p>
+
+<p>
+This Privacy Policy explains the general approach used when
+information is handled through the ON1Ecosystem website,
+member account features and related services.
+</p>
+
+<p>
+By using the website or creating an account, you should review
+this Privacy Policy and the applicable Terms of Service so that
+you understand how the platform operates.
+</p>
 
 </div>
 
 
-<div class="card">
+<!-- =====================================================
+     2. INFORMATION WE MAY COLLECT
+===================================================== -->
 
-    <h1>Terms of Service</h1>
+<div class="policy-card">
 
-    <p>
-        These Terms of Service explain the basic rules
-        governing your use of ON1Ecosystem and its
-        available services and features.
-    </p>
+<h2>
+2. Information We May Collect
+</h2>
 
+<p>
+Depending on the features you use, ON1Ecosystem may process
+different categories of information.
+</p>
 
-    <h2>1. About ON1Ecosystem</h2>
+<h3>
+Account Information
+</h3>
 
-    <p>
-        ON1Ecosystem is a developing digital ecosystem
-        designed to bring services, participation,
-        partnerships and digital rewards together in
-        one connected experience.
-    </p>
+<p>
+When an account is created, information provided during
+registration may be used to establish and maintain the member
+account.
+</p>
 
+<h3>
+Participation Information
+</h3>
 
-    <h2>2. User Accounts</h2>
+<p>
+The platform may record information associated with participation,
+including ON1Coin activity, ON1XP activity, mining cycles,
+streaks, referrals and other eligible ecosystem activities.
+</p>
 
-    <p>
-        Users are responsible for providing accurate
-        information when creating an account and for
-        keeping their account credentials secure.
-    </p>
+<h3>
+Technical Information
+</h3>
 
-    <p>
-        Each person should maintain only one personal
-        ON1Ecosystem account unless otherwise permitted
-        by the platform.
-    </p>
+<p>
+Depending on the services and technologies in use, technical
+information may include browser type, device information,
+IP address, approximate location derived from technical data,
+pages visited and general website interaction information.
+</p>
 
+<h3>
+Information You Provide Voluntarily
+</h3>
 
-    <h2>3. Acceptable Use</h2>
+<p>
+Information may also be received when you contact the team,
+submit a partnership enquiry, request support or otherwise
+voluntarily provide information through an available website
+feature.
+</p>
 
-    <p>
-        Users must use the platform honestly and
-        responsibly.
-    </p>
+<div class="notice">
 
-    <ul>
-
-        <li>No bots or automated scripts intended to
-        manipulate platform activity.</li>
-
-        <li>No fake or fraudulent referrals.</li>
-
-        <li>No attempts to manipulate rewards,
-        balances or participation records.</li>
-
-        <li>No activity intended to damage,
-        disrupt or abuse the platform.</li>
-
-    </ul>
-
-
-    <h2>4. ON1Coin</h2>
-
-    <p>
-        ON1Coin is a digital reward and ecosystem
-        participation unit within ON1Ecosystem.
-    </p>
-
-    <p>
-        Any future utility, transferability,
-        redemption or exchange functionality will
-        depend on the services officially made available
-        by ON1Ecosystem.
-    </p>
-
-    <p>
-        Users should not treat ON1Coin as a guaranteed
-        monetary asset or guaranteed source of income.
-    </p>
-
-
-    <h2>5. Rewards and Participation</h2>
-
-    <p>
-        Mining, streaks, referrals, XP and other reward
-        mechanisms may be changed, limited, suspended or
-        discontinued as the ecosystem develops.
-    </p>
-
-    <p>
-        Reward eligibility may depend on completing the
-        applicable requirements and complying with these
-        Terms of Service.
-    </p>
-
-
-    <h2>6. Partnerships and Advertisements</h2>
-
-    <p>
-        ON1Ecosystem may provide activities,
-        advertisements or third-party partnership
-        opportunities.
-    </p>
-
-    <p>
-        Third-party services may have their own terms,
-        privacy policies and eligibility requirements.
-        Users should review those terms before
-        participating.
-    </p>
-
-
-    <h2>7. Changes to the Platform</h2>
-
-    <p>
-        ON1Ecosystem is continuously developing.
-        Features, rewards, services and requirements may
-        change as the platform evolves.
-    </p>
-
-
-    <h2>8. Suspension or Termination</h2>
-
-    <p>
-        ON1Ecosystem may restrict or suspend accounts
-        that violate these Terms, attempt to manipulate
-        the platform, or engage in fraudulent or abusive
-        activity.
-    </p>
-
-
-    <h2>9. No Guarantee</h2>
-
-    <p>
-        ON1Ecosystem is provided as a developing digital
-        platform. We do not guarantee uninterrupted
-        availability of every feature or service.
-    </p>
-
-
-    <h2>10. Acceptance</h2>
-
-    <p>
-        By creating an account or using ON1Ecosystem,
-        you acknowledge that you have read and agree to
-        these Terms of Service.
-    </p>
-
-
-    <div class="footer">
-        © 2026 ON1Ecosystem<br>
-        An initiative by DSATECHON1
-    </div>
+<p>
+Please do not submit passwords, private keys, payment card
+details or other highly sensitive information through public
+contact forms or ordinary communications.
+</p>
 
 </div>
 
-</div></body></html>
+</div>
+
+
+<!-- =====================================================
+     3. HOW INFORMATION IS USED
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+3. How Information May Be Used
+</h2>
+
+<p>
+Information may be used for legitimate operational purposes,
+including:
+</p>
+
+<ul>
+
+<li>
+Creating and maintaining member accounts.
+</li>
+
+<li>
+Authenticating members and providing access to account features.
+</li>
+
+<li>
+Maintaining account balances, activity records and participation
+information.
+</li>
+
+<li>
+Operating mining, streak, referral and ON1XP-related features.
+</li>
+
+<li>
+Improving website functionality, usability and reliability.
+</li>
+
+<li>
+Maintaining platform security and detecting suspicious activity.
+</li>
+
+<li>
+Responding to questions, support requests and partnership
+enquiries.
+</li>
+
+<li>
+Understanding general website usage and improving available
+services.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- =====================================================
+     4. MEMBER ACCOUNTS
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+4. Member Accounts
+</h2>
+
+<p>
+If you create an ON1Ecosystem account, information associated
+with the account may be stored so that authentication,
+participation and member features can operate correctly.
+</p>
+
+<p>
+Members are responsible for keeping their login credentials
+confidential and should take reasonable steps to protect access
+to their accounts.
+</p>
+
+<p>
+If you believe that your account has been accessed without
+authorization, you should contact the appropriate ON1Ecosystem
+support channel as soon as reasonably possible.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     5. COOKIES AND STORAGE
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+5. Cookies and Similar Technologies
+</h2>
+
+<p>
+ON1Ecosystem and third-party services used by the website may
+use cookies, local storage, pixels or similar technologies.
+</p>
+
+<p>
+These technologies may support functions such as remembering
+preferences, maintaining website functionality, understanding
+general usage patterns, improving services and displaying or
+measuring advertising.
+</p>
+
+<p>
+The technologies used may change as the ecosystem develops and
+additional services are introduced.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     6. ADVERTISING
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+6. Advertising
+</h2>
+
+<p>
+ON1Ecosystem may display advertising provided by third-party
+advertising services. Advertising providers may use cookies,
+device information or similar technologies to deliver, measure
+or personalize advertisements according to their own policies
+and applicable requirements.
+</p>
+
+<p>
+The information collected by an advertising provider is generally
+subject to that provider's own privacy policy and advertising
+choices.
+</p>
+
+<p>
+Users should review the privacy information of the relevant
+advertising provider for details about its data practices,
+cookies and available advertising controls.
+</p>
+
+<div class="notice">
+
+<p>
+Advertising services may change over time as ON1Ecosystem
+develops its platform and monetization arrangements.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     7. THIRD-PARTY SERVICES
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+7. Third-Party Services
+</h2>
+
+<p>
+ON1Ecosystem may rely on third-party services to support
+specific website functions. These services may include
+authentication, database infrastructure, hosting, advertising,
+analytics, security and other technical services.
+</p>
+
+<p>
+Where third-party services process information, their handling
+of information is governed by their respective privacy policies,
+terms and applicable legal or contractual obligations.
+</p>
+
+<p>
+Third-party services and providers may change as the ecosystem
+develops.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     8. DATA SECURITY
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+8. Data Security
+</h2>
+
+<p>
+Reasonable technical and organizational measures are used to
+help protect information handled through the ecosystem.
+</p>
+
+<p>
+However, no website, internet connection or online storage
+system can guarantee absolute security. Users should therefore
+take reasonable precautions when creating accounts and accessing
+online services.
+</p>
+
+<p>
+Members should use strong passwords, avoid sharing account
+credentials and sign out of accounts when using shared devices.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     9. DATA RETENTION
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+9. Data Retention
+</h2>
+
+<p>
+Information may be retained for as long as reasonably necessary
+to provide services, maintain account records, operate
+participation features, prevent abuse, resolve disputes,
+maintain security or satisfy applicable legal and operational
+requirements.
+</p>
+
+<p>
+Retention periods may vary depending on the type of information,
+the purpose for which it was collected and the applicable
+requirements.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     10. CHILDREN'S PRIVACY
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+10. Children's Privacy
+</h2>
+
+<p>
+ON1Ecosystem does not knowingly seek to collect personal
+information from children where such collection is prohibited
+by applicable law.
+</p>
+
+<p>
+If you believe that a child has provided personal information
+through the service in circumstances where it should not have
+been collected, please contact the team so that the matter can
+be reviewed and appropriate action can be considered.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     11. YOUR PRIVACY CHOICES
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+11. Your Privacy Choices
+</h2>
+
+<p>
+Depending on applicable law and the circumstances, users may
+have rights concerning their personal information. These may
+include requesting access to, correction of or deletion of
+certain information.
+</p>
+
+<p>
+Requests may be subject to reasonable verification and to
+applicable legal, security or operational requirements.
+</p>
+
+<p>
+Some information may need to be retained where necessary to
+maintain security, prevent abuse, resolve disputes or comply
+with applicable obligations.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     12. EXTERNAL WEBSITES
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+12. External Websites and Links
+</h2>
+
+<p>
+The ON1Ecosystem website may contain links to third-party
+websites, services or platforms.
+</p>
+
+<p>
+ON1Ecosystem does not control the privacy practices, content
+or security of external websites. Once you leave the
+ON1Ecosystem website, the policies of the external service
+apply.
+</p>
+
+<p>
+You should review the privacy policy and terms of any external
+service before providing personal information or using that
+service.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     13. POLICY CHANGES
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+13. Changes to This Privacy Policy
+</h2>
+
+<p>
+This Privacy Policy may be updated as ON1Ecosystem develops
+new features, changes service providers, introduces additional
+services or responds to legal, technical and operational
+requirements.
+</p>
+
+<p>
+When changes are made, the updated version will be published
+on this page together with a revised update date.
+</p>
+
+<p>
+Users are encouraged to review this page periodically so they
+remain aware of the current privacy practices described here.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     14. CONTACT
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+14. Privacy Questions and Contact
+</h2>
+
+<p>
+If you have a privacy-related question, concern or request
+concerning ON1Ecosystem, you may contact the team through the
+available contact or partnership channel on the website.
+</p>
+
+<p>
+
+<a href="partnership.html">
+Visit the Partnership & Contact page →
+</a>
+
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     RELATED INFORMATION
+===================================================== -->
+
+<div class="policy-card">
+
+<h2>
+Related Information
+</h2>
+
+<p>
+You can learn more about ON1Ecosystem through the following
+pages:
+</p>
+
+<ul>
+
+<li>
+<a href="about.html">
+About ON1Ecosystem
+</a>
+</li>
+
+<li>
+<a href="how-it-works.html">
+How It Works
+</a>
+</li>
+
+<li>
+<a href="terms.html">
+Terms of Service
+</a>
+</li>
+
+<li>
+<a href="../index.html#faq">
+Frequently Asked Questions
+</a>
+</li>
+
+<li>
+<a href="partnership.html">
+Partnerships & Contact
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+<div class="footer-brand">
+ON1Ecosystem
+</div>
+
+
+<p class="footer-description">
+One connected digital ecosystem designed to bring multiple
+services, participation and opportunities together.
+</p>
+
+
+<div class="footer-columns">
+
+
+<div class="footer-column">
+
+<h4>
+ECOSYSTEM
+</h4>
+
+<a href="../index.html#about">
+About
+</a>
+
+<a href="../index.html#ecosystem">
+Services
+</a>
+
+<a href="../index.html#on1coin">
+ON1Coin
+</a>
+
+<a href="../index.html#participation">
+Participation
+</a>
+
+<a href="../index.html#roadmap">
+Roadmap
+</a>
+
+<a href="how-it-works.html">
+How It Works
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+MEMBERS
+</h4>
+
+<a href="login.html">
+Login
+</a>
+
+<a href="signup.html">
+Create Account
+</a>
+
+<a href="wallet.html">
+Wallet
+</a>
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+<a href="terms.html">
+Terms of Service
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+PARTNERS
+</h4>
+
+<a href="partnership.html">
+Partnerships
+</a>
+
+<a href="partnership.html">
+Activities
+</a>
+
+<a href="../index.html#faq">
+FAQ
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 ON1Ecosystem
+
+<br>
+
+An initiative by DSATECHON1
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     NAVIGATION SCRIPT
+===================================================== -->
+
+<script>
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const mainNav =
+    document.getElementById("mainNav");
+
+
+menuButton.addEventListener(
+    "click",
+    function(){
+
+        const isOpen =
+            mainNav.classList.toggle("active");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    }
+);
+
+
+document.querySelectorAll("#mainNav a")
+.forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        function(){
+
+            mainNav.classList.remove("active");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+    );
+
+});
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,22 +1,1570 @@
-What this dashboard now establishes
-The dashboard is structured around the future ON1Ecosystem architecture:
-ON1Coin → Mining
-→ Welcome rewards
-→ Daily/streak rewards
-→ Referral rewards
-→ Future ecosystem utilities
-XP → Partnership activities
-→ Participation
-→ Community/campaign activities
-→ Levels
-→ Future ecosystem benefits
-Wallet → ON1Coin Balance
-→ XP Balance
-Notifications → Mining
-→ Rewards
-→ Referrals
-→ XP
-→ Partnerships
-→ Security
-→ Announcements
-And the 10-day streak framework is already represented visually. We can refine the exact reward mathematics before Firebase implementation so we don't accidentally build the wrong economic model.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Member Wallet | ON1Ecosystem</title>
+
+<meta name="description"
+      content="View your ON1Coin and ON1XP balances, account information and participation activity within ON1Ecosystem.">
+
+<meta name="theme-color"
+      content="#06101d">
+
+<meta name="google-adsense-account"
+      content="ca-pub-1529736084012433">
+
+<link rel="canonical"
+      href="https://dsatechon1.github.io/pages/wallet.html">
+
+<script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1529736084012433"
+        crossorigin="anonymous"></script>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --bg:#050b13;
+    --surface:#0c1624;
+    --surface2:#101d2d;
+    --border:#1d3048;
+
+    --blue:#087cff;
+    --blue2:#3aa0ff;
+
+    --green:#00df88;
+    --gold:#f5c451;
+
+    --text:#ffffff;
+    --muted:#8ea2b8;
+
+    --danger:#ff6075;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(8,124,255,.18),
+            transparent 42%
+        ),
+        var(--bg);
+
+    color:var(--text);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+.page{
+    width:100%;
+    max-width:1050px;
+    margin:auto;
+    padding:15px;
+}
+
+
+/* HEADER */
+
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:10px 0 18px;
+
+    border-bottom:
+        1px solid rgba(29,48,72,.55);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.brand img{
+    width:38px;
+    height:38px;
+    object-fit:contain;
+}
+
+.brand strong{
+    display:block;
+    font-size:16px;
+}
+
+.brand strong span{
+    color:var(--blue2);
+}
+
+.brand small{
+    display:block;
+    margin-top:2px;
+
+    color:var(--muted);
+
+    font-size:8px;
+    letter-spacing:.5px;
+}
+
+.back-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:8px 12px;
+
+    border:1px solid var(--border);
+    border-radius:9px;
+
+    background:var(--surface);
+
+    color:#dce8f5;
+
+    font-size:10px;
+    font-weight:700;
+}
+
+
+/* HERO */
+
+.hero{
+    padding:25px 0 20px;
+}
+
+.hero h1{
+    font-size:27px;
+    line-height:1.2;
+}
+
+.hero p{
+    max-width:720px;
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:11px;
+    line-height:1.7;
+}
+
+
+/* INTRO */
+
+.info-card{
+    background:rgba(12,22,36,.94);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    margin-bottom:14px;
+}
+
+.info-card h2{
+    font-size:16px;
+}
+
+.info-card p{
+    margin-top:8px;
+
+    color:#b5c4d4;
+
+    font-size:10px;
+    line-height:1.7;
+}
+
+
+/* BALANCE GRID */
+
+.balance-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:14px;
+}
+
+.balance-card{
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(12,22,36,.96);
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:20px;
+}
+
+.balance-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    right:-55px;
+    top:-55px;
+
+    background:rgba(8,124,255,.06);
+}
+
+.balance-label{
+    position:relative;
+    z-index:1;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.6px;
+}
+
+.balance-value{
+    position:relative;
+    z-index:1;
+
+    margin-top:9px;
+
+    font-size:28px;
+
+    font-weight:900;
+}
+
+.coin-value{
+    color:var(--gold);
+}
+
+.xp-value{
+    color:var(--blue2);
+}
+
+.balance-unit{
+    position:relative;
+    z-index:1;
+
+    margin-top:4px;
+
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+.refresh-btn{
+    width:100%;
+
+    margin-top:12px;
+
+    height:40px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:var(--surface2);
+
+    color:#dce8f5;
+
+    font-size:10px;
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.refresh-btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+
+/* SECTIONS */
+
+.section{
+    margin-top:16px;
+}
+
+.section-title{
+    font-size:16px;
+    font-weight:800;
+}
+
+.section-subtitle{
+    margin-top:5px;
+
+    color:var(--muted);
+
+    font-size:9px;
+    line-height:1.6;
+}
+
+
+/* ACTIVITY */
+
+.activity-card{
+    margin-top:10px;
+
+    background:rgba(12,22,36,.94);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:17px;
+}
+
+.empty-state{
+    text-align:center;
+
+    padding:20px 10px;
+}
+
+.empty-icon{
+    font-size:25px;
+}
+
+.empty-state strong{
+    display:block;
+
+    margin-top:8px;
+
+    font-size:11px;
+}
+
+.empty-state p{
+    max-width:550px;
+
+    margin:7px auto 0;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.6;
+}
+
+
+/* ACCOUNT */
+
+.account-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:9px;
+
+    margin-top:12px;
+}
+
+.account-item{
+    padding:12px;
+
+    background:rgba(16,29,45,.75);
+
+    border:1px solid rgba(29,48,72,.8);
+
+    border-radius:11px;
+}
+
+.account-label{
+    color:var(--muted);
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.4px;
+}
+
+.account-value{
+    margin-top:5px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    word-break:break-word;
+}
+
+
+/* EXPLANATION */
+
+.explanation-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:12px;
+}
+
+.explanation{
+    padding:16px;
+
+    background:rgba(12,22,36,.94);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+}
+
+.explanation h3{
+    font-size:12px;
+}
+
+.explanation p{
+    margin-top:7px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.65;
+}
+
+
+/* NAV */
+
+.page-nav{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+
+    margin-top:16px;
+}
+
+.page-nav a{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:46px;
+
+    padding:9px;
+
+    background:rgba(12,22,36,.94);
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    color:#dce8f5;
+
+    font-size:9px;
+    font-weight:700;
+
+    text-align:center;
+}
+
+
+/* MESSAGE */
+
+.message{
+    display:none;
+
+    margin-top:12px;
+
+    padding:10px;
+
+    border-radius:9px;
+
+    text-align:center;
+
+    font-size:9px;
+
+    line-height:1.5;
+}
+
+.message.success{
+    display:block;
+
+    color:var(--green);
+
+    background:rgba(0,223,136,.07);
+
+    border:1px solid rgba(0,223,136,.18);
+}
+
+.message.error{
+    display:block;
+
+    color:#ff8192;
+
+    background:rgba(255,96,117,.08);
+
+    border:1px solid rgba(255,96,117,.20);
+}
+
+
+/* LOADING */
+
+.loading{
+    position:fixed;
+
+    inset:0;
+
+    z-index:999;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:var(--bg);
+}
+
+.loading-box{
+    text-align:center;
+}
+
+.loading-box .icon{
+    font-size:28px;
+}
+
+.loading-box strong{
+    display:block;
+
+    margin-top:9px;
+
+    font-size:13px;
+}
+
+.loading-box p{
+    margin-top:5px;
+
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+
+/* FOOTER */
+
+footer{
+    margin-top:28px;
+
+    padding:18px 0;
+
+    border-top:
+        1px solid rgba(29,48,72,.55);
+
+    text-align:center;
+
+    color:#61748a;
+
+    font-size:8px;
+
+    line-height:1.7;
+}
+
+.footer-links{
+    margin-top:8px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+}
+
+.footer-links a{
+    color:#8ea2b8;
+}
+
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .balance-grid,
+    .explanation-grid{
+        grid-template-columns:1fr;
+    }
+
+    .account-grid{
+        grid-template-columns:1fr;
+    }
+
+    .page-nav{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:23px;
+    }
+
+    .balance-value{
+        font-size:25px;
+    }
+
+}
+
+@media(max-width:400px){
+
+    .page{
+        padding:12px;
+    }
+
+    .brand img{
+        width:34px;
+        height:34px;
+    }
+
+    .brand strong{
+        font-size:14px;
+    }
+
+    .back-btn{
+        font-size:9px;
+        padding:7px 9px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- LOADING -->
+
+<div class="loading" id="loading">
+
+    <div class="loading-box">
+
+        <div class="icon">
+            ◉
+        </div>
+
+        <strong>
+            Loading Your Wallet
+        </strong>
+
+        <p id="loadingText">
+            Connecting to your ON1Ecosystem account...
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="page">
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <a href="../index.html"
+       class="brand">
+
+        <img
+            src="../logo.png"
+            alt="ON1Ecosystem logo">
+
+        <div>
+
+            <strong>
+                ON1<span>Ecosystem</span>
+            </strong>
+
+            <small>
+                MEMBER WALLET
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <a
+        href="dashboard.html"
+        class="back-btn">
+
+        ← Dashboard
+
+    </a>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>
+        My Wallet
+    </h1>
+
+    <p>
+        Your ON1Ecosystem wallet provides a central view
+        of your ON1Coin and ON1XP balances and helps you
+        understand activity connected to your member account.
+    </p>
+
+</section>
+
+
+<!-- WALLET EXPLANATION -->
+
+<section class="info-card">
+
+    <h2>
+        Your ON1Ecosystem balances
+    </h2>
+
+    <p>
+        ON1Coin and ON1XP serve different purposes within
+        the ecosystem. ON1Coin is the participation balance
+        associated with activities such as mining, streaks
+        and eligible referral rewards. ON1XP represents
+        experience and participation progress used for
+        levels and future ecosystem activities.
+    </p>
+
+    <p>
+        The wallet displays information associated with your
+        authenticated member account. Available features
+        and future utilities may change as ON1Ecosystem
+        continues to develop.
+    </p>
+
+</section>
+
+
+<!-- BALANCES -->
+
+<section class="balance-grid">
+
+
+    <div class="balance-card">
+
+        <div class="balance-label">
+            ON1Coin Balance
+        </div>
+
+        <div
+            class="balance-value coin-value"
+            id="coinBalance">
+
+            0.000
+
+        </div>
+
+        <div class="balance-unit">
+            ON1Coin
+        </div>
+
+    </div>
+
+
+    <div class="balance-card">
+
+        <div class="balance-label">
+            ON1XP Balance
+        </div>
+
+        <div
+            class="balance-value xp-value"
+            id="xpBalance">
+
+            0
+
+        </div>
+
+        <div class="balance-unit">
+            Experience Points
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<button
+    class="refresh-btn"
+    id="refreshBtn">
+
+    ↻ Refresh Wallet
+
+</button>
+
+
+<div
+    class="message"
+    id="message">
+</div>
+
+
+<!-- ON1COIN ACTIVITY -->
+
+<section class="section">
+
+    <div class="section-title">
+        ON1Coin Activity
+    </div>
+
+    <div class="section-subtitle">
+        Mining, streak and eligible reward activity associated
+        with your account will appear here when transaction
+        records are available.
+    </div>
+
+
+    <div class="activity-card">
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                🪙
+            </div>
+
+            <strong>
+                Transaction history
+            </strong>
+
+            <p>
+                No separate ON1Coin transaction records are
+                currently available for display in this wallet.
+                Your current balance is read directly from your
+                member account.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- XP ACTIVITY -->
+
+<section class="section">
+
+    <div class="section-title">
+        ON1XP Activity
+    </div>
+
+    <div class="section-subtitle">
+        XP earned through participation, referrals and future
+        ecosystem activities can be reflected here as the
+        activity history system develops.
+    </div>
+
+
+    <div class="activity-card">
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                🎯
+            </div>
+
+            <strong>
+                XP activity
+            </strong>
+
+            <p>
+                No separate XP activity records are currently
+                available for display in this wallet.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ACCOUNT INFORMATION -->
+
+<section class="section">
+
+    <div class="section-title">
+        Account Information
+    </div>
+
+    <div class="section-subtitle">
+        Basic information connected to your authenticated
+        ON1Ecosystem member profile.
+    </div>
+
+
+    <div class="activity-card">
+
+        <div class="account-grid">
+
+
+            <div class="account-item">
+
+                <div class="account-label">
+                    Name
+                </div>
+
+                <div
+                    class="account-value"
+                    id="memberName">
+
+                    —
+
+                </div>
+
+            </div>
+
+
+            <div class="account-item">
+
+                <div class="account-label">
+                    Username
+                </div>
+
+                <div
+                    class="account-value"
+                    id="username">
+
+                    —
+
+                </div>
+
+            </div>
+
+
+            <div class="account-item">
+
+                <div class="account-label">
+                    ON1 ID
+                </div>
+
+                <div
+                    class="account-value"
+                    id="on1Id">
+
+                    —
+
+                </div>
+
+            </div>
+
+
+            <div class="account-item">
+
+                <div class="account-label">
+                    Email
+                </div>
+
+                <div
+                    class="account-value"
+                    id="email">
+
+                    —
+
+                </div>
+
+            </div>
+
+
+            <div class="account-item">
+
+                <div class="account-label">
+                    Current Level
+                </div>
+
+                <div
+                    class="account-value"
+                    id="level">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="account-item">
+
+                <div class="account-label">
+                    Mining Streak
+                </div>
+
+                <div
+                    class="account-value"
+                    id="streak">
+
+                    Day 0
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHAT THE WALLET REPRESENTS -->
+
+<section class="section">
+
+    <div class="section-title">
+        Understanding Your Wallet
+    </div>
+
+
+    <div class="explanation-grid">
+
+
+        <article class="explanation">
+
+            <h3>
+                🪙 ON1Coin
+            </h3>
+
+            <p>
+                ON1Coin is the ecosystem's participation
+                balance. Current member activities include
+                the ON1Coin mining system, daily streak
+                rewards and eligible referral rewards.
+                Future utility will depend on the services
+                and features that are actually developed
+                and made available.
+            </p>
+
+        </article>
+
+
+        <article class="explanation">
+
+            <h3>
+                🎯 ON1XP
+            </h3>
+
+            <p>
+                ON1XP tracks experience and participation
+                progress. XP contributes to member levels
+                and is intended to support future
+                participation-based activities within
+                ON1Ecosystem.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- NAVIGATION -->
+
+<nav class="page-nav">
+
+    <a href="dashboard.html">
+        ← Dashboard
+    </a>
+
+    <a href="how-it-works.html">
+        How It Works
+    </a>
+
+    <a href="about.html">
+        About ON1Ecosystem
+    </a>
+
+</nav>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        ON1Ecosystem — One Ecosystem. Multiple Solutions.
+    </div>
+
+    <div class="footer-links">
+
+        <a href="privacy.html">
+            Privacy Policy
+        </a>
+
+        <a href="terms.html">
+            Terms of Service
+        </a>
+
+        <a href="partnership.html">
+            Partnerships
+        </a>
+
+    </div>
+
+    <div style="margin-top:8px;">
+        A DSATECHON1 initiative.
+    </div>
+
+</footer>
+
+
+</div>
+
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE IMPORTS
+===================================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    doc,
+    getDoc
+}
+from
+"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyCmmOlfLVPs3oPCmFLSl8trLKNqWlo9YKs",
+
+    authDomain:
+        "dsatechon1-c8b41.firebaseapp.com",
+
+    projectId:
+        "dsatechon1-c8b41",
+
+    storageBucket:
+        "dsatechon1-c8b41.firebasestorage.app",
+
+    messagingSenderId:
+        "5740594058",
+
+    appId:
+        "1:5740594058:web:23fbbca5392f12db863e73"
+
+};
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const loading =
+    document.getElementById("loading");
+
+const loadingText =
+    document.getElementById("loadingText");
+
+const refreshBtn =
+    document.getElementById("refreshBtn");
+
+const message =
+    document.getElementById("message");
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function getXP(data){
+
+    if(data.XP !== undefined){
+        return Number(data.XP) || 0;
+    }
+
+    if(data.xp !== undefined){
+        return Number(data.xp) || 0;
+    }
+
+    if(data.experiencePoints !== undefined){
+        return Number(data.experiencePoints) || 0;
+    }
+
+    return 0;
+
+}
+
+
+function calculateLevel(xp){
+
+    return Math.floor(
+        Number(xp || 0) / 2500
+    );
+
+}
+
+
+function showMessage(text,type){
+
+    message.textContent = text;
+
+    message.className =
+        "message " + type;
+
+}
+
+
+/* =====================================================
+   LOAD PROFILE
+===================================================== */
+
+async function loadWallet(user){
+
+    loadingText.textContent =
+        "Loading your wallet information...";
+
+
+    const userRef =
+        doc(
+            db,
+            "users",
+            user.uid
+        );
+
+
+    const snapshot =
+        await getDoc(userRef);
+
+
+    if(!snapshot.exists()){
+
+        throw new Error(
+            "Your ON1Ecosystem member profile could not be found."
+        );
+
+    }
+
+
+    const data =
+        snapshot.data();
+
+
+    /* BALANCES */
+
+    const balance =
+        Number(
+            data.balance || 0
+        );
+
+
+    const xp =
+        getXP(data);
+
+
+    document.getElementById(
+        "coinBalance"
+    ).textContent =
+        balance.toFixed(3);
+
+
+    document.getElementById(
+        "xpBalance"
+    ).textContent =
+        xp.toLocaleString();
+
+
+    /* NAME */
+
+    const firstName =
+        data.firstName ||
+        data.firstname ||
+        "";
+
+
+    const lastName =
+        data.lastName ||
+        data.lastname ||
+        "";
+
+
+    const fullName =
+        (
+            firstName +
+            " " +
+            lastName
+        ).trim();
+
+
+    document.getElementById(
+        "memberName"
+    ).textContent =
+        fullName ||
+        data.name ||
+        "Member";
+
+
+    /* USERNAME */
+
+    document.getElementById(
+        "username"
+    ).textContent =
+        data.username ||
+        "—";
+
+
+    /* ON1 ID */
+
+    document.getElementById(
+        "on1Id"
+    ).textContent =
+        data.on1Id ||
+        "—";
+
+
+    /* EMAIL */
+
+    document.getElementById(
+        "email"
+    ).textContent =
+        data.email ||
+        user.email ||
+        "—";
+
+
+    /* LEVEL */
+
+    document.getElementById(
+        "level"
+    ).textContent =
+        calculateLevel(xp);
+
+
+    /* STREAK */
+
+    document.getElementById(
+        "streak"
+    ).textContent =
+        "Day " +
+        Number(data.streak || 0);
+
+
+    loading.style.display =
+        "none";
+
+}
+
+
+/* =====================================================
+   REFRESH
+===================================================== */
+
+async function refreshWallet(){
+
+    if(!auth.currentUser){
+
+        return;
+
+    }
+
+
+    refreshBtn.disabled =
+        true;
+
+    refreshBtn.textContent =
+        "Refreshing...";
+
+
+    try{
+
+        await loadWallet(
+            auth.currentUser
+        );
+
+
+        showMessage(
+            "Wallet information refreshed successfully.",
+            "success"
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        showMessage(
+            error.message ||
+            "Unable to refresh your wallet.",
+            "error"
+        );
+
+    }finally{
+
+        refreshBtn.disabled =
+            false;
+
+        refreshBtn.textContent =
+            "↻ Refresh Wallet";
+
+    }
+
+}
+
+
+/* =====================================================
+   REFRESH BUTTON
+===================================================== */
+
+refreshBtn.addEventListener(
+    "click",
+    refreshWallet
+);
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        if(!user){
+
+            loadingText.textContent =
+                "No active session. Redirecting...";
+
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "login.html";
+
+                },
+                700
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            await loadWallet(user);
+
+        }catch(error){
+
+            console.error(error);
+
+
+            loadingText.textContent =
+                error.message ||
+                "Unable to load your wallet.";
+
+
+            setTimeout(
+                function(){
+
+                    loading.style.display =
+                        "none";
+
+                    showMessage(
+                        error.message ||
+                        "Unable to load your wallet.",
+                        "error"
+                    );
+
+                },
+                800
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

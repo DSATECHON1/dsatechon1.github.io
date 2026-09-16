@@ -8,10 +8,24 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>ON1 Leaderboard</title>
+<title>ON1 Leaderboard — ON1Ecosystem</title>
+
+<meta name="description"
+      content="View the current top ON1Ecosystem members by ON1XP, ON1Coin balance, mining streak and referrals.">
 
 <meta name="theme-color"
       content="#06101d">
+
+<meta name="google-adsense-account"
+      content="ca-pub-1529736084012433">
+
+<script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1529736084012433"
+        crossorigin="anonymous"></script>
+
+<link rel="canonical"
+      href="https://dsatechon1.github.io/leaderboard.html">
+
 
 <style>
 
@@ -27,24 +41,33 @@
 }
 
 :root{
+
     --bg:#050b13;
+
     --surface:#0c1624;
+
     --border:#1d3048;
 
     --blue:#087cff;
+
     --blue2:#3aa0ff;
 
     --green:#00df88;
+
     --gold:#f5c451;
 
     --text:#ffffff;
+
     --muted:#8ea2b8;
 
     --silver:#c7d0db;
+
     --bronze:#cd8b55;
+
 }
 
 body{
+
     min-height:100vh;
 
     background:
@@ -56,11 +79,21 @@ body{
         var(--bg);
 
     color:var(--text);
+
 }
 
 a{
+
     color:inherit;
+
     text-decoration:none;
+
+}
+
+button{
+
+    font-family:inherit;
+
 }
 
 
@@ -69,12 +102,15 @@ a{
 ===================================================== */
 
 .page{
+
     width:100%;
+
     max-width:850px;
 
     margin:auto;
 
-    padding:15px;
+    padding:15px 15px 40px;
+
 }
 
 
@@ -83,6 +119,7 @@ a{
 ===================================================== */
 
 .header{
+
     display:flex;
 
     align-items:center;
@@ -91,35 +128,50 @@ a{
 
     padding:10px 0;
 
-    margin-bottom:18px;
+    margin-bottom:20px;
+
+    border-bottom:
+        1px solid
+        rgba(29,48,72,.65);
+
 }
 
 .brand{
+
     display:flex;
 
     align-items:center;
 
     gap:9px;
+
 }
 
 .brand img{
+
     width:38px;
+
     height:38px;
 
     object-fit:contain;
+
 }
 
 .brand strong{
+
     display:block;
 
     font-size:16px;
+
 }
 
 .brand strong span{
+
     color:var(--blue2);
+
 }
 
 .brand small{
+
     display:block;
 
     margin-top:2px;
@@ -129,9 +181,11 @@ a{
     font-size:8px;
 
     letter-spacing:.5px;
+
 }
 
 .back-btn{
+
     border:1px solid var(--border);
 
     background:var(--surface);
@@ -142,9 +196,10 @@ a{
 
     border-radius:9px;
 
-    cursor:pointer;
+    font-size:9px;
 
-    font-size:10px;
+    font-weight:700;
+
 }
 
 
@@ -153,25 +208,84 @@ a{
 ===================================================== */
 
 .intro{
+
     text-align:center;
 
-    margin-bottom:15px;
+    margin:26px 0 18px;
+
+}
+
+.intro .eyebrow{
+
+    color:var(--blue2);
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:.8px;
+
+    text-transform:uppercase;
+
 }
 
 .intro h1{
-    font-size:25px;
+
+    margin-top:7px;
+
+    font-size:26px;
 
     font-weight:900;
+
 }
 
 .intro p{
-    margin-top:6px;
+
+    margin:7px auto 0;
+
+    max-width:620px;
 
     color:var(--muted);
 
     font-size:10px;
 
+    line-height:1.6;
+
+}
+
+
+/* =====================================================
+   MEMBER COUNT
+===================================================== */
+
+.member-count{
+
+    margin:0 auto 15px;
+
+    max-width:620px;
+
+    padding:10px 13px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:rgba(12,22,36,.8);
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:8px;
+
     line-height:1.5;
+
+}
+
+.member-count strong{
+
+    color:var(--blue2);
+
 }
 
 
@@ -180,6 +294,7 @@ a{
 ===================================================== */
 
 .tabs{
+
     display:grid;
 
     grid-template-columns:
@@ -188,9 +303,11 @@ a{
     gap:6px;
 
     margin-bottom:14px;
+
 }
 
 .tab{
+
     border:1px solid var(--border);
 
     background:var(--surface);
@@ -210,17 +327,21 @@ a{
     line-height:1.25;
 
     transition:.2s;
+
 }
 
 .tab-icon{
+
     display:block;
 
     font-size:15px;
 
     margin-bottom:3px;
+
 }
 
 .tab.active{
+
     background:
         linear-gradient(
             135deg,
@@ -232,6 +353,7 @@ a{
         rgba(8,124,255,.55);
 
     color:#ffffff;
+
 }
 
 
@@ -240,6 +362,7 @@ a{
 ===================================================== */
 
 .your-position{
+
     display:none;
 
     margin-bottom:14px;
@@ -256,9 +379,11 @@ a{
         );
 
     border:1px solid rgba(8,124,255,.18);
+
 }
 
 .your-position.show{
+
     display:flex;
 
     align-items:center;
@@ -266,15 +391,19 @@ a{
     justify-content:space-between;
 
     gap:10px;
+
 }
 
 .position-label{
+
     color:var(--muted);
 
     font-size:9px;
+
 }
 
 .position-mode{
+
     margin-top:3px;
 
     color:var(--blue2);
@@ -282,17 +411,21 @@ a{
     font-size:8px;
 
     font-weight:700;
+
 }
 
 .position-user{
+
     margin-top:3px;
 
     font-size:11px;
 
     font-weight:800;
+
 }
 
 .position-rank{
+
     color:var(--gold);
 
     font-size:17px;
@@ -300,6 +433,7 @@ a{
     font-weight:900;
 
     white-space:nowrap;
+
 }
 
 
@@ -308,13 +442,16 @@ a{
 ===================================================== */
 
 .leaderboard-card{
-    background:rgba(12,22,36,.94);
+
+    background:
+        rgba(12,22,36,.94);
 
     border:1px solid var(--border);
 
     border-radius:16px;
 
     overflow:hidden;
+
 }
 
 
@@ -323,6 +460,7 @@ a{
 ===================================================== */
 
 .table-head{
+
     display:grid;
 
     grid-template-columns:
@@ -337,9 +475,11 @@ a{
 
     padding:11px 14px;
 
-    background:rgba(7,16,27,.75);
+    background:
+        rgba(7,16,27,.75);
 
-    border-bottom:1px solid var(--border);
+    border-bottom:
+        1px solid var(--border);
 
     color:var(--muted);
 
@@ -350,6 +490,7 @@ a{
     text-transform:uppercase;
 
     letter-spacing:.5px;
+
 }
 
 
@@ -358,6 +499,7 @@ a{
 ===================================================== */
 
 .leader-row{
+
     display:grid;
 
     grid-template-columns:
@@ -374,37 +516,50 @@ a{
 
     padding:10px 14px;
 
-    border-bottom:1px solid rgba(29,48,72,.55);
+    border-bottom:
+        1px solid
+        rgba(29,48,72,.55);
+
 }
 
 .leader-row:last-child{
+
     border-bottom:none;
+
 }
 
 .rank{
+
     font-size:13px;
 
     font-weight:900;
 
     color:var(--muted);
+
 }
 
 .rank.top-one{
+
     color:var(--gold);
 
     font-size:17px;
+
 }
 
 .rank.top-two{
+
     color:var(--silver);
 
     font-size:16px;
+
 }
 
 .rank.top-three{
+
     color:var(--bronze);
 
     font-size:16px;
+
 }
 
 
@@ -413,10 +568,13 @@ a{
 ===================================================== */
 
 .member{
+
     min-width:0;
+
 }
 
 .member-name{
+
     overflow:hidden;
 
     text-overflow:ellipsis;
@@ -426,9 +584,11 @@ a{
     font-size:11px;
 
     font-weight:800;
+
 }
 
 .member-id{
+
     margin-top:3px;
 
     overflow:hidden;
@@ -440,6 +600,7 @@ a{
     color:var(--muted);
 
     font-size:8px;
+
 }
 
 
@@ -448,6 +609,7 @@ a{
 ===================================================== */
 
 .member-value{
+
     color:var(--blue2);
 
     font-size:10px;
@@ -457,9 +619,11 @@ a{
     text-align:right;
 
     white-space:nowrap;
+
 }
 
 .member-secondary{
+
     color:var(--green);
 
     font-size:10px;
@@ -469,6 +633,7 @@ a{
     text-align:right;
 
     white-space:nowrap;
+
 }
 
 
@@ -477,14 +642,17 @@ a{
 ===================================================== */
 
 .leader-row.current-user{
+
     background:
         rgba(8,124,255,.065);
 
     border-left:
         3px solid var(--blue);
+
 }
 
 .current-badge{
+
     display:inline-block;
 
     margin-left:5px;
@@ -493,13 +661,15 @@ a{
 
     border-radius:5px;
 
-    background:rgba(8,124,255,.14);
+    background:
+        rgba(8,124,255,.14);
 
     color:var(--blue2);
 
     font-size:7px;
 
     vertical-align:middle;
+
 }
 
 
@@ -508,29 +678,37 @@ a{
 ===================================================== */
 
 .loading{
+
     padding:35px 15px;
 
     text-align:center;
+
 }
 
 .loading-icon{
+
     font-size:28px;
+
 }
 
 .loading strong{
+
     display:block;
 
     margin-top:9px;
 
     font-size:12px;
+
 }
 
 .loading p{
+
     margin-top:5px;
 
     color:var(--muted);
 
     font-size:9px;
+
 }
 
 
@@ -539,6 +717,7 @@ a{
 ===================================================== */
 
 .status{
+
     display:none;
 
     padding:30px 15px;
@@ -549,15 +728,67 @@ a{
 
     font-size:10px;
 
-    line-height:1.6;
+    line-height:1.7;
+
 }
 
 .status.show{
+
     display:block;
+
 }
 
 .status.error{
+
     color:#ff8192;
+
+}
+
+
+/* =====================================================
+   INFORMATION
+===================================================== */
+
+.info-section{
+
+    margin-top:22px;
+
+}
+
+.info-section h2{
+
+    margin-bottom:10px;
+
+    font-size:13px;
+
+}
+
+.info-card{
+
+    padding:15px;
+
+    border:1px solid var(--border);
+
+    border-radius:13px;
+
+    background:var(--surface);
+
+}
+
+.info-card p{
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    line-height:1.7;
+
+}
+
+.info-card p + p{
+
+    margin-top:8px;
+
 }
 
 
@@ -566,18 +797,57 @@ a{
 ===================================================== */
 
 footer{
-    margin-top:22px;
 
-    padding-top:14px;
+    margin-top:30px;
+
+    padding-top:18px;
 
     border-top:
-        1px solid rgba(29,48,72,.55);
+        1px solid
+        rgba(29,48,72,.55);
 
     text-align:center;
 
     color:#61748a;
 
     font-size:8px;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:12px;
+
+}
+
+.footer-links a{
+
+    color:#7e91a7;
+
+    font-size:7px;
+
+}
+
+.footer-links a:hover{
+
+    color:var(--blue2);
+
+}
+
+.footer-brand{
+
+    margin-top:5px;
+
+    color:#40536a;
+
 }
 
 
@@ -588,24 +858,33 @@ footer{
 @media(max-width:600px){
 
     .page{
+
         padding:12px;
+
     }
 
     .tabs{
+
         gap:5px;
+
     }
 
     .tab{
+
         padding:8px 3px;
 
         font-size:7px;
+
     }
 
     .tab-icon{
+
         font-size:14px;
+
     }
 
     .table-head{
+
         grid-template-columns:
             42px
             1fr
@@ -613,9 +892,11 @@ footer{
             65px;
 
         padding:10px;
+
     }
 
     .leader-row{
+
         grid-template-columns:
             42px
             1fr
@@ -625,15 +906,20 @@ footer{
         padding:10px;
 
         min-height:56px;
+
     }
 
     .member-value,
     .member-secondary{
+
         font-size:9px;
+
     }
 
     .intro h1{
+
         font-size:22px;
+
     }
 
 }
@@ -646,17 +932,22 @@ footer{
 @media(max-width:360px){
 
     .tabs{
+
         grid-template-columns:
             repeat(2,1fr);
+
     }
 
     .tab{
+
         padding:9px 5px;
 
         font-size:8px;
+
     }
 
     .table-head{
+
         grid-template-columns:
             35px
             1fr
@@ -664,27 +955,36 @@ footer{
             55px;
 
         font-size:7px;
+
     }
 
     .leader-row{
+
         grid-template-columns:
             35px
             1fr
             65px
             55px;
+
     }
 
     .member-name{
+
         font-size:10px;
+
     }
 
     .member-id{
+
         font-size:7px;
+
     }
 
     .member-value,
     .member-secondary{
+
         font-size:8px;
+
     }
 
 }
@@ -712,7 +1012,7 @@ footer{
 
         <img
             src="logo.png"
-            alt="ON1Ecosystem">
+            alt="DSATECHON1 Logo">
 
         <div>
 
@@ -746,15 +1046,32 @@ footer{
 
 <section class="intro">
 
+    <div class="eyebrow">
+        Member Rankings
+    </div>
+
     <h1>
         🏆 ON1 Leaderboard
     </h1>
 
     <p id="introText">
-        Top 20 members by experience points.
+        Top 5 members by experience points.
     </p>
 
 </section>
+
+
+<!-- =====================================================
+     MEMBER COUNT
+===================================================== -->
+
+<div
+    class="member-count"
+    id="memberCount">
+
+    Loading current member count...
+
+</div>
 
 
 <!-- =====================================================
@@ -930,9 +1247,88 @@ footer{
 </section>
 
 
+<!-- =====================================================
+     INFORMATION
+===================================================== -->
+
+<section class="info-section">
+
+    <h2>
+        About the ON1 Leaderboard
+    </h2>
+
+    <div class="info-card">
+
+        <p>
+            The ON1 Leaderboard displays the current
+            top five members according to the selected
+            ranking category.
+        </p>
+
+        <p>
+            Rankings are calculated from member information
+            stored in the ON1Ecosystem member system.
+            The leaderboard does not change member balances,
+            XP, streaks or referral records.
+        </p>
+
+        <p>
+            As the ON1Ecosystem community grows, the
+            leaderboard can be expanded beyond the current
+            top five positions.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
-    ON1Ecosystem — One Ecosystem. Multiple Solutions.
+    <div class="footer-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="pages/about.html">
+            About
+        </a>
+
+        <a href="pages/how-it-works.html">
+            How It Works
+        </a>
+
+        <a href="pages/dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="pages/wallet.html">
+            Wallet
+        </a>
+
+        <a href="pages/privacy.html">
+            Privacy
+        </a>
+
+        <a href="pages/terms.html">
+            Terms
+        </a>
+
+    </div>
+
+
+    ON1Ecosystem — One Ecosystem.
+    Multiple Solutions.
+
+
+    <div class="footer-brand">
+        A DSATECHON1 initiative
+    </div>
 
 </footer>
 
@@ -952,24 +1348,30 @@ footer{
 ===================================================== */
 
 import {
+
     initializeApp
+
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
 import {
+
     getAuth,
     onAuthStateChanged
+
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
 import {
+
     getFirestore,
     collection,
     getDocs
+
 }
 from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
@@ -1003,11 +1405,13 @@ const firebaseConfig = {
 
 
 /* =====================================================
-   INITIALIZE
+   INITIALIZE FIREBASE
 ===================================================== */
 
 const app =
-    initializeApp(firebaseConfig);
+    initializeApp(
+        firebaseConfig
+    );
 
 const auth =
     getAuth(app);
@@ -1070,6 +1474,11 @@ const introText =
         "introText"
     );
 
+const memberCount =
+    document.getElementById(
+        "memberCount"
+    );
+
 const tabs =
     document.querySelectorAll(
         ".tab"
@@ -1110,13 +1519,15 @@ function getNumber(value){
 
 
 /* =====================================================
-   FIRESTORE FIELDS
+   FIELD HELPERS
 ===================================================== */
 
 function getXP(data){
 
     return getNumber(
-        data.XP
+        data.XP ??
+        data.xp ??
+        data.experiencePoints
     );
 
 }
@@ -1168,10 +1579,28 @@ function calculateLevel(xp){
 
 function getMemberName(data){
 
-    return String(
-        data.username ||
+    const firstName =
         data.firstName ||
         data.firstname ||
+        "";
+
+    const lastName =
+        data.lastName ||
+        data.lastname ||
+        "";
+
+    const fullName =
+        (
+            String(firstName).trim() +
+            " " +
+            String(lastName).trim()
+        )
+        .trim();
+
+
+    return (
+        fullName ||
+        data.username ||
         data.name ||
         "ON1 Member"
     );
@@ -1185,42 +1614,22 @@ function getMemberName(data){
 
 function getON1Id(data){
 
-    if(
-        data.on1Id
-    ){
+    const value =
+        data.on1Id ||
+        data.ON1ID ||
+        data.on1ID;
 
-        return String(
-            data.on1Id
-        )
-        .trim()
-        .toUpperCase();
+
+    if(value){
+
+        return String(value)
+            .trim()
+            .toUpperCase();
 
     }
+
 
     return "ON1 MEMBER";
-
-}
-
-
-/* =====================================================
-   RANK CLASS
-===================================================== */
-
-function getRankClass(rank){
-
-    if(rank === 1){
-        return "top-one";
-    }
-
-    if(rank === 2){
-        return "top-two";
-    }
-
-    if(rank === 3){
-        return "top-three";
-    }
-
-    return "";
 
 }
 
@@ -1239,10 +1648,43 @@ function formatNumber(value){
 
 
 /* =====================================================
+   RANK CLASS
+===================================================== */
+
+function getRankClass(rank){
+
+    if(rank === 1){
+
+        return "top-one";
+
+    }
+
+
+    if(rank === 2){
+
+        return "top-two";
+
+    }
+
+
+    if(rank === 3){
+
+        return "top-three";
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =====================================================
    MODE SETTINGS
 ===================================================== */
 
 function getModeSettings(){
+
 
     if(
         currentMode === "balance"
@@ -1254,7 +1696,7 @@ function getModeSettings(){
                 "ON1COIN",
 
             intro:
-                "Top 20 members by ON1Coin balance.",
+                "Top 5 members by ON1Coin balance.",
 
             valueHeader:
                 "ON1COIN",
@@ -1308,7 +1750,7 @@ function getModeSettings(){
                 "STREAK",
 
             intro:
-                "Top 20 members with the longest active mining streak.",
+                "Top 5 members with the longest active mining streak.",
 
             valueHeader:
                 "STREAK",
@@ -1321,6 +1763,14 @@ function getModeSettings(){
 
             formatValue:
                 function(value){
+
+                    if(
+                        getNumber(value) === 0
+                    ){
+
+                        return "Day 0";
+
+                    }
 
                     return "Day " +
                         formatNumber(
@@ -1356,7 +1806,7 @@ function getModeSettings(){
                 "REFERRALS",
 
             intro:
-                "Top 20 members by referral count.",
+                "Top 5 members by referral count.",
 
             valueHeader:
                 "REFERRALS",
@@ -1399,7 +1849,7 @@ function getModeSettings(){
             "XP",
 
         intro:
-            "Top 20 members by experience points.",
+            "Top 5 members by experience points.",
 
         valueHeader:
             "XP",
@@ -1473,7 +1923,7 @@ function updateHeaders(){
 
 
 /* =====================================================
-   SHOW STATUS
+   STATUS
 ===================================================== */
 
 function showStatus(
@@ -1532,11 +1982,6 @@ function sortMembers(){
             }
 
 
-            /*
-               If primary values tie,
-               higher XP wins.
-            */
-
             const xpA =
                 getXP(a.data);
 
@@ -1552,10 +1997,6 @@ function sortMembers(){
 
             }
 
-
-            /*
-               Final deterministic tie-breaker.
-            */
 
             return getON1Id(
                 a.data
@@ -1636,6 +2077,7 @@ function createRow(
             "div"
         );
 
+
     rankElement.className =
         "rank " +
         getRankClass(rank);
@@ -1646,17 +2088,20 @@ function createRow(
         rankElement.textContent =
             "🥇";
 
-    }else if(rank === 2){
+    }
+    else if(rank === 2){
 
         rankElement.textContent =
             "🥈";
 
-    }else if(rank === 3){
+    }
+    else if(rank === 3){
 
         rankElement.textContent =
             "🥉";
 
-    }else{
+    }
+    else{
 
         rankElement.textContent =
             "#" + rank;
@@ -1671,6 +2116,7 @@ function createRow(
             "div"
         );
 
+
     memberElement.className =
         "member";
 
@@ -1680,8 +2126,10 @@ function createRow(
             "div"
         );
 
+
     nameElement.className =
         "member-name";
+
 
     nameElement.textContent =
         getMemberName(
@@ -1696,11 +2144,14 @@ function createRow(
                 "span"
             );
 
+
         badge.className =
             "current-badge";
 
+
         badge.textContent =
             "YOU";
+
 
         nameElement.appendChild(
             badge
@@ -1714,8 +2165,10 @@ function createRow(
             "div"
         );
 
+
     idElement.className =
         "member-id";
+
 
     idElement.textContent =
         getON1Id(
@@ -1739,8 +2192,10 @@ function createRow(
             "div"
         );
 
+
     valueElement.className =
         "member-value";
+
 
     valueElement.textContent =
         settings.formatValue(
@@ -1755,8 +2210,10 @@ function createRow(
             "div"
         );
 
+
     secondaryElement.className =
         "member-secondary";
+
 
     secondaryElement.textContent =
         settings.formatSecondary(
@@ -1798,6 +2255,7 @@ function displayLeaderboard(){
     leaderboardRows.innerHTML =
         "";
 
+
     status.className =
         "status";
 
@@ -1807,12 +2265,17 @@ function displayLeaderboard(){
     ){
 
         showStatus(
-            "The leaderboard is currently empty."
+            "There are currently no member records available for the leaderboard."
         );
+
 
         yourPosition.classList.remove(
             "show"
         );
+
+
+        memberCount.innerHTML =
+            "No member records are currently available.";
 
         return;
 
@@ -1824,24 +2287,26 @@ function displayLeaderboard(){
 
 
     /*
-       ONLY TOP 20 ARE DISPLAYED.
+       DISPLAY TOP 5 ONLY
     */
 
-    const topTwenty =
+    const topFive =
         sortedMembers.slice(
             0,
-            20
+            5
         );
 
 
-    topTwenty.forEach(
+    topFive.forEach(
         function(member,index){
 
             leaderboardRows.appendChild(
+
                 createRow(
                     member,
                     index + 1
                 )
+
             );
 
         }
@@ -1849,8 +2314,7 @@ function displayLeaderboard(){
 
 
     /*
-       Calculate the logged-in
-       member's complete rank.
+       CURRENT MEMBER POSITION
     */
 
     if(currentUser){
@@ -1895,7 +2359,8 @@ function displayLeaderboard(){
                 "show"
             );
 
-        }else{
+        }
+        else{
 
             yourPosition.classList.remove(
                 "show"
@@ -1903,13 +2368,35 @@ function displayLeaderboard(){
 
         }
 
-    }else{
+    }
+    else{
 
         yourPosition.classList.remove(
             "show"
         );
 
     }
+
+
+    /*
+       MEMBER COUNT
+    */
+
+    const count =
+        allMembers.length;
+
+
+    memberCount.innerHTML =
+
+        "<strong>" +
+        formatNumber(count) +
+        "</strong> member" +
+        (
+            count === 1
+                ? ""
+                : "s"
+        ) +
+        " currently registered in the member system.";
 
 }
 
@@ -1932,8 +2419,10 @@ async function loadLeaderboard(){
     loading.style.display =
         "block";
 
+
     status.className =
         "status";
+
 
     leaderboardRows.innerHTML =
         "";
@@ -1944,12 +2433,11 @@ async function loadLeaderboard(){
         /*
            READ ONLY.
 
-           No balances,
-           XP,
-           streaks,
-           referrals,
-           or transactions
-           are modified here.
+           The leaderboard only reads the
+           users collection.
+
+           It does not modify member balances,
+           XP, streaks or referral records.
         */
 
         const snapshot =
@@ -1997,7 +2485,8 @@ async function loadLeaderboard(){
         displayLeaderboard();
 
 
-    }catch(error){
+    }
+    catch(error){
 
         console.error(
             "Leaderboard error:",
@@ -2009,8 +2498,12 @@ async function loadLeaderboard(){
             "none";
 
 
+        memberCount.textContent =
+            "Member count could not be loaded.";
+
+
         showStatus(
-            "Unable to load the leaderboard right now. Please try again.",
+            "Unable to load the leaderboard right now. Please try again later.",
             true
         );
 
@@ -2034,9 +2527,7 @@ tabs.forEach(
                     tab.dataset.mode;
 
 
-                if(
-                    !mode
-                ){
+                if(!mode){
 
                     return;
 
@@ -2062,13 +2553,6 @@ tabs.forEach(
                     "active"
                 );
 
-
-                /*
-                   Re-rank existing data.
-
-                   No additional Firebase
-                   read is needed.
-                */
 
                 displayLeaderboard();
 

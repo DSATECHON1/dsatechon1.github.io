@@ -11,11 +11,18 @@
 <title>About ON1Ecosystem — DSATECHON1</title>
 
 <meta name="description"
-      content="Learn about ON1Ecosystem, its purpose, current member features, ON1Coin, ON1XP, participation system, planned services, development approach and partnership opportunities.">
+      content="Learn about ON1Ecosystem, its purpose, current member features, ON1Coin, ON1XP, participation system, development approach and planned ecosystem services.">
+
+<meta name="robots"
+      content="index, follow">
 
 <meta name="theme-color"
       content="#050b13">
 
+<link rel="canonical"
+      href="https://dsatechon1.github.io/pages/about.html">
+
+<!-- Google AdSense -->
 <meta name="google-adsense-account"
       content="ca-pub-1529736084012433">
 
@@ -23,7 +30,12 @@
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1529736084012433"
         crossorigin="anonymous"></script>
 
+
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -32,198 +44,764 @@
     font-family:Arial,Helvetica,sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#050b13;
-    color:#fff;
+    color:#ffffff;
     line-height:1.75;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
 .container{
     width:100%;
-    max-width:900px;
+    max-width:1100px;
     margin:auto;
-    padding:24px 18px 50px;
+    padding:0 22px;
 }
 
-.header{
-    padding-bottom:24px;
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,11,19,.96);
+    backdrop-filter:blur(15px);
     border-bottom:1px solid #17283b;
 }
 
-.back{
-    color:#42a5ff;
-    text-decoration:none;
-    font-size:13px;
-}
-
-.back:hover{
-    text-decoration:underline;
+.nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:relative;
 }
 
 .brand{
-    margin-top:24px;
-    font-size:24px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand img{
+    width:43px;
+    height:43px;
+    object-fit:contain;
+}
+
+.brand-name{
+    font-size:17px;
     font-weight:900;
 }
 
-.brand span{
+.brand-name span{
     color:#42a5ff;
 }
 
-.card{
+.brand-small{
+    display:block;
+    margin-top:2px;
+    color:#60748a;
+    font-size:7px;
+    letter-spacing:1px;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color:#9caec0;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#42a5ff;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.login-btn,
+.start-btn{
+    padding:10px 14px;
+    border-radius:9px;
+    font-size:8px;
+    font-weight:bold;
+}
+
+.login-btn{
+    background:#0b1623;
+    border:1px solid #203349;
+}
+
+.start-btn{
+    background:#087cff;
+}
+
+.menu-btn{
+    display:none;
+    border:1px solid #203349;
+    background:#0b1623;
+    color:#fff;
+    border-radius:8px;
+    padding:9px 11px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    padding:90px 0 65px;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(8,124,255,.16),
+            transparent 52%
+        );
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 13px;
+    border-radius:50px;
+    background:rgba(8,124,255,.08);
+    border:1px solid rgba(8,124,255,.35);
+    color:#42a5ff;
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:.8px;
+}
+
+.hero h1{
+    margin-top:22px;
+    font-size:clamp(38px,6vw,60px);
+    line-height:1.06;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:#42a5ff;
+}
+
+.hero-intro{
+    max-width:780px;
+    margin-top:22px;
+    color:#91a4b8;
+    font-size:11px;
+    line-height:1.95;
+}
+
+.hero-note{
     margin-top:24px;
+    padding:16px 18px;
     background:#0b1623;
     border:1px solid #1b2d43;
-    border-radius:18px;
-    padding:32px 28px;
+    border-left:3px solid #087cff;
+    border-radius:12px;
+    color:#75899e;
+    font-size:9px;
+    line-height:1.85;
 }
 
-h1{
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+section{
+    padding:65px 0 0;
+}
+
+.section-heading{
+    max-width:800px;
+    margin-bottom:27px;
+}
+
+.label{
     color:#42a5ff;
-    font-size:32px;
-    line-height:1.3;
-    margin-bottom:12px;
+    font-size:8px;
+    font-weight:bold;
+    letter-spacing:1px;
+    text-transform:uppercase;
 }
 
-.intro{
-    color:#b7c6d5;
-    font-size:15px;
-    margin-bottom:28px;
+.section-heading h2{
+    margin-top:9px;
+    font-size:28px;
+    line-height:1.25;
+    letter-spacing:-.7px;
 }
 
-h2{
-    color:#42a5ff;
-    font-size:20px;
-    line-height:1.4;
-    margin-top:32px;
-    margin-bottom:10px;
+.section-heading p{
+    margin-top:11px;
+    color:#8498ad;
+    font-size:10px;
+    line-height:1.9;
 }
 
-h3{
-    color:#fff;
-    font-size:15px;
-    margin-bottom:6px;
-}
 
-p{
-    color:#9caec0;
-    font-size:14px;
-    margin-top:10px;
-}
+/* =====================================================
+   CARDS
+===================================================== */
 
-ul{
-    margin:12px 0 0 20px;
-    color:#9caec0;
-    font-size:14px;
-}
-
-li{
-    margin-bottom:8px;
-}
-
-.feature-grid{
+.grid-2{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:14px;
-    margin-top:20px;
+}
+
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+}
+
+.card{
+    padding:26px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:17px;
+}
+
+.card h3{
+    font-size:15px;
+    line-height:1.4;
+}
+
+.card p{
+    margin-top:10px;
+    color:#788da2;
+    font-size:9px;
+    line-height:1.9;
+}
+
+.card p + p{
+    margin-top:13px;
+}
+
+
+/* =====================================================
+   PURPOSE
+===================================================== */
+
+.purpose-card{
+    padding:29px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,124,255,.08),
+            #0b1623
+        );
+    border:1px solid #1b2d43;
+    border-radius:18px;
+}
+
+.purpose-card h3{
+    font-size:17px;
+}
+
+.purpose-card p{
+    margin-top:12px;
+    color:#7d91a6;
+    font-size:9px;
+    line-height:1.95;
+}
+
+
+/* =====================================================
+   PRINCIPLES
+===================================================== */
+
+.principle{
+    padding:23px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:16px;
+}
+
+.principle-icon{
+    font-size:21px;
+}
+
+.principle h3{
+    margin-top:11px;
+    font-size:12px;
+}
+
+.principle p{
+    margin-top:7px;
+    color:#71869c;
+    font-size:8px;
+    line-height:1.85;
+}
+
+
+/* =====================================================
+   CURRENT FEATURES
+===================================================== */
+
+.feature-list{
+    display:grid;
+    gap:10px;
 }
 
 .feature{
-    background:#08111d;
-    border:1px solid #1b2d43;
-    border-radius:13px;
     padding:18px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:14px;
 }
 
-.feature strong{
-    display:block;
-    color:#fff;
+.feature-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.feature h3{
+    font-size:11px;
+}
+
+.current{
+    flex-shrink:0;
+    padding:5px 8px;
+    border-radius:20px;
+    background:rgba(8,124,255,.08);
+    border:1px solid rgba(8,124,255,.3);
+    color:#42a5ff;
+    font-size:6px;
+    font-weight:bold;
+    letter-spacing:.7px;
+}
+
+.feature p{
+    margin-top:7px;
+    color:#71869c;
+    font-size:8px;
+    line-height:1.85;
+}
+
+
+/* =====================================================
+   ON1COIN / XP
+===================================================== */
+
+.system-card{
+    padding:27px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:18px;
+}
+
+.system-icon{
+    font-size:25px;
+}
+
+.system-card h3{
+    margin-top:12px;
+    font-size:16px;
+}
+
+.system-card p{
+    margin-top:10px;
+    color:#788da2;
+    font-size:9px;
+    line-height:1.9;
+}
+
+.system-points{
+    display:grid;
+    gap:8px;
+    margin-top:17px;
+}
+
+.system-point{
+    padding:11px 13px;
+    background:#08121f;
+    border:1px solid #17283b;
+    border-radius:9px;
+    color:#71869c;
+    font-size:8px;
+    line-height:1.75;
+}
+
+.system-point strong{
+    color:#d9e4ef;
+}
+
+
+/* =====================================================
+   DEVELOPMENT MODEL
+===================================================== */
+
+.steps{
+    display:grid;
+    gap:11px;
+}
+
+.step{
+    display:grid;
+    grid-template-columns:65px 1fr;
+    gap:17px;
+    padding:21px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:15px;
+}
+
+.step-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:43px;
+    height:43px;
+    border-radius:50%;
+    background:#08121f;
+    border:1px solid #203349;
+    color:#42a5ff;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.step h3{
+    font-size:12px;
+}
+
+.step p{
+    margin-top:6px;
+    color:#71869c;
+    font-size:8px;
+    line-height:1.85;
+}
+
+
+/* =====================================================
+   CURRENT VS PLANNED
+===================================================== */
+
+.status-card{
+    padding:25px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:17px;
+}
+
+.status-card h3{
     font-size:14px;
 }
 
-.feature span{
-    display:block;
-    margin-top:7px;
+.status-card p{
+    margin-top:9px;
     color:#71869c;
-    font-size:12px;
-    line-height:1.65;
+    font-size:9px;
+    line-height:1.85;
 }
 
-.note{
-    margin-top:18px;
-    padding:15px;
-    background:#08111d;
-    border-left:3px solid #42a5ff;
-    border-radius:8px;
-    color:#9caec0;
-    font-size:13px;
+.status-list{
+    display:grid;
+    gap:8px;
+    margin-top:17px;
 }
 
-.link-grid{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:18px;
-}
-
-.link{
-    display:inline-block;
-    padding:10px 14px;
-    background:#08111d;
-    border:1px solid #1b2d43;
+.status-item{
+    padding:10px 12px;
+    background:#08121f;
+    border:1px solid #17283b;
     border-radius:9px;
-    color:#42a5ff;
-    text-decoration:none;
-    font-size:13px;
-}
-
-.link:hover{
-    border-color:#42a5ff;
-}
-
-.footer{
-    margin-top:32px;
-    padding-top:22px;
-    border-top:1px solid #17283b;
-    color:#52667a;
-    font-size:11px;
+    color:#75899d;
+    font-size:8px;
     line-height:1.7;
 }
 
-.footer a{
-    color:#71869c;
-    text-decoration:none;
+.status-item strong{
+    color:#dce7f1;
 }
 
-.footer a:hover{
+
+/* =====================================================
+   TRANSPARENCY
+===================================================== */
+
+.transparency{
+    padding:28px;
+    background:#08121f;
+    border:1px solid #203349;
+    border-radius:18px;
+}
+
+.transparency h3{
+    font-size:15px;
+}
+
+.transparency p{
+    margin-top:10px;
+    color:#75899d;
+    font-size:9px;
+    line-height:1.9;
+}
+
+.transparency ul{
+    margin-top:14px;
+    padding-left:18px;
+}
+
+.transparency li{
+    margin-top:7px;
+    color:#75899d;
+    font-size:8px;
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+    display:grid;
+    gap:10px;
+}
+
+.faq-item{
+    padding:20px;
+    background:#0b1623;
+    border:1px solid #1b2d43;
+    border-radius:14px;
+}
+
+.faq-item h3{
+    font-size:10px;
+}
+
+.faq-item p{
+    margin-top:7px;
+    color:#71869c;
+    font-size:8px;
+    line-height:1.85;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta{
+    padding:70px 0 80px;
+}
+
+.cta-box{
+    padding:45px 25px;
+    text-align:center;
+    background:
+        radial-gradient(
+            circle,
+            rgba(8,124,255,.12),
+            transparent 65%
+        ),
+        #0b1623;
+    border:1px solid #1b2d43;
+    border-radius:21px;
+}
+
+.cta-box h2{
+    font-size:27px;
+}
+
+.cta-box p{
+    max-width:650px;
+    margin:11px auto 0;
+    color:#7e92a7;
+    font-size:9px;
+    line-height:1.9;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:22px;
+}
+
+.primary-btn,
+.secondary-btn{
+    display:inline-block;
+    padding:13px 19px;
+    border-radius:10px;
+    font-size:8px;
+    font-weight:bold;
+}
+
+.primary-btn{
+    background:#087cff;
+}
+
+.secondary-btn{
+    background:#0b1623;
+    border:1px solid #203349;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:38px 0;
+    background:#030810;
+    border-top:1px solid #17283b;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:28px;
+}
+
+.footer-brand{
+    font-size:17px;
+    font-weight:900;
+}
+
+.footer-brand span{
     color:#42a5ff;
 }
 
-@media(max-width:600px){
+.footer-description{
+    max-width:310px;
+    margin-top:9px;
+    color:#52667a;
+    font-size:8px;
+    line-height:1.75;
+}
+
+.footer-column h4{
+    font-size:8px;
+    margin-bottom:11px;
+}
+
+.footer-column a{
+    display:block;
+    margin-top:8px;
+    color:#63778b;
+    font-size:7px;
+}
+
+.footer-column a:hover{
+    color:#42a5ff;
+}
+
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-top:30px;
+    padding-top:17px;
+    border-top:1px solid #17283b;
+    color:#405267;
+    font-size:7px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .grid-3{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+
+@media(max-width:650px){
 
     .container{
-        padding:20px 14px 40px;
+        padding:0 15px;
     }
 
-    .card{
-        padding:25px 18px;
+    .nav-buttons{
+        display:none;
     }
 
-    h1{
-        font-size:27px;
+    .hero{
+        padding:72px 0 55px;
     }
 
-    h2{
-        font-size:18px;
+    .hero h1{
+        letter-spacing:-1.5px;
     }
 
-    p,
-    ul{
-        font-size:13px;
-    }
-
-    .feature-grid{
+    .grid-2,
+    .grid-3{
         grid-template-columns:1fr;
+    }
+
+    .step{
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .feature-top{
+        align-items:flex-start;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
     }
 
 }
@@ -232,367 +810,1344 @@ li{
 
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container nav">
+
+<a href="../index.html"
+   class="brand">
+
+<img src="../logo.png"
+     alt="DSATECHON1 Logo">
+
+<div>
+
+<div class="brand-name">
+ON1<span>Ecosystem</span>
+</div>
+
+<div class="brand-small">
+DIGITAL ECOSYSTEM
+</div>
+
+</div>
+
+</a>
+
+
+<nav class="nav-links">
+
+<a href="../index.html">
+Home
+</a>
+
+<a href="#purpose">
+About
+</a>
+
+<a href="#features">
+Current Features
+</a>
+
+<a href="#on1coin">
+ON1Coin
+</a>
+
+<a href="#development">
+Development
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
+</nav>
+
+
+<div class="nav-buttons">
+
+<a href="login.html"
+   class="login-btn">
+LOGIN
+</a>
+
+<a href="signup.html"
+   class="start-btn">
+GET STARTED
+</a>
+
+</div>
+
+
+<button class="menu-btn"
+        onclick="openMenu()"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+☰
+</button>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+
+<section class="hero">
 
 <div class="container">
 
-    <header class="header">
-
-        <a href="../index.html" class="back">
-            ← Back to Home
-        </a>
-
-        <div class="brand">
-            ON1<span>Ecosystem</span>
-        </div>
-
-    </header>
-
-
-    <main class="card">
-
-        <h1>About ON1Ecosystem</h1>
-
-        <p class="intro">
-            ON1Ecosystem is a developing digital ecosystem created
-            by DSATECHON1. It is being built to bring multiple
-            digital services, member participation, community
-            activities and future opportunities together through
-            one connected platform.
-        </p>
-
-
-        <h2>What Is ON1Ecosystem?</h2>
-
-        <p>
-            ON1Ecosystem is designed as a platform rather than a
-            single-purpose application. The long-term concept is
-            to provide different services and participation
-            experiences that can operate within the same ecosystem.
-        </p>
-
-        <p>
-            Development is taking place progressively. This means
-            that some features are currently available to members,
-            while other services are still being designed,
-            developed or planned for future stages.
-        </p>
-
-        <div class="note">
-            ON1Ecosystem does not represent every planned service
-            as already available. Features are introduced as they
-            become ready and supported by the platform.
-        </div>
-
-
-        <h2>Our Purpose</h2>
-
-        <p>
-            The purpose of ON1Ecosystem is to create a connected
-            digital environment where people can access useful
-            platform features, participate in eligible activities,
-            maintain their account information and discover future
-            ecosystem services from one place.
-        </p>
-
-        <p>
-            The platform also provides a foundation for working
-            with suitable partners and introducing additional
-            services as the ecosystem develops.
-        </p>
-
-
-        <h2>Current Member Experience</h2>
-
-        <p>
-            The current platform focuses on the foundation of the
-            ON1Ecosystem member experience. Depending on the
-            feature and its current availability, members can use
-            areas such as account access, the member dashboard,
-            ON1Coin participation, ON1XP activity, streaks,
-            referrals and the member wallet.
-        </p>
-
-        <p>
-            These features are intended to provide the basic
-            structure needed for a broader ecosystem while
-            additional services continue to be developed.
-        </p>
-
-
-        <h2>ON1Coin and ON1XP</h2>
-
-        <div class="feature-grid">
-
-            <div class="feature">
-                <strong>🪙 ON1Coin</strong>
-
-                <span>
-                    ON1Coin is the digital participation and reward
-                    unit used within supported ON1Ecosystem
-                    activities. Its availability and use depend on
-                    the rules of the relevant feature.
-                </span>
-            </div>
-
-
-            <div class="feature">
-                <strong>⭐ ON1XP</strong>
-
-                <span>
-                    ON1XP represents participation experience
-                    within the ecosystem. XP can be associated
-                    with eligible activities and member
-                    participation.
-                </span>
-            </div>
-
-
-            <div class="feature">
-                <strong>🔥 Participation Streaks</strong>
-
-                <span>
-                    Eligible members can maintain participation
-                    streaks through supported daily activities.
-                    Streak rules and rewards are determined by the
-                    platform.
-                </span>
-            </div>
-
-
-            <div class="feature">
-                <strong>🤝 Referral Participation</strong>
-
-                <span>
-                    The referral system allows members to invite
-                    other people to participate. Applicable
-                    referral rewards are subject to the platform's
-                    eligibility and reward rules.
-                </span>
-            </div>
-
-        </div>
-
-
-        <h2>Planned Ecosystem Services</h2>
-
-        <p>
-            ON1Ecosystem is intended to expand beyond its current
-            participation features. The following services are
-            part of the broader development direction and may be
-            introduced progressively.
-        </p>
-
-        <div class="feature-grid">
-
-            <div class="feature">
-                <strong>💳 ON1Pay</strong>
-
-                <span>
-                    A planned digital payment environment for
-                    supported transactions and ecosystem services.
-                </span>
-            </div>
-
-
-            <div class="feature">
-                <strong>🛍️ ON1Marketplace</strong>
-
-                <span>
-                    A planned marketplace concept for connecting
-                    users with products, services and selected
-                    opportunities.
-                </span>
-            </div>
-
-
-            <div class="feature">
-                <strong>🔄 ON1Exchange</strong>
-
-                <span>
-                    A planned environment for supported digital
-                    assets and related ecosystem services.
-                </span>
-            </div>
-
-
-            <div class="feature">
-                <strong>🎁 Gift Card Services</strong>
-
-                <span>
-                    Planned digital gift card-related services
-                    intended to become part of the wider ecosystem.
-                </span>
-            </div>
-
-
-            <div class="feature">
-                <strong>🤝 Partnerships</strong>
-
-                <span>
-                    Partnership opportunities may help introduce
-                    additional services, activities and
-                    experiences to the ecosystem.
-                </span>
-            </div>
-
-
-            <div class="feature">
-                <strong>🌐 Future Services</strong>
-
-                <span>
-                    The ecosystem is designed to remain expandable
-                    as new ideas, technologies, services and
-                    suitable partnerships are evaluated.
-                </span>
-            </div>
-
-        </div>
-
-
-        <h2>How Participation Works</h2>
-
-        <p>
-            ON1Ecosystem uses a participation-based approach.
-            Members can interact with eligible features through
-            their account and dashboard.
-        </p>
-
-        <p>
-            Participation may include activities such as daily
-            mining, maintaining a participation streak, earning
-            ON1XP, using referral features and reviewing account
-            information through the wallet.
-        </p>
-
-        <p>
-            Each activity has its own conditions. Rewards are not
-            guaranteed simply because an account exists, and
-            members should review the applicable rules before
-            participating.
-        </p>
-
-
-        <h2>Development Approach</h2>
-
-        <p>
-            ON1Ecosystem is being developed step by step. The
-            project is focused on establishing a reliable
-            foundation before expanding into additional services.
-        </p>
-
-        <p>
-            This approach allows individual features to be tested,
-            improved and introduced progressively rather than
-            presenting unfinished services as fully operational.
-        </p>
-
-        <p>
-            Development priorities may change as technical
-            requirements, user feedback, partnerships and
-            operational considerations evolve.
-        </p>
-
-
-        <h2>Our Approach to Members</h2>
-
-        <p>
-            ON1Ecosystem aims to provide clear information about
-            its available features and distinguish current
-            functionality from services that are still being
-            developed.
-        </p>
-
-        <p>
-            Members are encouraged to use the platform responsibly,
-            protect their account information and review the
-            applicable Terms of Service and Privacy Policy.
-        </p>
-
-
-        <h2>Partnerships and Opportunities</h2>
-
-        <p>
-            Partnerships are an important part of the long-term
-            ecosystem concept. Suitable businesses, service
-            providers, developers and other organizations may be
-            considered for collaboration where their services or
-            capabilities can contribute to the ecosystem.
-        </p>
-
-        <p>
-            Partnership opportunities can involve technology,
-            digital services, community activities, commerce,
-            advertising or other areas relevant to the platform.
-        </p>
-
-
-        <h2>Who Is Behind ON1Ecosystem?</h2>
-
-        <p>
-            ON1Ecosystem was founded in 2026 as an initiative of
-            DSATECHON1. The project is being developed as a
-            progressively expanding digital ecosystem.
-        </p>
-
-
-        <h2>Explore ON1Ecosystem</h2>
-
-        <p>
-            The following pages provide more information about the
-            platform and its current member experience.
-        </p>
-
-        <div class="link-grid">
-
-            <a href="how-it-works.html" class="link">
-                How It Works
-            </a>
-
-            <a href="signup.html" class="link">
-                Create Account
-            </a>
-
-            <a href="login.html" class="link">
-                Member Login
-            </a>
-
-            <a href="partnership.html" class="link">
-                Partnerships
-            </a>
-
-            <a href="privacy.html" class="link">
-                Privacy Policy
-            </a>
-
-            <a href="terms.html" class="link">
-                Terms of Service
-            </a>
-
-        </div>
-
-
-        <div class="footer">
-
-            © 2026 ON1Ecosystem<br>
-
-            A DSATECHON1 initiative.
-
-            <br><br>
-
-            <a href="../index.html">Home</a>
-            &nbsp;·&nbsp;
-            <a href="how-it-works.html">How It Works</a>
-            &nbsp;·&nbsp;
-            <a href="privacy.html">Privacy</a>
-            &nbsp;·&nbsp;
-            <a href="terms.html">Terms</a>
-
-        </div>
-
-    </main>
+<div class="hero-content">
+
+<div class="badge">
+ABOUT ON1ECOSYSTEM
+</div>
+
+<h1>
+One Ecosystem.<br>
+<span>Built Step by Step.</span>
+</h1>
+
+<p class="hero-intro">
+ON1Ecosystem is a digital ecosystem initiative by
+DSATECHON1. The project is being developed as a
+connected environment where member participation,
+digital reward features, useful services and future
+ecosystem opportunities can be brought together over
+time.
+</p>
+
+<div class="hero-note">
+<strong>Current development status:</strong>
+ON1Ecosystem is an active, developing project.
+Some member features are currently available,
+while other services described on this website are
+planned and have not yet been launched.
+</div>
 
 </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PURPOSE
+===================================================== -->
+
+<section id="purpose">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="label">
+OUR PURPOSE
+</div>
+
+<h2>
+Why ON1Ecosystem exists.
+</h2>
+
+<p>
+The project is built around the idea of bringing
+related digital experiences into one connected
+member environment instead of treating every
+service as a completely separate destination.
+</p>
+
+</div>
+
+
+<div class="purpose-card">
+
+<h3>
+One connected digital ecosystem.
+</h3>
+
+<p>
+ON1Ecosystem is designed to provide a common
+environment for members to create an account,
+access available features, participate in eligible
+activities, maintain their ecosystem balances and
+follow the development of additional services.
+</p>
+
+<p>
+The platform is being developed progressively.
+This means that the current website distinguishes
+between features that members can use today and
+services that remain under development. Planned
+features are not presented as completed products.
+</p>
+
+<p>
+The broader direction is to create an ecosystem
+that can support digital participation, community
+activity, partnerships and practical online services
+as the project develops its technology, operations
+and partnerships.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PRINCIPLES
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="label">
+DEVELOPMENT PRINCIPLES
+</div>
+
+<h2>
+How we approach the ecosystem.
+</h2>
+
+<p>
+The project is being developed around several
+practical principles intended to keep the member
+experience understandable as new features are added.
+</p>
+
+</div>
+
+
+<div class="grid-3">
+
+
+<div class="principle">
+
+<div class="principle-icon">
+🔎
+</div>
+
+<h3>
+Clarity
+</h3>
+
+<p>
+Current features and planned services should be
+identified clearly so members can understand what
+is actually available.
+</p>
+
+</div>
+
+
+<div class="principle">
+
+<div class="principle-icon">
+🧩
+</div>
+
+<h3>
+Progressive Development
+</h3>
+
+<p>
+New components are introduced progressively rather
+than treating an unfinished roadmap as a completed
+product.
+</p>
+
+</div>
+
+
+<div class="principle">
+
+<div class="principle-icon">
+👥
+</div>
+
+<h3>
+Member Experience
+</h3>
+
+<p>
+The platform is designed around simple navigation,
+account access, participation and understandable
+information.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CURRENT FEATURES
+===================================================== -->
+
+<section id="features">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="label">
+CURRENT FEATURES
+</div>
+
+<h2>
+What is currently part of the member experience.
+</h2>
+
+<p>
+The following components form the current foundation
+of ON1Ecosystem. Availability and eligibility can
+depend on the applicable system rules.
+</p>
+
+</div>
+
+
+<div class="feature-list">
+
+
+<div class="feature">
+
+<div class="feature-top">
+
+<h3>
+Member Accounts
+</h3>
+
+<span class="current">
+AVAILABLE
+</span>
+
+</div>
+
+<p>
+Members can create accounts and use authenticated
+areas of the platform to access the available
+ecosystem experience.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-top">
+
+<h3>
+Member Dashboard
+</h3>
+
+<span class="current">
+AVAILABLE
+</span>
+
+</div>
+
+<p>
+The dashboard provides a central location for
+participation information, balances, mining activity,
+progress and links to other member features.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-top">
+
+<h3>
+ON1Coin Mining
+</h3>
+
+<span class="current">
+AVAILABLE
+</span>
+
+</div>
+
+<p>
+Eligible members can participate in the current
+ON1Coin mining cycle through the member dashboard.
+The current base mining reward is 50 ON1Coin per
+eligible 24-hour cycle, subject to the system rules.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-top">
+
+<h3>
+Streak Participation
+</h3>
+
+<span class="current">
+AVAILABLE
+</span>
+
+</div>
+
+<p>
+Consistent eligible mining participation can progress
+a member through the current streak structure.
+The streak system provides additional ON1Coin rewards
+according to the applicable day and timing rules.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-top">
+
+<h3>
+Referral Program
+</h3>
+
+<span class="current">
+AVAILABLE
+</span>
+
+</div>
+
+<p>
+Eligible referrals can qualify for a referral reward
+after the required participation condition has been
+completed. The current referral reward is 25 ON1Coin
+and 250 ON1XP for the qualifying referred member,
+subject to the system rules.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-top">
+
+<h3>
+Wallet
+</h3>
+
+<span class="current">
+AVAILABLE
+</span>
+
+</div>
+
+<p>
+The member wallet provides visibility into ON1Coin
+and ON1XP balances and related activity. The two
+balances are maintained separately because they serve
+different purposes within the ecosystem.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ON1COIN AND XP
+===================================================== -->
+
+<section id="on1coin">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="label">
+ON1COIN & ON1XP
+</div>
+
+<h2>
+Two separate components with different roles.
+</h2>
+
+<p>
+ON1Coin and ON1XP are both part of the current
+member experience, but they should not be treated
+as the same balance or as automatically interchangeable
+assets.
+</p>
+
+</div>
+
+
+<div class="grid-2">
+
+
+<div class="system-card">
+
+<div class="system-icon">
+🪙
+</div>
+
+<h3>
+ON1Coin
+</h3>
+
+<p>
+ON1Coin is the digital coin component of
+ON1Ecosystem. Its current role is connected to
+eligible participation and reward activities
+provided through the platform.
+</p>
+
+<div class="system-points">
+
+<div class="system-point">
+<strong>Base mining:</strong>
+50 ON1Coin per eligible 24-hour mining cycle.
+</div>
+
+<div class="system-point">
+<strong>Streak rewards:</strong>
+Additional rewards can apply according to the
+current streak structure.
+</div>
+
+<div class="system-point">
+<strong>Referral rewards:</strong>
+Qualifying referrals can receive applicable
+ON1Coin rewards.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="system-card">
+
+<div class="system-icon">
+⭐
+</div>
+
+<h3>
+ON1XP
+</h3>
+
+<p>
+ON1XP is a separate experience and participation
+balance used to represent member progress within
+eligible ecosystem activities.
+</p>
+
+<div class="system-points">
+
+<div class="system-point">
+<strong>Separate balance:</strong>
+ON1XP is recorded independently from ON1Coin.
+</div>
+
+<div class="system-point">
+<strong>Participation:</strong>
+Eligible activities may contribute to XP.
+</div>
+
+<div class="system-point">
+<strong>Progress:</strong>
+XP provides a way to represent participation
+and member activity progress.
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DEVELOPMENT MODEL
+===================================================== -->
+
+<section id="development">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="label">
+DEVELOPMENT MODEL
+</div>
+
+<h2>
+Built step by step.
+</h2>
+
+<p>
+ON1Ecosystem is being developed progressively.
+The development approach separates the current
+member foundation from future services that still
+require development, testing, partnerships or
+operational readiness.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+01
+</div>
+
+<div>
+
+<h3>
+Build the member foundation
+</h3>
+
+<p>
+Account registration, authentication, dashboard
+access, wallet functionality and core participation
+features establish the foundation of the ecosystem.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+02
+</div>
+
+<div>
+
+<h3>
+Improve participation
+</h3>
+
+<p>
+Mining, streaks, referrals and XP-related activities
+provide structured ways for eligible members to
+participate and track their progress.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+03
+</div>
+
+<div>
+
+<h3>
+Develop additional services
+</h3>
+
+<p>
+Future services can be developed and tested
+independently before being presented as available
+ecosystem products.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+04
+</div>
+
+<div>
+
+<h3>
+Expand through partnerships
+</h3>
+
+<p>
+Suitable businesses, creators, service providers
+and organizations may contribute technology,
+services, promotional opportunities or community
+initiatives as the ecosystem develops.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CURRENT AND PLANNED
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="label">
+CURRENT VS PLANNED
+</div>
+
+<h2>
+What is available and what remains under development.
+</h2>
+
+<p>
+Keeping this distinction clear is important because
+the ecosystem roadmap contains ideas that may require
+additional development before they can become usable
+services.
+</p>
+
+</div>
+
+
+<div class="grid-2">
+
+
+<div class="status-card">
+
+<h3>
+Currently available
+</h3>
+
+<p>
+The current member foundation includes the following
+features:
+</p>
+
+<div class="status-list">
+
+<div class="status-item">
+<strong>Member accounts</strong> — registration and login.
+</div>
+
+<div class="status-item">
+<strong>Dashboard</strong> — central member experience.
+</div>
+
+<div class="status-item">
+<strong>Wallet</strong> — ON1Coin and ON1XP visibility.
+</div>
+
+<div class="status-item">
+<strong>ON1Coin Mining</strong> — current participation system.
+</div>
+
+<div class="status-item">
+<strong>Streaks</strong> — additional participation rewards.
+</div>
+
+<div class="status-item">
+<strong>Referrals</strong> — qualifying referral rewards.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="status-card">
+
+<h3>
+Planned or developing
+</h3>
+
+<p>
+These services are part of the broader direction
+but should not be considered currently available
+simply because they appear on the roadmap.
+</p>
+
+<div class="status-list">
+
+<div class="status-item">
+<strong>ON1Pay</strong> — planned payment-related services.
+</div>
+
+<div class="status-item">
+<strong>ON1Marketplace</strong> — planned marketplace environment.
+</div>
+
+<div class="status-item">
+<strong>ON1Exchange</strong> — planned digital-service environment.
+</div>
+
+<div class="status-item">
+<strong>Gift Card Services</strong> — planned digital gift card opportunities.
+</div>
+
+<div class="status-item">
+<strong>Additional integrations</strong> — subject to future development.
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TRANSPARENCY
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="transparency">
+
+<h3>
+Important information for members and visitors.
+</h3>
+
+<p>
+ON1Ecosystem is an actively developing digital
+ecosystem. Information on this website describes
+the current platform and its development direction,
+but future services can change as technical,
+operational and partnership requirements develop.
+</p>
+
+<ul>
+
+<li>
+ON1Coin is not presented on this website as a
+guaranteed cash-equivalent asset.
+</li>
+
+<li>
+ON1XP is a separate participation and experience
+balance and is not presented as a cash-equivalent
+balance.
+</li>
+
+<li>
+Planned services are not guarantees that those
+services will launch or operate in a particular form.
+</li>
+
+<li>
+Participation rewards are subject to the applicable
+system rules and eligibility requirements.
+</li>
+
+<li>
+Members should review the relevant information
+pages and terms before using platform features.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section id="faq">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="label">
+ABOUT FAQ
+</div>
+
+<h2>
+Questions about ON1Ecosystem.
+</h2>
+
+<p>
+These answers summarize the current project direction
+and distinguish the existing member experience from
+planned development.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+
+<div class="faq-item">
+
+<h3>
+Who operates ON1Ecosystem?
+</h3>
+
+<p>
+ON1Ecosystem is a digital ecosystem initiative by
+DSATECHON1. The project is being developed as a
+connected platform for member participation,
+digital services and future ecosystem opportunities.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+What is the main purpose of ON1Ecosystem?
+</h3>
+
+<p>
+The purpose is to bring multiple digital experiences
+and participation opportunities into one connected
+ecosystem while allowing new services to be added
+progressively.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+What can members currently do?
+</h3>
+
+<p>
+Eligible members can create an account, access the
+dashboard, participate in the current ON1Coin mining
+system, progress through applicable streak rewards,
+use the referral program and view ON1Coin and ON1XP
+through the member wallet.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+What is ON1Coin?
+</h3>
+
+<p>
+ON1Coin is the digital coin component of
+ON1Ecosystem. Its current role is connected to
+eligible participation and reward activities within
+the platform.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+What is ON1XP?
+</h3>
+
+<p>
+ON1XP is a separate experience and participation
+balance. It is used to represent member progress
+and is maintained independently from ON1Coin.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Are ON1Pay and ON1Marketplace available now?
+</h3>
+
+<p>
+No. They are planned services. Their appearance
+on the website describes development direction and
+does not mean that those services are currently
+available to members.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Does ON1Coin have guaranteed cash value?
+</h3>
+
+<p>
+No. ON1Ecosystem does not represent ON1Coin on this
+website as a guaranteed cash-equivalent asset.
+Any future utility depends on actual development,
+service availability and applicable requirements.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Where can I learn more about ON1Coin?
+</h3>
+
+<p>
+The ON1Coin Guide provides more detailed information
+about the current mining cycle, streak structure,
+referral participation and the distinction between
+ON1Coin and ON1XP.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+<div class="container">
+
+<div class="cta-box">
+
+<h2>
+Explore ON1Ecosystem.
+</h2>
+
+<p>
+Learn how the current ecosystem works, review the
+ON1Coin information, or create an account to access
+the available member experience.
+</p>
+
+<div class="buttons">
+
+<a href="../index.html"
+   class="secondary-btn">
+BACK TO HOME
+</a>
+
+<a href="how-it-works.html"
+   class="secondary-btn">
+HOW IT WORKS
+</a>
+
+<a href="on1coin-guide.html"
+   class="secondary-btn">
+ON1COIN GUIDE
+</a>
+
+<a href="signup.html"
+   class="primary-btn">
+CREATE ACCOUNT
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div>
+
+<div class="footer-brand">
+ON1<span>Ecosystem</span>
+</div>
+
+<p class="footer-description">
+One connected digital ecosystem designed to bring
+multiple services, participation and opportunities
+together.
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+ECOSYSTEM
+</h4>
+
+<a href="../index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="how-it-works.html">
+How It Works
+</a>
+
+<a href="on1coin-guide.html">
+ON1Coin Guide
+</a>
+
+<a href="partnership.html">
+Partnerships
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+MEMBERS
+</h4>
+
+<a href="login.html">
+Login
+</a>
+
+<a href="signup.html">
+Create Account
+</a>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+<a href="wallet.html">
+Wallet
+</a>
+
+<a href="notifications.html">
+Notifications
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+INFORMATION
+</h4>
+
+<a href="about.html">
+About ON1Ecosystem
+</a>
+
+<a href="privacy.html">
+Privacy Policy
+</a>
+
+<a href="terms.html">
+Terms of Service
+</a>
+
+<a href="partnership.html">
+Partnerships
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 ON1Ecosystem
+</span>
+
+<span>
+A DSATECHON1 initiative
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     MOBILE NAVIGATION
+===================================================== -->
+
+<script>
+
+function openMenu(){
+
+    const nav =
+        document.querySelector(".nav-links");
+
+    const button =
+        document.querySelector(".menu-btn");
+
+    if(nav.style.display === "flex"){
+
+        nav.style.display = "none";
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }else{
+
+        nav.style.display = "flex";
+
+        nav.style.position = "absolute";
+
+        nav.style.top = "72px";
+
+        nav.style.left = "0";
+
+        nav.style.right = "0";
+
+        nav.style.flexDirection = "column";
+
+        nav.style.padding = "20px";
+
+        nav.style.gap = "18px";
+
+        nav.style.background = "#08111d";
+
+        nav.style.borderBottom =
+            "1px solid #1b2d43";
+
+        button.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    }
+
+}
+
+
+/* Close mobile menu after selecting a link */
+
+document.querySelectorAll(".nav-links a").forEach(
+    function(link){
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                if(window.innerWidth <= 950){
+
+                    document.querySelector(
+                        ".nav-links"
+                    ).style.display = "none";
+
+                    document.querySelector(
+                        ".menu-btn"
+                    ).setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+</script>
+
 
 </body>
 

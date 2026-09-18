@@ -1,1 +1,969 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
+<meta name="theme-color"
+content="#06101d">
+
+<meta name="description"
+content="A practical guide to ON1Coin within ON1Ecosystem, including mining, participation cycles, streak rewards, referral rewards, wallet balances, ON1XP and important limitations.">
+
+<meta name="google-adsense-account"
+content="ca-pub-1529736084012433">
+
+<script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1529736084012433"
+        crossorigin="anonymous"></script><title>ON1Coin Guide | ON1Ecosystem</title><style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:#06101d;
+    color:#eaf2f8;
+    line-height:1.7;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(6,16,29,.97);
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+}
+
+.header-inner{
+    width:min(1100px,92%);
+    min-height:70px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand img{
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.brand-name{
+    font-size:17px;
+    font-weight:800;
+}
+
+.brand-subtitle{
+    color:#8298aa;
+    font-size:9px;
+    letter-spacing:1.3px;
+    margin-top:1px;
+}
+
+.menu-button{
+    width:42px;
+    height:42px;
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:10px;
+
+    background:#0b1b2b;
+    color:#fff;
+
+    font-size:21px;
+    cursor:pointer;
+}
+
+nav{
+    display:none;
+
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+
+    padding:12px 4%;
+
+    background:#081523;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+nav.active{
+    display:block;
+}
+
+nav a{
+    display:block;
+    padding:11px 10px;
+
+    color:#c7d5df;
+    font-size:14px;
+    border-radius:8px;
+}
+
+nav a:hover{
+    background:#102538;
+    color:#fff;
+}
+
+.hero{
+    width:min(900px,92%);
+    margin:auto;
+
+    padding:60px 0 42px;
+    text-align:center;
+}
+
+.eyebrow{
+    display:inline-block;
+
+    padding:6px 12px;
+    margin-bottom:16px;
+
+    border:1px solid rgba(97,195,255,.25);
+    border-radius:999px;
+
+    background:rgba(29,113,173,.10);
+
+    color:#73c5ff;
+
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-size:clamp(31px,7vw,50px);
+    line-height:1.12;
+    margin-bottom:17px;
+}
+
+.hero h1 span{
+    color:#61c3ff;
+}
+
+.hero p{
+    max-width:760px;
+    margin:auto;
+
+    color:#9fb2c2;
+    font-size:16px;
+}
+
+main{
+    width:min(980px,92%);
+    margin:auto;
+}
+
+.section{
+    padding:34px 0;
+}
+
+.section-heading{
+    margin-bottom:20px;
+}
+
+.label{
+    color:#61c3ff;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+    margin-bottom:7px;
+}
+
+h2{
+    font-size:27px;
+    line-height:1.25;
+    margin-bottom:9px;
+}
+
+.section-heading p{
+    max-width:720px;
+    color:#91a5b6;
+}
+
+.content{
+    color:#a4b5c2;
+    font-size:14px;
+}
+
+.content p{
+    margin-top:12px;
+}
+
+.content strong{
+    color:#eaf2f8;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:18px;
+}
+
+.info-card{
+    padding:21px;
+
+    background:#0a1928;
+    border:1px solid rgba(255,255,255,.075);
+    border-radius:14px;
+}
+
+.info-card .icon{
+    font-size:25px;
+    margin-bottom:9px;
+}
+
+.info-card h3{
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.info-card p{
+    color:#9eb0bf;
+    font-size:14px;
+}
+
+.reward-table{
+    width:100%;
+    margin-top:18px;
+
+    border-collapse:collapse;
+
+    background:#0a1928;
+    border:1px solid rgba(255,255,255,.075);
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.reward-table th,
+.reward-table td{
+    padding:13px 15px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    text-align:left;
+    font-size:14px;
+}
+
+.reward-table th{
+    background:#102538;
+    color:#73c5ff;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+}
+
+.reward-table td{
+    color:#a9bac7;
+}
+
+.reward-table tr:last-child td{
+    border-bottom:0;
+}
+
+.highlight{
+    margin-top:18px;
+    padding:17px 19px;
+
+    background:#091a28;
+    border-left:3px solid #4ba9df;
+
+    border-radius:8px;
+
+    color:#a8bac8;
+    font-size:14px;
+}
+
+.highlight strong{
+    color:#fff;
+}
+
+.note{
+    margin-top:18px;
+    padding:17px 19px;
+
+    background:#171b1f;
+    border-left:3px solid #8b9aa5;
+
+    border-radius:8px;
+
+    color:#aeb9c1;
+    font-size:13px;
+}
+
+.steps{
+    display:grid;
+    gap:12px;
+    margin-top:18px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+
+    padding:18px;
+
+    background:#0a1928;
+    border:1px solid rgba(255,255,255,.075);
+    border-radius:13px;
+}
+
+.step-number{
+    flex:0 0 36px;
+
+    width:36px;
+    height:36px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#102d43;
+    color:#72c8ff;
+
+    font-weight:800;
+}
+
+.step h3{
+    font-size:17px;
+    margin-bottom:5px;
+}
+
+.step p{
+    color:#9eb0bf;
+    font-size:14px;
+}
+
+.faq{
+    display:grid;
+    gap:10px;
+    margin-top:18px;
+}
+
+.faq-item{
+    padding:18px;
+
+    background:#0a1928;
+    border:1px solid rgba(255,255,255,.075);
+    border-radius:13px;
+}
+
+.faq-item h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.faq-item p{
+    color:#9eb0bf;
+    font-size:14px;
+}
+
+.links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.button{
+    display:inline-block;
+
+    padding:10px 15px;
+
+    border-radius:9px;
+
+    background:#1686c9;
+    color:#fff;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+.button.secondary{
+    background:#12283a;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.button:hover{
+    opacity:.9;
+}
+
+.cta{
+    margin:35px 0 55px;
+    padding:30px 22px;
+
+    text-align:center;
+
+    background:linear-gradient(
+        145deg,
+        #0b2032,
+        #091522
+    );
+
+    border:1px solid rgba(97,195,255,.14);
+    border-radius:16px;
+}
+
+.cta h2{
+    font-size:24px;
+}
+
+.cta p{
+    max-width:650px;
+    margin:8px auto 18px;
+
+    color:#9eb0bf;
+    font-size:14px;
+}
+
+footer{
+    border-top:1px solid rgba(255,255,255,.07);
+    padding:30px 0;
+}
+
+.footer-inner{
+    width:min(980px,92%);
+    margin:auto;
+}
+
+.footer-brand{
+    font-size:16px;
+    font-weight:800;
+}
+
+.footer-description{
+    max-width:550px;
+    margin-top:5px;
+
+    color:#8296a7;
+    font-size:12px;
+}
+
+.footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:13px;
+
+    margin-top:18px;
+}
+
+.footer-links a{
+    color:#8fa3b2;
+    font-size:12px;
+}
+
+.footer-links a:hover{
+    color:#fff;
+}
+
+.copyright{
+    margin-top:20px;
+    padding-top:17px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    color:#657988;
+    font-size:11px;
+}
+
+@media(max-width:650px){
+
+    .hero{
+        padding-top:48px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .reward-table{
+        font-size:13px;
+    }
+
+    .reward-table th,
+    .reward-table td{
+        padding:11px 9px;
+    }
+
+    .step{
+        padding:16px;
+    }
+
+}
+
+@media(min-width:800px){
+
+    .menu-button{
+        display:none;
+    }
+
+    nav{
+        display:flex;
+
+        position:static;
+
+        padding:0;
+
+        background:none;
+        border:0;
+
+        gap:4px;
+    }
+
+    nav a{
+        padding:8px 10px;
+    }
+
+}
+
+</style></head><body><header><div class="header-inner"><a href="../index.html"
+class="brand">
+
+<img src="../logo.png"
+alt="DSATECHON1 Logo"
+onerror="this.style.display='none';">
+
+<div>
+    <div class="brand-name">ON1Ecosystem</div>
+    <div class="brand-subtitle">DIGITAL ECOSYSTEM</div>
+</div></a><button class="menu-button"
+id="menuButton"
+aria-label="Open navigation"
+aria-expanded="false">
+
+☰
+
+</button><nav id="mainNav"><a href="../index.html">Home</a>
+<a href="about.html">About</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="on1coin-guide.html">ON1Coin Guide</a>
+<a href="login.html">Login</a>
+<a href="signup.html">Create Account</a>
+
+</nav></div></header><section class="hero"><div class="eyebrow">
+ON1Ecosystem Resource Guide
+</div><h1>
+Understanding <span>ON1Coin</span>
+</h1><p>
+A practical explanation of ON1Coin's current role within
+ON1Ecosystem, how member participation works, how mining and
+streaks are structured, and how ON1Coin differs from ON1XP.
+</p></section><main><section class="section"><div class="section-heading"><div class="label">
+Start Here
+</div><h2>
+What is ON1Coin?
+</h2></div><div class="content"><p>
+<strong>ON1Coin is the digital coin component of ON1Ecosystem.</strong>
+Its current role is connected to eligible member participation
+and reward activities provided through the platform.
+</p><p>
+ON1Coin is recorded as a separate balance in a member's wallet.
+It is different from ON1XP, which represents experience and
+participation progress.
+</p><p>
+The current ON1Coin experience is built around participation
+rather than a promise of guaranteed monetary value. The platform
+does not present the current ON1Coin balance as a guaranteed
+cash-equivalent asset.
+</p><div class="note"><strong>Important:</strong>
+ON1Coin's current role should be understood from the features
+that are actually available on ON1Ecosystem. Planned services
+and future utility should not be treated as current functionality.
+
+</div></div></section><section class="section"><div class="section-heading"><div class="label">
+How It Works
+</div><h2>
+The current ON1Coin participation cycle.
+</h2><p>
+Eligible members can participate through the member dashboard.
+The exact availability of an activity is controlled by the
+current platform implementation and its applicable rules.
+</p></div><div class="steps"><div class="step"><div class="step-number">1</div><div><h3>
+Create and access your member account
+</h3><p>
+Register for an account, sign in and access the member dashboard.
+Your account provides the environment in which supported
+ON1Coin participation is recorded.
+</p></div></div><div class="step"><div class="step-number">2</div><div><h3>
+Participate in the available mining cycle
+</h3><p>
+Eligible members can start the available ON1Coin mining cycle
+from the dashboard when the required participation interval has
+been reached.
+</p></div></div><div class="step"><div class="step-number">3</div><div><h3>
+Receive the applicable mining reward
+</h3><p>
+When an eligible mining action is successfully processed, the
+applicable ON1Coin reward is added to the member balance according
+to the current system rules.
+</p></div></div><div class="step"><div class="step-number">4</div><div><h3>
+Continue participation
+</h3><p>
+Members who continue participating according to the applicable
+schedule can progress through the available streak structure.
+</p></div></div></div></section><section class="section"><div class="section-heading"><div class="label">
+Mining Reward
+</div><h2>
+Current base mining reward.
+</h2><p>
+The current member mining system uses a base mining reward that
+is separate from the additional streak reward.
+</p></div><div class="info-grid"><div class="info-card"><div class="icon">⛏️</div><h3>
+Base Mining
+</h3><p>
+The current base mining reward is
+<strong>50 ON1Coin per eligible 24-hour mining cycle</strong>.
+</p></div><div class="info-card"><div class="icon">⏱️</div><h3>
+Mining Interval
+</h3><p>
+A member's next base mining action becomes available according
+to the current 24-hour mining cycle.
+</p></div></div><div class="highlight"><strong>Important distinction:</strong>
+The 50 ON1Coin base mining reward is separate from the streak
+reward. A qualifying participation cycle can therefore involve
+the base mining reward and an applicable streak reward.
+
+</div></section><section class="section"><div class="section-heading"><div class="label">
+Streak Rewards
+</div><h2>
+How the 10-day streak structure works.
+</h2><p>
+The current streak system provides an additional reward according
+to the member's consecutive participation day.
+</p></div><table class="reward-table"><thead><tr>
+<th>Streak Day</th>
+<th>Additional Streak Reward</th>
+</tr></thead><tbody><tr>
+<td>Day 1</td>
+<td>5 ON1Coin</td>
+</tr><tr>
+<td>Day 2</td>
+<td>10 ON1Coin</td>
+</tr><tr>
+<td>Day 3</td>
+<td>15 ON1Coin</td>
+</tr><tr>
+<td>Day 4</td>
+<td>20 ON1Coin</td>
+</tr><tr>
+<td>Day 5</td>
+<td>25 ON1Coin</td>
+</tr><tr>
+<td>Day 6</td>
+<td>30 ON1Coin</td>
+</tr><tr>
+<td>Day 7</td>
+<td>35 ON1Coin</td>
+</tr><tr>
+<td>Day 8</td>
+<td>40 ON1Coin</td>
+</tr><tr>
+<td>Day 9</td>
+<td>45 ON1Coin</td>
+</tr><tr>
+<td>Day 10</td>
+<td>100 ON1Coin</td>
+</tr></tbody></table><div class="highlight"><strong>Day 10 is the maximum streak day.</strong>
+The current design does not continue to Day 11. Once the
+10-day level is reached, Day 10 remains the maximum streak
+reward level.
+
+</div></section><section class="section"><div class="section-heading"><div class="label">
+Streak Timing
+</div><h2>
+Why consistent participation matters.
+</h2></div><div class="content"><p>
+The streak system is separate from the ordinary mining balance.
+It is designed to recognize consecutive participation rather
+than simply the total number of mining actions completed over
+time.
+</p><p>
+Under the current system rules, a sufficiently long gap between
+eligible mining cycles can reset the mining streak. In particular,
+a gap of <strong>48 hours or more</strong> resets the next mining
+streak to Day 1.
+</p><p>
+Members should therefore pay attention to the mining availability
+shown in their dashboard rather than assuming that a previous
+streak will continue indefinitely.
+</p></div></section><section class="section"><div class="section-heading"><div class="label">
+Referral Rewards
+</div><h2>
+How referrals relate to ON1Coin.
+</h2><p>
+Referral participation is separate from ordinary mining and has
+its own eligibility condition.
+</p></div><div class="content"><p>
+A member can invite another person through the referral system.
+However, creating an account through a referral does not by
+itself make the referral reward immediately payable.
+</p><p>
+Under the current system design, the referred member must
+complete <strong>three consecutive eligible mining cycles</strong>
+before the applicable referral reward is processed.
+</p><p>
+When the required condition is completed, the referring sponsor
+can receive the applicable referral reward and associated XP
+according to the implemented referral rules.
+</p><div class="highlight">The current referral reward structure is designed to connect
+reward eligibility with actual participation rather than
+rewarding an invitation alone.
+
+</div></div></section><section class="section"><div class="section-heading"><div class="label">
+ON1Coin vs ON1XP
+</div><h2>
+The two balances serve different purposes.
+</h2></div><div class="info-grid"><div class="info-card"><div class="icon">🪙</div><h3>
+ON1Coin
+</h3><p>
+The digital coin balance used within supported participation
+and reward activities such as eligible mining, streak and
+qualifying referral rewards.
+</p></div><div class="info-card"><div class="icon">⭐</div><h3>
+ON1XP
+</h3><p>
+The experience and participation balance used to represent
+member progress and activity within the ecosystem.
+</p></div></div><div class="note">ON1Coin and ON1XP should not be treated as interchangeable
+balances. They are maintained separately and have different
+roles within the current member system.
+
+</div></section><section class="section"><div class="section-heading"><div class="label">
+Wallet
+</div><h2>
+Where your ON1Coin balance is displayed.
+</h2></div><div class="content"><p>
+The member wallet provides visibility into the member's current
+ON1Coin balance and keeps it separate from ON1XP.
+</p><p>
+The wallet is intended to make the distinction between the two
+balances clear. As additional transaction-record functionality
+is developed, the wallet experience can provide more detailed
+activity information.
+</p><p>
+Members should use the dashboard and wallet as the primary
+places to check their current account information rather than
+relying on screenshots, social media posts or unofficial
+third-party claims.
+</p></div><div class="links"><a href="wallet.html"
+class="button">
+View Wallet
+</a>
+
+<a href="dashboard.html"
+class="button secondary">
+Open Dashboard
+</a>
+
+</div></section><section class="section"><div class="section-heading"><div class="label">
+What ON1Coin Is Not
+</div><h2>
+Understanding the current limitations.
+</h2></div><div class="content"><p>
+ON1Ecosystem currently does not present ON1Coin as a guaranteed
+cash-equivalent asset.
+</p><p>
+A displayed ON1Coin balance should therefore not automatically
+be interpreted as a promise that the balance can currently be
+withdrawn, exchanged for a specific amount of fiat currency or
+used for every future service described in the ecosystem
+roadmap.
+</p><p>
+Future services such as payment, marketplace or exchange
+functionality remain subject to development, testing,
+operational readiness and applicable requirements.
+</p><div class="note"><strong>For clarity:</strong>
+Only functionality that has actually been implemented and made
+available should be considered part of the current ON1Coin
+experience. Roadmap descriptions are development plans, not
+guarantees of future availability or value.
+
+</div></div></section><section class="section"><div class="section-heading"><div class="label">
+Member Guidance
+</div><h2>
+Using the system responsibly.
+</h2></div><div class="steps"><div class="step"><div class="step-number">1</div><div><h3>
+Check the current rules
+</h3><p>
+Participation conditions can change as the platform is improved.
+Review the information provided by the current member interface.
+</p></div></div><div class="step"><div class="step-number">2</div><div><h3>
+Protect your account
+</h3><p>
+Keep your password private and use the official ON1Ecosystem
+website when accessing your account.
+</p></div></div><div class="step"><div class="step-number">3</div><div><h3>
+Understand the difference between rewards
+</h3><p>
+Base mining rewards, streak rewards and qualifying referral
+rewards have different conditions and should not be assumed to
+work in the same way.
+</p></div></div><div class="step"><div class="step-number">4</div><div><h3>
+Distinguish current features from planned services
+</h3><p>
+A service appearing in the roadmap does not mean that the
+service is currently available.
+</p></div></div></div></section><section class="section"><div class="section-heading"><div class="label">
+Frequently Asked Questions
+</div><h2>
+Common ON1Coin questions.
+</h2></div><div class="faq"><div class="faq-item"><h3>
+Is ON1Coin the same as ON1XP?
+</h3><p>
+No. ON1Coin is the digital coin component used within supported
+reward activities, while ON1XP represents experience and
+participation progress.
+</p></div><div class="faq-item"><h3>
+How often can I participate in mining?
+</h3><p>
+The current base mining cycle uses a 24-hour interval. The
+dashboard determines when the next eligible mining action is
+available.
+</p></div><div class="faq-item"><h3>
+What happens after Day 10?
+</h3><p>
+Day 10 is currently the maximum streak level. The system does
+not introduce a Day 11 reward level.
+</p></div><div class="faq-item"><h3>
+Can I receive a referral reward immediately after someone joins?
+</h3><p>
+No. The current referral design requires the referred member to
+complete the applicable participation condition before the
+referral reward is processed.
+</p></div><div class="faq-item"><h3>
+Does an ON1Coin balance guarantee cash value?
+</h3><p>
+No. The current website does not present ON1Coin as a guaranteed
+cash-equivalent asset. Future utility depends on actual
+development and service availability.
+</p></div><div class="faq-item"><h3>
+Where can I check my balance?
+</h3><p>
+Authenticated members can view their ON1Coin and ON1XP balances
+through the member dashboard and wallet.
+</p></div></div></section><section class="cta"><h2>
+Continue exploring ON1Ecosystem
+</h2><p>
+Learn how the broader member experience works, or access your
+account to view the current features available to you.
+</p><div class="links"
+     style="justify-content:center;"><a href="how-it-works.html"
+class="button">
+How It Works
+</a>
+
+<a href="wallet.html"
+class="button secondary">
+Member Wallet
+</a>
+
+<a href="../index.html"
+class="button secondary">
+Back to Home
+</a>
+
+</div></section></main><footer><div class="footer-inner"><div class="footer-brand">
+ON1Ecosystem
+</div><p class="footer-description">
+One connected digital ecosystem designed to bring multiple
+services, participation and opportunities together.
+</p><div class="footer-links"><a href="../index.html">Home</a>
+<a href="about.html">About</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="on1coin-guide.html">ON1Coin Guide</a>
+<a href="login.html">Login</a>
+<a href="signup.html">Create Account</a>
+<a href="wallet.html">Wallet</a>
+<a href="partnership.html">Partnerships</a>
+<a href="privacy.html">Privacy</a>
+<a href="terms.html">Terms</a>
+
+</div><div class="copyright">© 2026 ON1Ecosystem
+<br>
+A DSATECHON1 initiative.
+
+</div></div></footer><script>
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const mainNav =
+    document.getElementById("mainNav");
+
+menuButton.addEventListener(
+    "click",
+    function(){
+
+        const isOpen =
+            mainNav.classList.toggle("active");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    }
+);
+
+document.querySelectorAll("#mainNav a")
+.forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        function(){
+
+            mainNav.classList.remove("active");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+    );
+
+});
+
+</script></body></html>

@@ -12,7 +12,13 @@
       content="#06101d">
 
 <meta name="description"
-      content="Learn how ON1Ecosystem works, from creating an account and accessing your dashboard to participating in ON1Coin, earning ON1XP, maintaining streaks, referrals and using your member wallet.">
+      content="Learn how ON1Ecosystem works, including member accounts, ON1Coin mining, 24-hour participation cycles, streak rewards, ON1XP, referrals, wallet balances and the difference between current and planned services.">
+
+<meta name="robots"
+      content="index, follow">
+
+<link rel="canonical"
+      href="https://dsatechon1.github.io/pages/how-it-works.html">
 
 <title>How It Works | ON1Ecosystem</title>
 
@@ -206,7 +212,7 @@ nav a:hover{
 }
 
 .hero p{
-    max-width:720px;
+    max-width:750px;
     margin:auto;
 
     color:#9fb2c2;
@@ -224,7 +230,7 @@ main{
 }
 
 .section{
-    padding:34px 0;
+    padding:36px 0;
 }
 
 .section-heading{
@@ -248,7 +254,7 @@ main{
 .section-heading p{
     color:#91a5b6;
     margin-top:9px;
-    max-width:700px;
+    max-width:750px;
 }
 
 
@@ -353,6 +359,120 @@ main{
 
 .card a:hover{
     text-decoration:underline;
+}
+
+
+/* =====================================================
+   MINING RULES
+===================================================== */
+
+.mining-box{
+    padding:24px;
+
+    background:#0a1928;
+    border:1px solid rgba(97,195,255,.13);
+    border-radius:15px;
+}
+
+.mining-intro{
+    color:#9eb0bf;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.rule-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.rule{
+    padding:17px;
+
+    background:#091724;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:10px;
+}
+
+.rule strong{
+    display:block;
+    color:#eaf2f8;
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.rule span{
+    color:#91a5b6;
+    font-size:13px;
+}
+
+
+/* =====================================================
+   STREAK TABLE
+===================================================== */
+
+.table-wrap{
+    overflow-x:auto;
+
+    background:#0a1928;
+    border:1px solid rgba(255,255,255,.075);
+    border-radius:14px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:560px;
+}
+
+th,
+td{
+    padding:13px 16px;
+    text-align:left;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+th{
+    background:#0d2132;
+    color:#71c9ff;
+    font-size:12px;
+    letter-spacing:.5px;
+}
+
+td{
+    color:#a6b7c4;
+    font-size:13px;
+}
+
+td strong{
+    color:#eaf2f8;
+}
+
+tr:last-child td{
+    border-bottom:0;
+}
+
+
+/* =====================================================
+   HIGHLIGHT
+===================================================== */
+
+.highlight{
+    margin-top:15px;
+
+    padding:16px 18px;
+
+    background:#091724;
+    border-left:3px solid #3e9bd0;
+
+    border-radius:8px;
+
+    color:#a8bac8;
+    font-size:14px;
+}
+
+.highlight strong{
+    color:#e8f1f7;
 }
 
 
@@ -576,7 +696,8 @@ footer{
     }
 
     .cards,
-    .status-grid{
+    .status-grid,
+    .rule-grid{
         grid-template-columns:1fr;
     }
 
@@ -714,7 +835,10 @@ How <span>ON1Ecosystem</span> Works
 </h1>
 
 <p>
-A practical guide to the current member experience — from creating an account and accessing your dashboard to participating in ON1Coin, earning ON1XP, maintaining streaks, referrals and using your member wallet.
+ON1Ecosystem combines a member account, participation activities,
+ON1Coin, ON1XP, referrals and a member wallet in one connected
+digital environment. This guide explains how the current system
+works and separates active features from services still being developed.
 </p>
 
 </section>
@@ -724,7 +848,7 @@ A practical guide to the current member experience — from creating an account 
 
 
 <!-- =====================================================
-     GETTING STARTED
+     1. GETTING STARTED
 ===================================================== -->
 
 <section class="section">
@@ -732,7 +856,7 @@ A practical guide to the current member experience — from creating an account 
 <div class="section-heading">
 
 <div class="section-label">
-Getting Started
+01 — Getting Started
 </div>
 
 <h2>
@@ -740,14 +864,15 @@ Start with your member account.
 </h2>
 
 <p>
-The member experience is built around one account environment. Once registered, you can access the features currently available to your account.
+The current member experience begins with an account. Your account
+provides access to the dashboard and the participation features
+available to you.
 </p>
 
 </div>
 
 
 <div class="steps">
-
 
 <div class="step">
 
@@ -762,7 +887,9 @@ Create an account
 </h3>
 
 <p>
-Begin by creating an ON1Ecosystem member account. Provide the required registration information and keep your login credentials secure.
+Register for an ON1Ecosystem member account using the required
+registration information. Keep your login credentials private and
+secure.
 </p>
 
 <p style="margin-top:8px;">
@@ -787,11 +914,21 @@ Create your account →
 <div class="step-content">
 
 <h3>
-Set up your member profile
+Sign in
 </h3>
 
 <p>
-After registration, your account provides the foundation for accessing the member environment. Keep your account information accurate and protect your credentials.
+After registration, sign in to access your member environment.
+The dashboard is the central area for the currently available
+participation features.
+</p>
+
+<p style="margin-top:8px;">
+
+<a href="login.html">
+Go to member login →
+</a>
+
 </p>
 
 </div>
@@ -808,19 +945,13 @@ After registration, your account provides the foundation for accessing the membe
 <div class="step-content">
 
 <h3>
-Access your dashboard
+Use the dashboard
 </h3>
 
 <p>
-The dashboard is the main member area for accessing currently available participation features, viewing progress and starting eligible activities.
-</p>
-
-<p style="margin-top:8px;">
-
-<a href="login.html">
-Go to member login →
-</a>
-
+Your dashboard brings together the activities and account information
+currently available to your member account, including ON1Coin
+participation, progress information and access to other member areas.
 </p>
 
 </div>
@@ -833,7 +964,7 @@ Go to member login →
 
 
 <!-- =====================================================
-     PARTICIPATION
+     2. ON1COIN MINING
 ===================================================== -->
 
 <section class="section">
@@ -841,130 +972,75 @@ Go to member login →
 <div class="section-heading">
 
 <div class="section-label">
-Participation
+02 — ON1Coin Mining
 </div>
 
 <h2>
-How the current participation system works.
+How the mining cycle works.
 </h2>
 
 <p>
-Available activities operate according to their individual rules. Rewards and progress are processed according to the conditions attached to each activity.
+ON1Coin mining is a participation feature within ON1Ecosystem.
+The current system uses a recurring participation cycle rather than
+continuous device-based cryptocurrency mining.
 </p>
 
 </div>
 
 
-<div class="steps">
+<div class="mining-box">
 
-
-<div class="step">
-
-<div class="step-number">
-4
-</div>
-
-<div class="step-content">
-
-<h3>
-Start ON1Coin Mining
-</h3>
-
-<p>
-Eligible members can use the dashboard to participate in the available ON1Coin mining experience. Mining rewards are processed according to the current mining rules implemented by the ecosystem.
+<p class="mining-intro">
+When a member is eligible for a new mining cycle, starting mining
+records the participation cycle and applies the current base mining
+reward and applicable streak reward according to the system rules.
 </p>
 
-</div>
+
+<div class="rule-grid">
+
+<div class="rule">
+
+<strong>Base reward</strong>
+
+<span>
+50 ON1Coin per eligible 24-hour mining cycle.
+</span>
 
 </div>
 
 
-<div class="step">
+<div class="rule">
 
-<div class="step-number">
-5
-</div>
+<strong>Cycle timing</strong>
 
-<div class="step-content">
-
-<h3>
-Maintain your mining streak
-</h3>
-
-<p>
-Consistent participation can progress your mining streak. Streak rewards are separate from the base mining reward and depend on the applicable streak conditions being met.
-</p>
-
-</div>
+<span>
+A new mining cycle becomes eligible according to the current
+24-hour participation interval.
+</span>
 
 </div>
 
 
-<div class="step">
+<div class="rule">
 
-<div class="step-number">
-6
-</div>
+<strong>Streak reward</strong>
 
-<div class="step-content">
-
-<h3>
-Earn ON1XP through eligible activities
-</h3>
-
-<p>
-ON1XP is maintained separately from ON1Coin. Eligible participation can contribute to your XP progress according to the rules of the activity.
-</p>
-
-</div>
+<span>
+A separate streak bonus can be added when the applicable
+consecutive-participation condition is met.
+</span>
 
 </div>
 
 
-<div class="step">
+<div class="rule">
 
-<div class="step-number">
-7
-</div>
+<strong>Separate balances</strong>
 
-<div class="step-content">
-
-<h3>
-Participate in referrals
-</h3>
-
-<p>
-Members can invite eligible new participants through the referral system. Referral rewards are not simply based on an invitation; applicable participation requirements must be satisfied before a referral reward is processed.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">
-8
-</div>
-
-<div class="step-content">
-
-<h3>
-Check your wallet
-</h3>
-
-<p>
-Your member wallet provides a separate view of ON1Coin and ON1XP balances and related activity. This separation helps members understand the different roles of the two balances.
-</p>
-
-<p style="margin-top:8px;">
-
-<a href="wallet.html">
-View member wallet →
-</a>
-
-</p>
+<span>
+ON1Coin rewards are recorded separately from ON1XP.
+</span>
 
 </div>
 
@@ -976,7 +1052,7 @@ View member wallet →
 
 
 <!-- =====================================================
-     UNDERSTANDING BALANCES
+     3. STREAK SYSTEM
 ===================================================== -->
 
 <section class="section">
@@ -984,22 +1060,151 @@ View member wallet →
 <div class="section-heading">
 
 <div class="section-label">
-Balances
+03 — Mining Streak
 </div>
 
 <h2>
-ON1Coin and ON1XP have different roles.
+Consistent participation increases the streak level.
 </h2>
 
 <p>
-The two balances should not be treated as the same type of value.
+The mining streak provides an additional ON1Coin reward alongside
+the base mining reward. The streak reward increases through Day 10.
+</p>
+
+</div>
+
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Streak Day</th>
+<th>Streak Bonus</th>
+<th>Total With 50 ON1 Base</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Day 1</strong></td>
+<td>5 ON1</td>
+<td>55 ON1</td>
+</tr>
+
+<tr>
+<td><strong>Day 2</strong></td>
+<td>10 ON1</td>
+<td>60 ON1</td>
+</tr>
+
+<tr>
+<td><strong>Day 3</strong></td>
+<td>15 ON1</td>
+<td>65 ON1</td>
+</tr>
+
+<tr>
+<td><strong>Day 4</strong></td>
+<td>20 ON1</td>
+<td>70 ON1</td>
+</tr>
+
+<tr>
+<td><strong>Day 5</strong></td>
+<td>25 ON1</td>
+<td>75 ON1</td>
+</tr>
+
+<tr>
+<td><strong>Day 6</strong></td>
+<td>30 ON1</td>
+<td>80 ON1</td>
+</tr>
+
+<tr>
+<td><strong>Day 7</strong></td>
+<td>35 ON1</td>
+<td>85 ON1</td>
+</tr>
+
+<tr>
+<td><strong>Day 8</strong></td>
+<td>40 ON1</td>
+<td>90 ON1</td>
+</tr>
+
+<tr>
+<td><strong>Day 9</strong></td>
+<td>45 ON1</td>
+<td>95 ON1</td>
+</tr>
+
+<tr>
+<td><strong>Day 10</strong></td>
+<td>100 ON1</td>
+<td>150 ON1</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="highlight">
+
+<strong>Day 10 is the maximum streak level.</strong>
+
+Once the member reaches Day 10, the Day 10 streak reward remains
+the applicable maximum rather than progressing to a Day 11 level.
+
+</div>
+
+
+<div class="highlight">
+
+<strong>Streak reset condition:</strong>
+
+A participation gap of 48 hours or more resets the next mining streak
+to Day 1.
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     4. ON1XP
+===================================================== -->
+
+<section class="section">
+
+<div class="section-heading">
+
+<div class="section-label">
+04 — ON1XP
+</div>
+
+<h2>
+ON1XP tracks participation separately.
+</h2>
+
+<p>
+ON1XP is different from ON1Coin. It is maintained as a separate
+experience and participation balance within the ecosystem.
 </p>
 
 </div>
 
 
 <div class="cards">
-
 
 <div class="card">
 
@@ -1012,7 +1217,10 @@ ON1Coin
 </h3>
 
 <p>
-ON1Coin is the digital coin component currently used within the ecosystem's participation and reward experience. Eligible mining, streak and qualifying referral activity can contribute to a member's ON1Coin balance.
+ON1Coin is the digital coin component currently used in the
+ecosystem's participation and reward experience. Mining, streak
+rewards and qualifying referral rewards can contribute to the
+member's ON1Coin balance.
 </p>
 
 </div>
@@ -1029,7 +1237,9 @@ ON1XP
 </h3>
 
 <p>
-ON1XP is a separate experience and participation balance. It represents progress within eligible ecosystem activities and is maintained separately from ON1Coin.
+ON1XP represents experience and participation progress. It is
+maintained independently from ON1Coin and should not be treated as
+the same balance or automatically converted into ON1Coin.
 </p>
 
 </div>
@@ -1040,7 +1250,7 @@ ON1XP is a separate experience and participation balance. It represents progress
 
 
 <!-- =====================================================
-     ADDITIONAL ACTIVITIES
+     5. REFERRALS
 ===================================================== -->
 
 <section class="section">
@@ -1048,15 +1258,136 @@ ON1XP is a separate experience and participation balance. It represents progress
 <div class="section-heading">
 
 <div class="section-label">
-More Opportunities
+05 — Referrals
 </div>
 
 <h2>
-Explore additional available activities.
+Referral rewards depend on qualifying participation.
 </h2>
 
 <p>
-The ecosystem can introduce additional participation opportunities as activities, partnerships and supporting services become available.
+The referral system is designed around successful participation,
+rather than rewarding an invitation immediately.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+<div class="step-content">
+
+<h3>
+Share your referral
+</h3>
+
+<p>
+An existing member can invite a new participant using the referral
+mechanism provided by the ecosystem.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+<div class="step-content">
+
+<h3>
+The new member participates
+</h3>
+
+<p>
+The referred member must complete the required qualifying mining
+participation. An invitation alone does not immediately create the
+referral reward.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+<div class="step-content">
+
+<h3>
+Three consecutive qualifying cycles</h3>
+
+<p>
+Under the current referral rule, the referred member must reach
+three consecutive qualifying mining cycles before the referral
+reward is processed.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+4
+</div>
+
+<div class="step-content">
+
+<h3>
+Referral reward is processed</h3>
+
+<p>
+When the qualifying condition is reached, the current referral
+reward is <strong>25 ON1Coin + 250 ON1XP</strong> for the eligible
+referral relationship.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     6. WALLET
+===================================================== -->
+
+<section class="section">
+
+<div class="section-heading">
+
+<div class="section-label">
+06 — Member Wallet
+</div>
+
+<h2>
+Keep track of your balances and activity.
+</h2>
+
+<p>
+The member wallet provides a dedicated view of your account balances
+and related activity. Separating ON1Coin and ON1XP helps make the
+different purposes of the two balances easier to understand.
 </p>
 
 </div>
@@ -1064,27 +1395,20 @@ The ecosystem can introduce additional participation opportunities as activities
 
 <div class="cards">
 
-
 <div class="card">
 
 <div class="card-icon">
-🎯
+💰
 </div>
 
 <h3>
-Earn More ON1XP
+ON1Coin balance
 </h3>
 
 <p>
-Additional eligible activities may provide opportunities to increase ON1XP through approved participation, tasks, partnerships or other ecosystem activities.
-</p>
-
-<p style="margin-top:8px;">
-
-<a href="dashboard.html">
-Explore member activities →
-</a>
-
+Your wallet can display the ON1Coin balance accumulated through
+eligible ecosystem participation, including applicable mining,
+streak and referral rewards.
 </p>
 
 </div>
@@ -1093,24 +1417,105 @@ Explore member activities →
 <div class="card">
 
 <div class="card-icon">
-🤝
+📊
 </div>
 
 <h3>
-Partnership Activities
+ON1XP balance
 </h3>
 
 <p>
-Businesses, creators and organizations may participate in campaigns, digital services, community initiatives and other activities that fit the ecosystem's development direction.
+Your ON1XP balance is maintained separately and represents your
+experience and participation progress within eligible activities.
 </p>
 
-<p style="margin-top:8px;">
+</div>
 
-<a href="partnership.html">
-Explore partnerships →
+</div>
+
+
+<p style="margin-top:14px;">
+
+<a href="wallet.html"
+   style="color:#67c5ff;font-size:14px;">
+
+View the member wallet →
+
 </a>
 
 </p>
+
+</section>
+
+
+<!-- =====================================================
+     7. IMPORTANT DISTINCTIONS
+===================================================== -->
+
+<section class="section">
+
+<div class="section-heading">
+
+<div class="section-label">
+07 — Important Information
+</div>
+
+<h2>
+Understand what the current system does — and does not mean.
+</h2>
+
+</div>
+
+
+<div class="tips">
+
+<div class="tip">
+
+<strong>ON1Coin is not presented as guaranteed cash value.</strong>
+
+The current ON1Coin system describes a digital coin component within
+ON1Ecosystem. Members should not interpret a displayed ON1Coin balance
+as a guaranteed cash equivalent.
+
+</div>
+
+
+<div class="tip">
+
+<strong>ON1XP is separate from ON1Coin.</strong>
+
+ON1XP is an experience and participation balance and should not be
+assumed to have the same function as ON1Coin.
+
+</div>
+
+
+<div class="tip">
+
+<strong>Participation rewards have conditions.</strong>
+
+Mining, streak and referral rewards depend on the applicable system
+rules and qualifying participation.
+
+</div>
+
+
+<div class="tip">
+
+<strong>Future services are not current services.</strong>
+
+A service described as planned or under development should not be
+treated as already available to members.
+
+</div>
+
+
+<div class="tip">
+
+<strong>Keep your account secure.</strong>
+
+Never share your password or other private account credentials with
+another person.
 
 </div>
 
@@ -1120,7 +1525,7 @@ Explore partnerships →
 
 
 <!-- =====================================================
-     CURRENT VS PLANNED
+     8. CURRENT VS PLANNED
 ===================================================== -->
 
 <section class="section">
@@ -1128,7 +1533,7 @@ Explore partnerships →
 <div class="section-heading">
 
 <div class="section-label">
-Availability
+08 — Availability
 </div>
 
 <h2>
@@ -1136,7 +1541,9 @@ Current features and future services.
 </h2>
 
 <p>
-ON1Ecosystem is being developed progressively. A feature described as planned is not the same as an active service.
+ON1Ecosystem is being developed progressively. The distinction below
+helps members understand what currently forms part of the member
+experience and what remains under development.
 </p>
 
 </div>
@@ -1156,7 +1563,9 @@ Member foundation
 </h3>
 
 <p>
-Account registration, login, member dashboard, wallet, ON1Coin participation, ON1XP, mining streak and referral functionality form the current member foundation.
+Account registration, login, dashboard access, member wallet,
+ON1Coin participation, mining streak functionality, ON1XP and
+referral functionality form the current member foundation.
 </p>
 
 </div>
@@ -1169,11 +1578,11 @@ DEVELOPING
 </div>
 
 <h3>
-Activities and partnerships
-</h3>
+Additional activities</h3>
 
 <p>
-Additional approved activities and partnership opportunities can be introduced as the ecosystem's operational network develops.
+Additional participation opportunities and partnership activities
+may be introduced as the operational side of the ecosystem develops.
 </p>
 
 </div>
@@ -1190,7 +1599,9 @@ ON1Pay and ON1Marketplace
 </h3>
 
 <p>
-Payment-related and marketplace services remain planned. Their availability depends on future development, testing, operational readiness and applicable requirements.
+Payment-related and marketplace services are part of the broader
+development direction but are not presented here as fully operational
+member services.
 </p>
 
 </div>
@@ -1207,7 +1618,8 @@ Expanded ecosystem services
 </h3>
 
 <p>
-Additional digital services may be considered as technology, partnerships, community participation and operational capacity grow.
+Additional digital services may be developed as technology,
+partnerships, member participation and operational capacity expand.
 </p>
 
 </div>
@@ -1218,7 +1630,7 @@ Additional digital services may be considered as technology, partnerships, commu
 
 
 <!-- =====================================================
-     MEMBER TIPS
+     9. PRACTICAL MEMBER FLOW
 ===================================================== -->
 
 <section class="section">
@@ -1226,63 +1638,120 @@ Additional digital services may be considered as technology, partnerships, commu
 <div class="section-heading">
 
 <div class="section-label">
-Member Guidance
+09 — The Member Flow
 </div>
 
 <h2>
-A few things to remember.
+A simple way to understand the current experience.
 </h2>
 
 </div>
 
 
-<div class="tips">
+<div class="steps">
 
+<div class="step">
 
-<div class="tip">
+<div class="step-number">
+1
+</div>
 
-<strong>Check the rules.</strong>
+<div class="step-content">
 
-Each activity can have its own participation and reward requirements.
+<h3>
+Join</h3>
+
+<p>
+Create an ON1Ecosystem account and access your member environment.
+</p>
+
+</div>
 
 </div>
 
 
-<div class="tip">
+<div class="step">
 
-<strong>Keep your account secure.</strong>
+<div class="step-number">
+2
+</div>
 
-Do not share your password or private account information with other people.
+<div class="step-content">
+
+<h3>
+Participate</h3>
+
+<p>
+Use the available dashboard activities according to their individual
+rules and eligibility conditions.
+</p>
+
+</div>
 
 </div>
 
 
-<div class="tip">
+<div class="step">
 
-<strong>Understand the difference between balances.</strong>
+<div class="step-number">
+3
+</div>
 
-ON1Coin and ON1XP have separate roles within the current ecosystem.
+<div class="step-content">
+
+<h3>
+Build progress</h3>
+
+<p>
+Eligible activities can contribute to ON1Coin, ON1XP, mining streak
+progress or qualifying referral activity.
+</p>
+
+</div>
 
 </div>
 
 
-<div class="tip">
+<div class="step">
 
-<strong>Allow for progressive development.</strong>
+<div class="step-number">
+4
+</div>
 
-Some services described on the website may still be under development or planned for the future.
+<div class="step-content">
+
+<h3>
+Track</h3>
+
+<p>
+Use the dashboard and wallet to review your available balances and
+member activity.
+</p>
+
+</div>
 
 </div>
 
 
-<div class="tip">
+<div class="step">
 
-<strong>Do not treat future plans as current availability.</strong>
+<div class="step-number">
+5
+</div>
 
-Only features that have been implemented and made available should be considered active member services.
+<div class="step-content">
+
+<h3>
+Continue</h3>
+
+<p>
+Return when eligible activities become available and follow the
+current rules governing each participation feature.
+</p>
 
 </div>
 
+</div>
 
 </div>
 
@@ -1321,6 +1790,14 @@ Member Login
 </a>
 
 
+<a href="about.html"
+   class="button secondary">
+
+About ON1Ecosystem
+
+</a>
+
+
 <a href="../index.html"
    class="button secondary">
 
@@ -1351,7 +1828,8 @@ ON1Ecosystem
 
 
 <p class="footer-description">
-One connected digital ecosystem designed to bring multiple services, participation and opportunities together.
+One connected digital ecosystem designed to bring multiple services,
+participation and opportunities together.
 </p>
 
 
